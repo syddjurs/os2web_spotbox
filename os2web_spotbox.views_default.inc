@@ -1,21 +1,21 @@
 <?php
 /**
  * @file
- * os2web_spotbox.views_default.inc
+ * os2web_spotbokse.views_default.inc
  */
 
 /**
  * Implements hook_views_default_views().
  */
-function os2web_spotbox_views_default_views() {
+function os2web_spotbokse_views_default_views() {
   $export = array();
 
   $view = new view();
-  $view->name = 'spot_view';
+  $view->name = 'os2web_spotbox_view_spot';
   $view->description = '';
   $view->tag = 'default';
   $view->base_table = 'node';
-  $view->human_name = 'Spot view';
+  $view->human_name = 'SpotBox view';
   $view->core = 7;
   $view->api_version = '3.0';
   $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
@@ -39,38 +39,38 @@ function os2web_spotbox_views_default_views() {
   $handler->display->display_options['pager']['options']['offset'] = '0';
   $handler->display->display_options['style_plugin'] = 'default';
   $handler->display->display_options['row_plugin'] = 'fields';
-  /* Forbindelse: Indhold: Spotboxe (field_indholdsside_spotboxe) */
-  $handler->display->display_options['relationships']['field_indholdsside_spotboxe_nid']['id'] = 'field_indholdsside_spotboxe_nid';
-  $handler->display->display_options['relationships']['field_indholdsside_spotboxe_nid']['table'] = 'field_data_field_indholdsside_spotboxe';
-  $handler->display->display_options['relationships']['field_indholdsside_spotboxe_nid']['field'] = 'field_indholdsside_spotboxe_nid';
-  $handler->display->display_options['relationships']['field_indholdsside_spotboxe_nid']['required'] = TRUE;
-  $handler->display->display_options['relationships']['field_indholdsside_spotboxe_nid']['delta'] = '-1';
+  /* Forbindelse: Indhold: Spotboxe (field_os2web_base_field_spotbox) */
+  $handler->display->display_options['relationships']['field_os2web_base_field_spotbox_nid']['id'] = 'field_os2web_base_field_spotbox_nid';
+  $handler->display->display_options['relationships']['field_os2web_base_field_spotbox_nid']['table'] = 'field_data_field_os2web_base_field_spotbox';
+  $handler->display->display_options['relationships']['field_os2web_base_field_spotbox_nid']['field'] = 'field_os2web_base_field_spotbox_nid';
+  $handler->display->display_options['relationships']['field_os2web_base_field_spotbox_nid']['required'] = TRUE;
+  $handler->display->display_options['relationships']['field_os2web_base_field_spotbox_nid']['delta'] = '-1';
   /* Felt: Indhold: Primære billede */
-  $handler->display->display_options['fields']['field_lead_image']['id'] = 'field_lead_image';
-  $handler->display->display_options['fields']['field_lead_image']['table'] = 'field_data_field_lead_image';
-  $handler->display->display_options['fields']['field_lead_image']['field'] = 'field_lead_image';
-  $handler->display->display_options['fields']['field_lead_image']['relationship'] = 'field_indholdsside_spotboxe_nid';
-  $handler->display->display_options['fields']['field_lead_image']['label'] = '';
-  $handler->display->display_options['fields']['field_lead_image']['exclude'] = TRUE;
-  $handler->display->display_options['fields']['field_lead_image']['alter']['text'] = '<img src="[field_lead_image]" alt="[title]" />
+  $handler->display->display_options['fields']['field_os2web_spotbox_lead_image']['id'] = 'field_os2web_spotbox_lead_image';
+  $handler->display->display_options['fields']['field_os2web_spotbox_lead_image']['table'] = 'field_data_field_os2web_spotbox_lead_image';
+  $handler->display->display_options['fields']['field_os2web_spotbox_lead_image']['field'] = 'field_os2web_spotbox_lead_image';
+  $handler->display->display_options['fields']['field_os2web_spotbox_lead_image']['relationship'] = 'field_os2web_base_field_spotbox_nid';
+  $handler->display->display_options['fields']['field_os2web_spotbox_lead_image']['label'] = '';
+  $handler->display->display_options['fields']['field_os2web_spotbox_lead_image']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_os2web_spotbox_lead_image']['alter']['text'] = '<img src="[field_os2web_spotbox_lead_image]" alt="[title]" />
 <span class="zoom-icon"></span>';
-  $handler->display->display_options['fields']['field_lead_image']['alter']['make_link'] = TRUE;
-  $handler->display->display_options['fields']['field_lead_image']['alter']['path'] = '[field_url]';
-  $handler->display->display_options['fields']['field_lead_image']['alter']['link_class'] = 'overlayclass';
-  $handler->display->display_options['fields']['field_lead_image']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['field_lead_image']['click_sort_column'] = 'fid';
-  $handler->display->display_options['fields']['field_lead_image']['settings'] = array(
-    'image_style' => 'spotbox_right',
+  $handler->display->display_options['fields']['field_os2web_spotbox_lead_image']['alter']['make_link'] = TRUE;
+  $handler->display->display_options['fields']['field_os2web_spotbox_lead_image']['alter']['path'] = '[field_os2web_spotbox_url]';
+  $handler->display->display_options['fields']['field_os2web_spotbox_lead_image']['alter']['link_class'] = 'overlayclass';
+  $handler->display->display_options['fields']['field_os2web_spotbox_lead_image']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_os2web_spotbox_lead_image']['click_sort_column'] = 'fid';
+  $handler->display->display_options['fields']['field_os2web_spotbox_lead_image']['settings'] = array(
+    'image_style' => 'os2web_spotbox_image_right',
     'image_link' => '',
   );
   /* Felt: Indhold: Titel */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
   $handler->display->display_options['fields']['title']['field'] = 'title';
-  $handler->display->display_options['fields']['title']['relationship'] = 'field_indholdsside_spotboxe_nid';
+  $handler->display->display_options['fields']['title']['relationship'] = 'field_os2web_base_field_spotbox_nid';
   $handler->display->display_options['fields']['title']['label'] = '';
   $handler->display->display_options['fields']['title']['exclude'] = TRUE;
-  $handler->display->display_options['fields']['title']['alter']['text'] = '[field_lead_image]<br />
+  $handler->display->display_options['fields']['title']['alter']['text'] = '[field_os2web_spotbox_lead_image]<br />
 [title]';
   $handler->display->display_options['fields']['title']['alter']['trim_whitespace'] = TRUE;
   $handler->display->display_options['fields']['title']['alter']['max_length'] = '24';
@@ -83,25 +83,25 @@ function os2web_spotbox_views_default_views() {
   $handler->display->display_options['fields']['title_1']['id'] = 'title_1';
   $handler->display->display_options['fields']['title_1']['table'] = 'node';
   $handler->display->display_options['fields']['title_1']['field'] = 'title';
-  $handler->display->display_options['fields']['title_1']['relationship'] = 'field_indholdsside_spotboxe_nid';
+  $handler->display->display_options['fields']['title_1']['relationship'] = 'field_os2web_base_field_spotbox_nid';
   $handler->display->display_options['fields']['title_1']['label'] = '';
   $handler->display->display_options['fields']['title_1']['alter']['alter_text'] = TRUE;
-  $handler->display->display_options['fields']['title_1']['alter']['text'] = '<div class="spotImage">[field_lead_image]</div>
+  $handler->display->display_options['fields']['title_1']['alter']['text'] = '<div class="spotImage">[field_os2web_spotbox_lead_image]</div>
 <div class="spotTitle">[title]</div>
 
 ';
-  $handler->display->display_options['fields']['title_1']['alter']['path'] = '[field_url]';
+  $handler->display->display_options['fields']['title_1']['alter']['path'] = '[field_os2web_spotbox_url]';
   $handler->display->display_options['fields']['title_1']['alter']['max_length'] = '20';
   $handler->display->display_options['fields']['title_1']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['title_1']['element_label_colon'] = FALSE;
   /* Felt: Indhold: Hjemmeside */
-  $handler->display->display_options['fields']['field_url']['id'] = 'field_url';
-  $handler->display->display_options['fields']['field_url']['table'] = 'field_data_field_url';
-  $handler->display->display_options['fields']['field_url']['field'] = 'field_url';
-  $handler->display->display_options['fields']['field_url']['relationship'] = 'field_indholdsside_spotboxe_nid';
-  $handler->display->display_options['fields']['field_url']['label'] = '';
-  $handler->display->display_options['fields']['field_url']['exclude'] = TRUE;
-  $handler->display->display_options['fields']['field_url']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_os2web_spotbox_url']['id'] = 'field_os2web_spotbox_url';
+  $handler->display->display_options['fields']['field_os2web_spotbox_url']['table'] = 'field_data_field_os2web_spotbox_url';
+  $handler->display->display_options['fields']['field_os2web_spotbox_url']['field'] = 'field_os2web_spotbox_url';
+  $handler->display->display_options['fields']['field_os2web_spotbox_url']['relationship'] = 'field_os2web_base_field_spotbox_nid';
+  $handler->display->display_options['fields']['field_os2web_spotbox_url']['label'] = '';
+  $handler->display->display_options['fields']['field_os2web_spotbox_url']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_os2web_spotbox_url']['element_label_colon'] = FALSE;
   /* Felt: Indhold: Indhold */
   $handler->display->display_options['fields']['body']['id'] = 'body';
   $handler->display->display_options['fields']['body']['table'] = 'field_data_body';
@@ -110,7 +110,7 @@ function os2web_spotbox_views_default_views() {
   $handler->display->display_options['sorts']['created']['id'] = 'created';
   $handler->display->display_options['sorts']['created']['table'] = 'node';
   $handler->display->display_options['sorts']['created']['field'] = 'created';
-  $handler->display->display_options['sorts']['created']['relationship'] = 'field_indholdsside_spotboxe_nid';
+  $handler->display->display_options['sorts']['created']['relationship'] = 'field_os2web_base_field_spotbox_nid';
   $handler->display->display_options['sorts']['created']['order'] = 'DESC';
   /* Kontekstuelt filter: Indhold: Nid */
   $handler->display->display_options['arguments']['nid']['id'] = 'nid';
@@ -126,7 +126,7 @@ function os2web_spotbox_views_default_views() {
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
   $handler->display->display_options['filters']['status']['field'] = 'status';
-  $handler->display->display_options['filters']['status']['relationship'] = 'field_indholdsside_spotboxe_nid';
+  $handler->display->display_options['filters']['status']['relationship'] = 'field_os2web_base_field_spotbox_nid';
   $handler->display->display_options['filters']['status']['value'] = '1';
   $handler->display->display_options['filters']['status']['group'] = 1;
   $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
@@ -134,9 +134,9 @@ function os2web_spotbox_views_default_views() {
   $handler->display->display_options['filters']['type']['id'] = 'type';
   $handler->display->display_options['filters']['type']['table'] = 'node';
   $handler->display->display_options['filters']['type']['field'] = 'type';
-  $handler->display->display_options['filters']['type']['relationship'] = 'field_indholdsside_spotboxe_nid';
+  $handler->display->display_options['filters']['type']['relationship'] = 'field_os2web_base_field_spotbox_nid';
   $handler->display->display_options['filters']['type']['value'] = array(
-    'spotbox' => 'spotbox',
+    'os2web_spotbox_box' => 'os2web_spotbox_box',
   );
 
   /* Display: Content pane */
@@ -149,7 +149,7 @@ function os2web_spotbox_views_default_views() {
   $handler->display->display_options['fields']['edit_node']['id'] = 'edit_node';
   $handler->display->display_options['fields']['edit_node']['table'] = 'views_entity_node';
   $handler->display->display_options['fields']['edit_node']['field'] = 'edit_node';
-  $handler->display->display_options['fields']['edit_node']['relationship'] = 'field_indholdsside_spotboxe_nid';
+  $handler->display->display_options['fields']['edit_node']['relationship'] = 'field_os2web_base_field_spotbox_nid';
   $handler->display->display_options['fields']['edit_node']['label'] = '';
   $handler->display->display_options['fields']['edit_node']['exclude'] = TRUE;
   $handler->display->display_options['fields']['edit_node']['element_label_colon'] = FALSE;
@@ -162,44 +162,44 @@ function os2web_spotbox_views_default_views() {
   $handler->display->display_options['fields']['contextual_links']['fields'] = array(
     'edit_node' => 'edit_node',
     'body' => 0,
-    'field_lead_image' => 0,
+    'field_os2web_spotbox_lead_image' => 0,
     'title' => 0,
     'title_1' => 0,
-    'field_url' => 0,
+    'field_os2web_spotbox_url' => 0,
   );
   /* Felt: Indhold: Indhold */
   $handler->display->display_options['fields']['body']['id'] = 'body';
   $handler->display->display_options['fields']['body']['table'] = 'field_data_body';
   $handler->display->display_options['fields']['body']['field'] = 'body';
-  $handler->display->display_options['fields']['body']['relationship'] = 'field_indholdsside_spotboxe_nid';
+  $handler->display->display_options['fields']['body']['relationship'] = 'field_os2web_base_field_spotbox_nid';
   $handler->display->display_options['fields']['body']['exclude'] = TRUE;
   /* Felt: Indhold: Primære billede */
-  $handler->display->display_options['fields']['field_lead_image']['id'] = 'field_lead_image';
-  $handler->display->display_options['fields']['field_lead_image']['table'] = 'field_data_field_lead_image';
-  $handler->display->display_options['fields']['field_lead_image']['field'] = 'field_lead_image';
-  $handler->display->display_options['fields']['field_lead_image']['relationship'] = 'field_indholdsside_spotboxe_nid';
-  $handler->display->display_options['fields']['field_lead_image']['label'] = '';
-  $handler->display->display_options['fields']['field_lead_image']['exclude'] = TRUE;
-  $handler->display->display_options['fields']['field_lead_image']['alter']['text'] = '<img src="[field_lead_image]" alt="[title]" />
+  $handler->display->display_options['fields']['field_os2web_spotbox_lead_image']['id'] = 'field_os2web_spotbox_lead_image';
+  $handler->display->display_options['fields']['field_os2web_spotbox_lead_image']['table'] = 'field_data_field_os2web_spotbox_lead_image';
+  $handler->display->display_options['fields']['field_os2web_spotbox_lead_image']['field'] = 'field_os2web_spotbox_lead_image';
+  $handler->display->display_options['fields']['field_os2web_spotbox_lead_image']['relationship'] = 'field_os2web_base_field_spotbox_nid';
+  $handler->display->display_options['fields']['field_os2web_spotbox_lead_image']['label'] = '';
+  $handler->display->display_options['fields']['field_os2web_spotbox_lead_image']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_os2web_spotbox_lead_image']['alter']['text'] = '<img src="[field_os2web_spotbox_lead_image]" alt="[title]" />
 <span class="zoom-icon"></span>';
-  $handler->display->display_options['fields']['field_lead_image']['alter']['make_link'] = TRUE;
-  $handler->display->display_options['fields']['field_lead_image']['alter']['path'] = '[field_url]';
-  $handler->display->display_options['fields']['field_lead_image']['alter']['link_class'] = 'overlayclass';
-  $handler->display->display_options['fields']['field_lead_image']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['field_lead_image']['empty'] = '<div class="spotbox_no_picture"><div class="spotbox_no_picture_text"><a href=[field_url]>[body]</a></div></div>';
-  $handler->display->display_options['fields']['field_lead_image']['click_sort_column'] = 'fid';
-  $handler->display->display_options['fields']['field_lead_image']['settings'] = array(
-    'image_style' => 'spotbox_right',
+  $handler->display->display_options['fields']['field_os2web_spotbox_lead_image']['alter']['make_link'] = TRUE;
+  $handler->display->display_options['fields']['field_os2web_spotbox_lead_image']['alter']['path'] = '[field_os2web_spotbox_url]';
+  $handler->display->display_options['fields']['field_os2web_spotbox_lead_image']['alter']['link_class'] = 'overlayclass';
+  $handler->display->display_options['fields']['field_os2web_spotbox_lead_image']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_os2web_spotbox_lead_image']['empty'] = '<div class="spotbox_no_picture"><div class="spotbox_no_picture_text"><a href=[field_os2web_spotbox_url]>[body]</a></div></div>';
+  $handler->display->display_options['fields']['field_os2web_spotbox_lead_image']['click_sort_column'] = 'fid';
+  $handler->display->display_options['fields']['field_os2web_spotbox_lead_image']['settings'] = array(
+    'image_style' => 'os2web_spotbox_image_right',
     'image_link' => '',
   );
   /* Felt: Indhold: Titel */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
   $handler->display->display_options['fields']['title']['field'] = 'title';
-  $handler->display->display_options['fields']['title']['relationship'] = 'field_indholdsside_spotboxe_nid';
+  $handler->display->display_options['fields']['title']['relationship'] = 'field_os2web_base_field_spotbox_nid';
   $handler->display->display_options['fields']['title']['label'] = '';
   $handler->display->display_options['fields']['title']['exclude'] = TRUE;
-  $handler->display->display_options['fields']['title']['alter']['text'] = '[field_lead_image]<br />
+  $handler->display->display_options['fields']['title']['alter']['text'] = '[field_os2web_spotbox_lead_image]<br />
 [title]';
   $handler->display->display_options['fields']['title']['alter']['trim_whitespace'] = TRUE;
   $handler->display->display_options['fields']['title']['alter']['max_length'] = '24';
@@ -212,25 +212,25 @@ function os2web_spotbox_views_default_views() {
   $handler->display->display_options['fields']['title_1']['id'] = 'title_1';
   $handler->display->display_options['fields']['title_1']['table'] = 'node';
   $handler->display->display_options['fields']['title_1']['field'] = 'title';
-  $handler->display->display_options['fields']['title_1']['relationship'] = 'field_indholdsside_spotboxe_nid';
+  $handler->display->display_options['fields']['title_1']['relationship'] = 'field_os2web_base_field_spotbox_nid';
   $handler->display->display_options['fields']['title_1']['label'] = '';
   $handler->display->display_options['fields']['title_1']['alter']['alter_text'] = TRUE;
-  $handler->display->display_options['fields']['title_1']['alter']['text'] = '<div class="spotImage">[field_lead_image]</div>
+  $handler->display->display_options['fields']['title_1']['alter']['text'] = '<div class="spotImage">[field_os2web_spotbox_lead_image]</div>
 <div class="spotTitle">[title]</div>
 
 ';
-  $handler->display->display_options['fields']['title_1']['alter']['path'] = '[field_url]';
+  $handler->display->display_options['fields']['title_1']['alter']['path'] = '[field_os2web_spotbox_url]';
   $handler->display->display_options['fields']['title_1']['alter']['max_length'] = '20';
   $handler->display->display_options['fields']['title_1']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['title_1']['element_label_colon'] = FALSE;
   /* Felt: Indhold: Hjemmeside */
-  $handler->display->display_options['fields']['field_url']['id'] = 'field_url';
-  $handler->display->display_options['fields']['field_url']['table'] = 'field_data_field_url';
-  $handler->display->display_options['fields']['field_url']['field'] = 'field_url';
-  $handler->display->display_options['fields']['field_url']['relationship'] = 'field_indholdsside_spotboxe_nid';
-  $handler->display->display_options['fields']['field_url']['label'] = '';
-  $handler->display->display_options['fields']['field_url']['exclude'] = TRUE;
-  $handler->display->display_options['fields']['field_url']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_os2web_spotbox_url']['id'] = 'field_os2web_spotbox_url';
+  $handler->display->display_options['fields']['field_os2web_spotbox_url']['table'] = 'field_data_field_os2web_spotbox_url';
+  $handler->display->display_options['fields']['field_os2web_spotbox_url']['field'] = 'field_os2web_spotbox_url';
+  $handler->display->display_options['fields']['field_os2web_spotbox_url']['relationship'] = 'field_os2web_base_field_spotbox_nid';
+  $handler->display->display_options['fields']['field_os2web_spotbox_url']['label'] = '';
+  $handler->display->display_options['fields']['field_os2web_spotbox_url']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_os2web_spotbox_url']['element_label_colon'] = FALSE;
 
   /* Display: Spotbox */
   $handler = $view->new_display('block', 'Spotbox', 'block_1');
@@ -240,25 +240,25 @@ function os2web_spotbox_views_default_views() {
   $handler->display->display_options['fields']['body']['id'] = 'body';
   $handler->display->display_options['fields']['body']['table'] = 'field_data_body';
   $handler->display->display_options['fields']['body']['field'] = 'body';
-  $handler->display->display_options['fields']['body']['relationship'] = 'field_indholdsside_spotboxe_nid';
+  $handler->display->display_options['fields']['body']['relationship'] = 'field_os2web_base_field_spotbox_nid';
   $handler->display->display_options['fields']['body']['exclude'] = TRUE;
   /* Felt: Indhold: Hjemmeside */
-  $handler->display->display_options['fields']['field_url']['id'] = 'field_url';
-  $handler->display->display_options['fields']['field_url']['table'] = 'field_data_field_url';
-  $handler->display->display_options['fields']['field_url']['field'] = 'field_url';
-  $handler->display->display_options['fields']['field_url']['relationship'] = 'field_indholdsside_spotboxe_nid';
-  $handler->display->display_options['fields']['field_url']['label'] = '';
-  $handler->display->display_options['fields']['field_url']['exclude'] = TRUE;
-  $handler->display->display_options['fields']['field_url']['alter']['text'] = '[field_url] ';
-  $handler->display->display_options['fields']['field_url']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['field_url']['type'] = 'text_plain';
+  $handler->display->display_options['fields']['field_os2web_spotbox_url']['id'] = 'field_os2web_spotbox_url';
+  $handler->display->display_options['fields']['field_os2web_spotbox_url']['table'] = 'field_data_field_os2web_spotbox_url';
+  $handler->display->display_options['fields']['field_os2web_spotbox_url']['field'] = 'field_os2web_spotbox_url';
+  $handler->display->display_options['fields']['field_os2web_spotbox_url']['relationship'] = 'field_os2web_base_field_spotbox_nid';
+  $handler->display->display_options['fields']['field_os2web_spotbox_url']['label'] = '';
+  $handler->display->display_options['fields']['field_os2web_spotbox_url']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_os2web_spotbox_url']['alter']['text'] = '[field_os2web_spotbox_url] ';
+  $handler->display->display_options['fields']['field_os2web_spotbox_url']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_os2web_spotbox_url']['type'] = 'text_plain';
   /* Felt: Indhold: Titel */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
   $handler->display->display_options['fields']['title']['field'] = 'title';
-  $handler->display->display_options['fields']['title']['relationship'] = 'field_indholdsside_spotboxe_nid';
+  $handler->display->display_options['fields']['title']['relationship'] = 'field_os2web_base_field_spotbox_nid';
   $handler->display->display_options['fields']['title']['label'] = '';
-  $handler->display->display_options['fields']['title']['alter']['text'] = '[field_lead_image]<br />
+  $handler->display->display_options['fields']['title']['alter']['text'] = '[field_os2web_spotbox_lead_image]<br />
 [title]';
   $handler->display->display_options['fields']['title']['alter']['trim_whitespace'] = TRUE;
   $handler->display->display_options['fields']['title']['alter']['max_length'] = '20';
@@ -271,35 +271,35 @@ function os2web_spotbox_views_default_views() {
   $handler->display->display_options['fields']['title']['element_default_classes'] = FALSE;
   $handler->display->display_options['fields']['title']['link_to_node'] = FALSE;
   /* Felt: Indhold: Primære billede */
-  $handler->display->display_options['fields']['field_lead_image']['id'] = 'field_lead_image';
-  $handler->display->display_options['fields']['field_lead_image']['table'] = 'field_data_field_lead_image';
-  $handler->display->display_options['fields']['field_lead_image']['field'] = 'field_lead_image';
-  $handler->display->display_options['fields']['field_lead_image']['relationship'] = 'field_indholdsside_spotboxe_nid';
-  $handler->display->display_options['fields']['field_lead_image']['label'] = '';
-  $handler->display->display_options['fields']['field_lead_image']['alter']['alter_text'] = TRUE;
-  $handler->display->display_options['fields']['field_lead_image']['alter']['text'] = '<img src="[field_lead_image]" alt="[title_1]" />
+  $handler->display->display_options['fields']['field_os2web_spotbox_lead_image']['id'] = 'field_os2web_spotbox_lead_image';
+  $handler->display->display_options['fields']['field_os2web_spotbox_lead_image']['table'] = 'field_data_field_os2web_spotbox_lead_image';
+  $handler->display->display_options['fields']['field_os2web_spotbox_lead_image']['field'] = 'field_os2web_spotbox_lead_image';
+  $handler->display->display_options['fields']['field_os2web_spotbox_lead_image']['relationship'] = 'field_os2web_base_field_spotbox_nid';
+  $handler->display->display_options['fields']['field_os2web_spotbox_lead_image']['label'] = '';
+  $handler->display->display_options['fields']['field_os2web_spotbox_lead_image']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['field_os2web_spotbox_lead_image']['alter']['text'] = '<img src="[field_os2web_spotbox_lead_image]" alt="[title_1]" />
 <span class="zoom-icon"></span>';
-  $handler->display->display_options['fields']['field_lead_image']['alter']['make_link'] = TRUE;
-  $handler->display->display_options['fields']['field_lead_image']['alter']['path'] = '[field_url]';
-  $handler->display->display_options['fields']['field_lead_image']['alter']['link_class'] = 'overlayclass';
-  $handler->display->display_options['fields']['field_lead_image']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['field_lead_image']['element_default_classes'] = FALSE;
-  $handler->display->display_options['fields']['field_lead_image']['empty'] = '<div class="spotbox_no_picture"><div class="spotbox_no_picture_text"><a href=[field_url]>[body]</a></div></div>';
-  $handler->display->display_options['fields']['field_lead_image']['click_sort_column'] = 'fid';
-  $handler->display->display_options['fields']['field_lead_image']['type'] = 'image_url';
-  $handler->display->display_options['fields']['field_lead_image']['settings'] = array(
-    'image_style' => 'spotbox_right',
+  $handler->display->display_options['fields']['field_os2web_spotbox_lead_image']['alter']['make_link'] = TRUE;
+  $handler->display->display_options['fields']['field_os2web_spotbox_lead_image']['alter']['path'] = '[field_os2web_spotbox_url]';
+  $handler->display->display_options['fields']['field_os2web_spotbox_lead_image']['alter']['link_class'] = 'overlayclass';
+  $handler->display->display_options['fields']['field_os2web_spotbox_lead_image']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_os2web_spotbox_lead_image']['element_default_classes'] = FALSE;
+  $handler->display->display_options['fields']['field_os2web_spotbox_lead_image']['empty'] = '<div class="spotbox_no_picture"><div class="spotbox_no_picture_text"><a href=[field_os2web_spotbox_url]>[body]</a></div></div>';
+  $handler->display->display_options['fields']['field_os2web_spotbox_lead_image']['click_sort_column'] = 'fid';
+  $handler->display->display_options['fields']['field_os2web_spotbox_lead_image']['type'] = 'image_url';
+  $handler->display->display_options['fields']['field_os2web_spotbox_lead_image']['settings'] = array(
+    'image_style' => 'os2web_spotbox_image_right',
     'image_link' => '',
   );
   /* Felt: Indhold: Titel */
   $handler->display->display_options['fields']['title_1']['id'] = 'title_1';
   $handler->display->display_options['fields']['title_1']['table'] = 'node';
   $handler->display->display_options['fields']['title_1']['field'] = 'title';
-  $handler->display->display_options['fields']['title_1']['relationship'] = 'field_indholdsside_spotboxe_nid';
+  $handler->display->display_options['fields']['title_1']['relationship'] = 'field_os2web_base_field_spotbox_nid';
   $handler->display->display_options['fields']['title_1']['label'] = '';
-  $handler->display->display_options['fields']['title_1']['alter']['text'] = '<h3><a href=[field_url]>[title]';
+  $handler->display->display_options['fields']['title_1']['alter']['text'] = '<h3><a href=[field_os2web_spotbox_url]>[title]';
   $handler->display->display_options['fields']['title_1']['alter']['make_link'] = TRUE;
-  $handler->display->display_options['fields']['title_1']['alter']['path'] = '[field_url]';
+  $handler->display->display_options['fields']['title_1']['alter']['path'] = '[field_os2web_spotbox_url]';
   $handler->display->display_options['fields']['title_1']['alter']['max_length'] = '20';
   $handler->display->display_options['fields']['title_1']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['title_1']['element_type'] = 'h3';
@@ -310,7 +310,7 @@ function os2web_spotbox_views_default_views() {
   $handler->display->display_options['fields']['edit_node']['id'] = 'edit_node';
   $handler->display->display_options['fields']['edit_node']['table'] = 'views_entity_node';
   $handler->display->display_options['fields']['edit_node']['field'] = 'edit_node';
-  $handler->display->display_options['fields']['edit_node']['relationship'] = 'field_indholdsside_spotboxe_nid';
+  $handler->display->display_options['fields']['edit_node']['relationship'] = 'field_os2web_base_field_spotbox_nid';
   $handler->display->display_options['fields']['edit_node']['exclude'] = TRUE;
   /* Felt: Global: Kontekstuelle links */
   $handler->display->display_options['fields']['contextual_links']['id'] = 'contextual_links';
@@ -321,12 +321,12 @@ function os2web_spotbox_views_default_views() {
   $handler->display->display_options['fields']['contextual_links']['fields'] = array(
     'edit_node' => 'edit_node',
     'body' => 0,
-    'field_url' => 0,
-    'field_lead_image' => 0,
+    'field_os2web_spotbox_url' => 0,
+    'field_os2web_spotbox_lead_image' => 0,
     'title' => 0,
     'title_1' => 0,
   );
-  $translatables['spot_view'] = array(
+  $translatables['os2web_spotbox_view_spot'] = array(
     t('Master'),
     t('mere'),
     t('Udfør'),
@@ -334,31 +334,31 @@ function os2web_spotbox_views_default_views() {
     t('Sortér efter'),
     t('Stigende'),
     t('Faldende'),
-    t('field_indholdsside_spotboxe'),
-    t('<img src="[field_lead_image]" alt="[title]" />
+    t('field_os2web_base_field_spotbox'),
+    t('<img src="[field_os2web_spotbox_lead_image]" alt="[title]" />
 <span class="zoom-icon"></span>'),
-    t('[field_lead_image]<br />
+    t('[field_os2web_spotbox_lead_image]<br />
 [title]'),
-    t('<div class="spotImage">[field_lead_image]</div>
+    t('<div class="spotImage">[field_os2web_spotbox_lead_image]</div>
 <div class="spotTitle">[title]</div>
 
 '),
     t('Indhold'),
     t('Alle'),
     t('Content pane'),
-    t('<div class="spotbox_no_picture"><div class="spotbox_no_picture_text"><a href=[field_url]>[body]</a></div></div>'),
+    t('<div class="spotbox_no_picture"><div class="spotbox_no_picture_text"><a href=[field_os2web_spotbox_url]>[body]</a></div></div>'),
     t('View panes'),
     t('Spotbox'),
-    t('[field_url] '),
-    t('<img src="[field_lead_image]" alt="[title_1]" />
+    t('[field_os2web_spotbox_url] '),
+    t('<img src="[field_os2web_spotbox_lead_image]" alt="[title_1]" />
 <span class="zoom-icon"></span>'),
-    t('<h3><a href=[field_url]>[title]'),
+    t('<h3><a href=[field_os2web_spotbox_url]>[title]'),
     t('Redigér-link'),
   );
-  $export['spot_view'] = $view;
+  $export['os2web_spotbox_view_spot'] = $view;
 
   $view = new view();
-  $view->name = 'spotboxe';
+  $view->name = 'os2web_spotbox_view_spots';
   $view->description = '';
   $view->tag = 'default';
   $view->base_table = 'node';
@@ -400,12 +400,12 @@ function os2web_spotbox_views_default_views() {
   $handler->display->display_options['row_plugin'] = 'fields';
   $handler->display->display_options['row_options']['default_field_elements'] = FALSE;
   /* Felt: Indhold: Hjemmeside */
-  $handler->display->display_options['fields']['field_url']['id'] = 'field_url';
-  $handler->display->display_options['fields']['field_url']['table'] = 'field_data_field_url';
-  $handler->display->display_options['fields']['field_url']['field'] = 'field_url';
-  $handler->display->display_options['fields']['field_url']['label'] = '';
-  $handler->display->display_options['fields']['field_url']['exclude'] = TRUE;
-  $handler->display->display_options['fields']['field_url']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_os2web_spotbox_url']['id'] = 'field_os2web_spotbox_url';
+  $handler->display->display_options['fields']['field_os2web_spotbox_url']['table'] = 'field_data_field_os2web_spotbox_url';
+  $handler->display->display_options['fields']['field_os2web_spotbox_url']['field'] = 'field_os2web_spotbox_url';
+  $handler->display->display_options['fields']['field_os2web_spotbox_url']['label'] = '';
+  $handler->display->display_options['fields']['field_os2web_spotbox_url']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_os2web_spotbox_url']['element_label_colon'] = FALSE;
   /* Felt: Indhold: Titel */
   $handler->display->display_options['fields']['title_1']['id'] = 'title_1';
   $handler->display->display_options['fields']['title_1']['table'] = 'node';
@@ -424,31 +424,31 @@ function os2web_spotbox_views_default_views() {
   $handler->display->display_options['fields']['body']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['body']['element_default_classes'] = FALSE;
   /* Felt: Indhold: Primære billede */
-  $handler->display->display_options['fields']['field_lead_image']['id'] = 'field_lead_image';
-  $handler->display->display_options['fields']['field_lead_image']['table'] = 'field_data_field_lead_image';
-  $handler->display->display_options['fields']['field_lead_image']['field'] = 'field_lead_image';
-  $handler->display->display_options['fields']['field_lead_image']['label'] = '';
-  $handler->display->display_options['fields']['field_lead_image']['alter']['alter_text'] = TRUE;
-  $handler->display->display_options['fields']['field_lead_image']['alter']['text'] = '<img src="[field_lead_image]" alt="[title_1]" />';
-  $handler->display->display_options['fields']['field_lead_image']['alter']['make_link'] = TRUE;
-  $handler->display->display_options['fields']['field_lead_image']['alter']['path'] = '[field_url]';
-  $handler->display->display_options['fields']['field_lead_image']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['field_lead_image']['element_default_classes'] = FALSE;
-  $handler->display->display_options['fields']['field_lead_image']['click_sort_column'] = 'fid';
-  $handler->display->display_options['fields']['field_lead_image']['type'] = 'image_url';
-  $handler->display->display_options['fields']['field_lead_image']['settings'] = array(
-    'image_style' => 'spotbox_right',
+  $handler->display->display_options['fields']['field_os2web_spotbox_lead_image']['id'] = 'field_os2web_spotbox_lead_image';
+  $handler->display->display_options['fields']['field_os2web_spotbox_lead_image']['table'] = 'field_data_field_os2web_spotbox_lead_image';
+  $handler->display->display_options['fields']['field_os2web_spotbox_lead_image']['field'] = 'field_os2web_spotbox_lead_image';
+  $handler->display->display_options['fields']['field_os2web_spotbox_lead_image']['label'] = '';
+  $handler->display->display_options['fields']['field_os2web_spotbox_lead_image']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['field_os2web_spotbox_lead_image']['alter']['text'] = '<img src="[field_os2web_spotbox_lead_image]" alt="[title_1]" />';
+  $handler->display->display_options['fields']['field_os2web_spotbox_lead_image']['alter']['make_link'] = TRUE;
+  $handler->display->display_options['fields']['field_os2web_spotbox_lead_image']['alter']['path'] = '[field_os2web_spotbox_url]';
+  $handler->display->display_options['fields']['field_os2web_spotbox_lead_image']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_os2web_spotbox_lead_image']['element_default_classes'] = FALSE;
+  $handler->display->display_options['fields']['field_os2web_spotbox_lead_image']['click_sort_column'] = 'fid';
+  $handler->display->display_options['fields']['field_os2web_spotbox_lead_image']['type'] = 'image_url';
+  $handler->display->display_options['fields']['field_os2web_spotbox_lead_image']['settings'] = array(
+    'image_style' => 'os2web_spotbox_image_right',
     'image_link' => '',
   );
-  $handler->display->display_options['fields']['field_lead_image']['delta_limit'] = '1';
-  $handler->display->display_options['fields']['field_lead_image']['delta_offset'] = '0';
+  $handler->display->display_options['fields']['field_os2web_spotbox_lead_image']['delta_limit'] = '1';
+  $handler->display->display_options['fields']['field_os2web_spotbox_lead_image']['delta_offset'] = '0';
   /* Felt: Indhold: Titel */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
   $handler->display->display_options['fields']['title']['field'] = 'title';
   $handler->display->display_options['fields']['title']['label'] = '';
   $handler->display->display_options['fields']['title']['alter']['make_link'] = TRUE;
-  $handler->display->display_options['fields']['title']['alter']['path'] = '[field_url]';
+  $handler->display->display_options['fields']['title']['alter']['path'] = '[field_os2web_spotbox_url]';
   $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
   $handler->display->display_options['fields']['title']['element_type'] = 'h3';
@@ -456,54 +456,54 @@ function os2web_spotbox_views_default_views() {
   $handler->display->display_options['fields']['title']['element_default_classes'] = FALSE;
   $handler->display->display_options['fields']['title']['link_to_node'] = FALSE;
   /* Felt: Indhold: Intro */
-  $handler->display->display_options['fields']['field_text']['id'] = 'field_text';
-  $handler->display->display_options['fields']['field_text']['table'] = 'field_data_field_text';
-  $handler->display->display_options['fields']['field_text']['field'] = 'field_text';
-  $handler->display->display_options['fields']['field_text']['label'] = '';
-  $handler->display->display_options['fields']['field_text']['element_type'] = 'h4';
-  $handler->display->display_options['fields']['field_text']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['field_text']['element_default_classes'] = FALSE;
+  $handler->display->display_options['fields']['field_os2web_spotbox_text']['id'] = 'field_os2web_spotbox_text';
+  $handler->display->display_options['fields']['field_os2web_spotbox_text']['table'] = 'field_data_field_os2web_spotbox_text';
+  $handler->display->display_options['fields']['field_os2web_spotbox_text']['field'] = 'field_os2web_spotbox_text';
+  $handler->display->display_options['fields']['field_os2web_spotbox_text']['label'] = '';
+  $handler->display->display_options['fields']['field_os2web_spotbox_text']['element_type'] = 'h4';
+  $handler->display->display_options['fields']['field_os2web_spotbox_text']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_os2web_spotbox_text']['element_default_classes'] = FALSE;
   /* Felt: Indhold: Egenavne / stednavne */
-  $handler->display->display_options['fields']['field_termref_sted']['id'] = 'field_termref_sted';
-  $handler->display->display_options['fields']['field_termref_sted']['table'] = 'field_data_field_termref_sted';
-  $handler->display->display_options['fields']['field_termref_sted']['field'] = 'field_termref_sted';
-  $handler->display->display_options['fields']['field_termref_sted']['exclude'] = TRUE;
-  $handler->display->display_options['fields']['field_termref_sted']['delta_offset'] = '0';
+  $handler->display->display_options['fields']['field_os2web_spotbox_ref_place']['id'] = 'field_os2web_spotbox_ref_place';
+  $handler->display->display_options['fields']['field_os2web_spotbox_ref_place']['table'] = 'field_data_field_os2web_spotbox_ref_place';
+  $handler->display->display_options['fields']['field_os2web_spotbox_ref_place']['field'] = 'field_os2web_spotbox_ref_place';
+  $handler->display->display_options['fields']['field_os2web_spotbox_ref_place']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_os2web_spotbox_ref_place']['delta_offset'] = '0';
   /* Felt: Indhold: Forfrem til */
-  $handler->display->display_options['fields']['field_promoteto']['id'] = 'field_promoteto';
-  $handler->display->display_options['fields']['field_promoteto']['table'] = 'field_data_field_promoteto';
-  $handler->display->display_options['fields']['field_promoteto']['field'] = 'field_promoteto';
-  $handler->display->display_options['fields']['field_promoteto']['exclude'] = TRUE;
-  $handler->display->display_options['fields']['field_promoteto']['delta_offset'] = '0';
+  $handler->display->display_options['fields']['field_os2web_spotbox_promote_to']['id'] = 'field_os2web_spotbox_promote_to';
+  $handler->display->display_options['fields']['field_os2web_spotbox_promote_to']['table'] = 'field_data_field_os2web_spotbox_promote_to';
+  $handler->display->display_options['fields']['field_os2web_spotbox_promote_to']['field'] = 'field_os2web_spotbox_promote_to';
+  $handler->display->display_options['fields']['field_os2web_spotbox_promote_to']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_os2web_spotbox_promote_to']['delta_offset'] = '0';
   /* Felt: Indhold: KL Emneord */
-  $handler->display->display_options['fields']['field_termref_kle']['id'] = 'field_termref_kle';
-  $handler->display->display_options['fields']['field_termref_kle']['table'] = 'field_data_field_termref_kle';
-  $handler->display->display_options['fields']['field_termref_kle']['field'] = 'field_termref_kle';
-  $handler->display->display_options['fields']['field_termref_kle']['exclude'] = TRUE;
-  $handler->display->display_options['fields']['field_termref_kle']['delta_offset'] = '0';
+  $handler->display->display_options['fields']['field_os2web_spotbox_ref_kle']['id'] = 'field_os2web_spotbox_ref_kle';
+  $handler->display->display_options['fields']['field_os2web_spotbox_ref_kle']['table'] = 'field_data_field_os2web_spotbox_ref_kle';
+  $handler->display->display_options['fields']['field_os2web_spotbox_ref_kle']['field'] = 'field_os2web_spotbox_ref_kle';
+  $handler->display->display_options['fields']['field_os2web_spotbox_ref_kle']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_os2web_spotbox_ref_kle']['delta_offset'] = '0';
   /* Felt: Indhold: Organisation */
-  $handler->display->display_options['fields']['field_organization']['id'] = 'field_organization';
-  $handler->display->display_options['fields']['field_organization']['table'] = 'field_data_field_organization';
-  $handler->display->display_options['fields']['field_organization']['field'] = 'field_organization';
-  $handler->display->display_options['fields']['field_organization']['exclude'] = TRUE;
-  $handler->display->display_options['fields']['field_organization']['delta_offset'] = '0';
+  $handler->display->display_options['fields']['field_os2web_spotbox_organizati']['id'] = 'field_os2web_spotbox_organizati';
+  $handler->display->display_options['fields']['field_os2web_spotbox_organizati']['table'] = 'field_data_field_os2web_spotbox_organizati';
+  $handler->display->display_options['fields']['field_os2web_spotbox_organizati']['field'] = 'field_os2web_spotbox_organizati';
+  $handler->display->display_options['fields']['field_os2web_spotbox_organizati']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_os2web_spotbox_organizati']['delta_offset'] = '0';
   /* Felt: Indhold: Politik */
-  $handler->display->display_options['fields']['field_politics']['id'] = 'field_politics';
-  $handler->display->display_options['fields']['field_politics']['table'] = 'field_data_field_politics';
-  $handler->display->display_options['fields']['field_politics']['field'] = 'field_politics';
-  $handler->display->display_options['fields']['field_politics']['exclude'] = TRUE;
-  $handler->display->display_options['fields']['field_politics']['delta_offset'] = '0';
+  $handler->display->display_options['fields']['field_os2web_spotbox_politics']['id'] = 'field_os2web_spotbox_politics';
+  $handler->display->display_options['fields']['field_os2web_spotbox_politics']['table'] = 'field_data_field_os2web_spotbox_politics';
+  $handler->display->display_options['fields']['field_os2web_spotbox_politics']['field'] = 'field_os2web_spotbox_politics';
+  $handler->display->display_options['fields']['field_os2web_spotbox_politics']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_os2web_spotbox_politics']['delta_offset'] = '0';
   /* Felt: Indhold: Portalkategori */
-  $handler->display->display_options['fields']['field_site_structure']['id'] = 'field_site_structure';
-  $handler->display->display_options['fields']['field_site_structure']['table'] = 'field_data_field_site_structure';
-  $handler->display->display_options['fields']['field_site_structure']['field'] = 'field_site_structure';
-  $handler->display->display_options['fields']['field_site_structure']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_os2web_spotbox_sitestruct']['id'] = 'field_os2web_spotbox_sitestruct';
+  $handler->display->display_options['fields']['field_os2web_spotbox_sitestruct']['table'] = 'field_data_field_os2web_spotbox_sitestruct';
+  $handler->display->display_options['fields']['field_os2web_spotbox_sitestruct']['field'] = 'field_os2web_spotbox_sitestruct';
+  $handler->display->display_options['fields']['field_os2web_spotbox_sitestruct']['exclude'] = TRUE;
   /* Felt: Indhold: Stikord */
-  $handler->display->display_options['fields']['field_editortags']['id'] = 'field_editortags';
-  $handler->display->display_options['fields']['field_editortags']['table'] = 'field_data_field_editortags';
-  $handler->display->display_options['fields']['field_editortags']['field'] = 'field_editortags';
-  $handler->display->display_options['fields']['field_editortags']['exclude'] = TRUE;
-  $handler->display->display_options['fields']['field_editortags']['delta_offset'] = '0';
+  $handler->display->display_options['fields']['field_os2web_spotbox_editor_tags']['id'] = 'field_os2web_spotbox_editor_tags';
+  $handler->display->display_options['fields']['field_os2web_spotbox_editor_tags']['table'] = 'field_data_field_os2web_spotbox_editor_tags';
+  $handler->display->display_options['fields']['field_os2web_spotbox_editor_tags']['field'] = 'field_os2web_spotbox_editor_tags';
+  $handler->display->display_options['fields']['field_os2web_spotbox_editor_tags']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_os2web_spotbox_editor_tags']['delta_offset'] = '0';
   /* Felt: Indhold: Redigér-link */
   $handler->display->display_options['fields']['edit_node']['id'] = 'edit_node';
   $handler->display->display_options['fields']['edit_node']['table'] = 'views_entity_node';
@@ -515,24 +515,24 @@ function os2web_spotbox_views_default_views() {
   $handler->display->display_options['sorts']['created']['table'] = 'node';
   $handler->display->display_options['sorts']['created']['field'] = 'created';
   $handler->display->display_options['sorts']['created']['order'] = 'DESC';
-  /* Kontekstuelt filter: Indhold: Portalkategori (field_site_structure) */
-  $handler->display->display_options['arguments']['field_site_structure_tid']['id'] = 'field_site_structure_tid';
-  $handler->display->display_options['arguments']['field_site_structure_tid']['table'] = 'field_data_field_site_structure';
-  $handler->display->display_options['arguments']['field_site_structure_tid']['field'] = 'field_site_structure_tid';
-  $handler->display->display_options['arguments']['field_site_structure_tid']['default_action'] = 'default';
-  $handler->display->display_options['arguments']['field_site_structure_tid']['exception']['title'] = 'Alle';
-  $handler->display->display_options['arguments']['field_site_structure_tid']['default_argument_type'] = 'taxonomy_tid';
-  $handler->display->display_options['arguments']['field_site_structure_tid']['default_argument_options']['node'] = TRUE;
-  $handler->display->display_options['arguments']['field_site_structure_tid']['default_argument_options']['limit'] = TRUE;
-  $handler->display->display_options['arguments']['field_site_structure_tid']['default_argument_options']['vocabularies'] = array(
+  /* Kontekstuelt filter: Indhold: Portalkategori (field_os2web_spotbox_sitestruct) */
+  $handler->display->display_options['arguments']['field_os2web_spotbox_sitestruct_tid']['id'] = 'field_os2web_spotbox_sitestruct_tid';
+  $handler->display->display_options['arguments']['field_os2web_spotbox_sitestruct_tid']['table'] = 'field_data_field_os2web_spotbox_sitestruct';
+  $handler->display->display_options['arguments']['field_os2web_spotbox_sitestruct_tid']['field'] = 'field_os2web_spotbox_sitestruct_tid';
+  $handler->display->display_options['arguments']['field_os2web_spotbox_sitestruct_tid']['default_action'] = 'default';
+  $handler->display->display_options['arguments']['field_os2web_spotbox_sitestruct_tid']['exception']['title'] = 'Alle';
+  $handler->display->display_options['arguments']['field_os2web_spotbox_sitestruct_tid']['default_argument_type'] = 'taxonomy_tid';
+  $handler->display->display_options['arguments']['field_os2web_spotbox_sitestruct_tid']['default_argument_options']['node'] = TRUE;
+  $handler->display->display_options['arguments']['field_os2web_spotbox_sitestruct_tid']['default_argument_options']['limit'] = TRUE;
+  $handler->display->display_options['arguments']['field_os2web_spotbox_sitestruct_tid']['default_argument_options']['vocabularies'] = array(
     'site_struktur' => 'site_struktur',
   );
-  $handler->display->display_options['arguments']['field_site_structure_tid']['summary']['number_of_records'] = '0';
-  $handler->display->display_options['arguments']['field_site_structure_tid']['summary']['format'] = 'default_summary';
-  $handler->display->display_options['arguments']['field_site_structure_tid']['summary_options']['items_per_page'] = '25';
-  $handler->display->display_options['arguments']['field_site_structure_tid']['specify_validation'] = TRUE;
-  $handler->display->display_options['arguments']['field_site_structure_tid']['validate']['type'] = 'taxonomy_term';
-  $handler->display->display_options['arguments']['field_site_structure_tid']['validate_options']['vocabularies'] = array(
+  $handler->display->display_options['arguments']['field_os2web_spotbox_sitestruct_tid']['summary']['number_of_records'] = '0';
+  $handler->display->display_options['arguments']['field_os2web_spotbox_sitestruct_tid']['summary']['format'] = 'default_summary';
+  $handler->display->display_options['arguments']['field_os2web_spotbox_sitestruct_tid']['summary_options']['items_per_page'] = '25';
+  $handler->display->display_options['arguments']['field_os2web_spotbox_sitestruct_tid']['specify_validation'] = TRUE;
+  $handler->display->display_options['arguments']['field_os2web_spotbox_sitestruct_tid']['validate']['type'] = 'taxonomy_term';
+  $handler->display->display_options['arguments']['field_os2web_spotbox_sitestruct_tid']['validate_options']['vocabularies'] = array(
     'site_struktur' => 'site_struktur',
   );
   /* Kontekstuelt filter: Indhold: Nid */
@@ -547,7 +547,7 @@ function os2web_spotbox_views_default_views() {
   $handler->display->display_options['arguments']['nid']['specify_validation'] = TRUE;
   $handler->display->display_options['arguments']['nid']['validate']['type'] = 'node';
   $handler->display->display_options['arguments']['nid']['validate_options']['types'] = array(
-    'spotbox' => 'spotbox',
+    'os2web_spotbox_box' => 'os2web_spotbox_box',
   );
   $handler->display->display_options['arguments']['nid']['validate_options']['nid_type'] = 'nids';
   $handler->display->display_options['arguments']['nid']['validate']['fail'] = 'ignore';
@@ -556,7 +556,7 @@ function os2web_spotbox_views_default_views() {
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
   $handler->display->display_options['filters']['status']['field'] = 'status';
-  $handler->display->display_options['filters']['status']['relationship'] = 'field_indholdsside_spotboxe_nid';
+  $handler->display->display_options['filters']['status']['relationship'] = 'field_os2web_base_field_spotbox_nid';
   $handler->display->display_options['filters']['status']['value'] = '1';
   $handler->display->display_options['filters']['status']['group'] = 1;
   $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
@@ -564,9 +564,9 @@ function os2web_spotbox_views_default_views() {
   $handler->display->display_options['filters']['type']['id'] = 'type';
   $handler->display->display_options['filters']['type']['table'] = 'node';
   $handler->display->display_options['filters']['type']['field'] = 'type';
-  $handler->display->display_options['filters']['type']['relationship'] = 'field_indholdsside_spotboxe_nid';
+  $handler->display->display_options['filters']['type']['relationship'] = 'field_os2web_base_field_spotbox_nid';
   $handler->display->display_options['filters']['type']['value'] = array(
-    'spotbox' => 'spotbox',
+    'os2web_spotbox_box' => 'os2web_spotbox_box',
   );
 
   /* Display: Page */
@@ -584,12 +584,12 @@ function os2web_spotbox_views_default_views() {
   $handler->display->display_options['pager']['options']['offset'] = '0';
   $handler->display->display_options['defaults']['fields'] = FALSE;
   /* Felt: Indhold: Hjemmeside */
-  $handler->display->display_options['fields']['field_url']['id'] = 'field_url';
-  $handler->display->display_options['fields']['field_url']['table'] = 'field_data_field_url';
-  $handler->display->display_options['fields']['field_url']['field'] = 'field_url';
-  $handler->display->display_options['fields']['field_url']['label'] = '';
-  $handler->display->display_options['fields']['field_url']['exclude'] = TRUE;
-  $handler->display->display_options['fields']['field_url']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_os2web_spotbox_url']['id'] = 'field_os2web_spotbox_url';
+  $handler->display->display_options['fields']['field_os2web_spotbox_url']['table'] = 'field_data_field_os2web_spotbox_url';
+  $handler->display->display_options['fields']['field_os2web_spotbox_url']['field'] = 'field_os2web_spotbox_url';
+  $handler->display->display_options['fields']['field_os2web_spotbox_url']['label'] = '';
+  $handler->display->display_options['fields']['field_os2web_spotbox_url']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_os2web_spotbox_url']['element_label_colon'] = FALSE;
   /* Felt: Indhold: Titel */
   $handler->display->display_options['fields']['title_1']['id'] = 'title_1';
   $handler->display->display_options['fields']['title_1']['table'] = 'node';
@@ -608,32 +608,32 @@ function os2web_spotbox_views_default_views() {
   $handler->display->display_options['fields']['body']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['body']['element_default_classes'] = FALSE;
   /* Felt: Indhold: Primære billede */
-  $handler->display->display_options['fields']['field_lead_image']['id'] = 'field_lead_image';
-  $handler->display->display_options['fields']['field_lead_image']['table'] = 'field_data_field_lead_image';
-  $handler->display->display_options['fields']['field_lead_image']['field'] = 'field_lead_image';
-  $handler->display->display_options['fields']['field_lead_image']['label'] = '';
-  $handler->display->display_options['fields']['field_lead_image']['alter']['alter_text'] = TRUE;
-  $handler->display->display_options['fields']['field_lead_image']['alter']['text'] = '<a href=[field_url] title=[title] ><img src="[field_lead_image]" alt="[title_1]" /></a>';
-  $handler->display->display_options['fields']['field_lead_image']['alter']['path'] = '[field_url]';
-  $handler->display->display_options['fields']['field_lead_image']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['field_lead_image']['element_default_classes'] = FALSE;
-  $handler->display->display_options['fields']['field_lead_image']['empty'] = '<div class="spotbox_no_picture"><div class="spotbox_no_picture_text"><a href=[field_url]>[body]</a></div></div>';
-  $handler->display->display_options['fields']['field_lead_image']['click_sort_column'] = 'fid';
-  $handler->display->display_options['fields']['field_lead_image']['type'] = 'image_url';
-  $handler->display->display_options['fields']['field_lead_image']['settings'] = array(
-    'image_style' => 'spotbox_right',
+  $handler->display->display_options['fields']['field_os2web_spotbox_lead_image']['id'] = 'field_os2web_spotbox_lead_image';
+  $handler->display->display_options['fields']['field_os2web_spotbox_lead_image']['table'] = 'field_data_field_os2web_spotbox_lead_image';
+  $handler->display->display_options['fields']['field_os2web_spotbox_lead_image']['field'] = 'field_os2web_spotbox_lead_image';
+  $handler->display->display_options['fields']['field_os2web_spotbox_lead_image']['label'] = '';
+  $handler->display->display_options['fields']['field_os2web_spotbox_lead_image']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['field_os2web_spotbox_lead_image']['alter']['text'] = '<a href=[field_os2web_spotbox_url] title=[title] ><img src="[field_os2web_spotbox_lead_image]" alt="[title_1]" /></a>';
+  $handler->display->display_options['fields']['field_os2web_spotbox_lead_image']['alter']['path'] = '[field_os2web_spotbox_url]';
+  $handler->display->display_options['fields']['field_os2web_spotbox_lead_image']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_os2web_spotbox_lead_image']['element_default_classes'] = FALSE;
+  $handler->display->display_options['fields']['field_os2web_spotbox_lead_image']['empty'] = '<div class="spotbox_no_picture"><div class="spotbox_no_picture_text"><a href=[field_os2web_spotbox_url]>[body]</a></div></div>';
+  $handler->display->display_options['fields']['field_os2web_spotbox_lead_image']['click_sort_column'] = 'fid';
+  $handler->display->display_options['fields']['field_os2web_spotbox_lead_image']['type'] = 'image_url';
+  $handler->display->display_options['fields']['field_os2web_spotbox_lead_image']['settings'] = array(
+    'image_style' => 'os2web_spotbox_image_right',
     'image_link' => '',
   );
-  $handler->display->display_options['fields']['field_lead_image']['delta_limit'] = '1';
-  $handler->display->display_options['fields']['field_lead_image']['delta_offset'] = '0';
+  $handler->display->display_options['fields']['field_os2web_spotbox_lead_image']['delta_limit'] = '1';
+  $handler->display->display_options['fields']['field_os2web_spotbox_lead_image']['delta_offset'] = '0';
   /* Felt: Indhold: Titel */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
   $handler->display->display_options['fields']['title']['field'] = 'title';
   $handler->display->display_options['fields']['title']['label'] = '';
   $handler->display->display_options['fields']['title']['alter']['alter_text'] = TRUE;
-  $handler->display->display_options['fields']['title']['alter']['text'] = '<a href=[field_url] title=[title]>[title]</a>';
-  $handler->display->display_options['fields']['title']['alter']['path'] = '[field_url]';
+  $handler->display->display_options['fields']['title']['alter']['text'] = '<a href=[field_os2web_spotbox_url] title=[title]>[title]</a>';
+  $handler->display->display_options['fields']['title']['alter']['path'] = '[field_os2web_spotbox_url]';
   $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
   $handler->display->display_options['fields']['title']['element_type'] = 'h3';
@@ -641,54 +641,54 @@ function os2web_spotbox_views_default_views() {
   $handler->display->display_options['fields']['title']['element_default_classes'] = FALSE;
   $handler->display->display_options['fields']['title']['link_to_node'] = FALSE;
   /* Felt: Indhold: Intro */
-  $handler->display->display_options['fields']['field_text']['id'] = 'field_text';
-  $handler->display->display_options['fields']['field_text']['table'] = 'field_data_field_text';
-  $handler->display->display_options['fields']['field_text']['field'] = 'field_text';
-  $handler->display->display_options['fields']['field_text']['label'] = '';
-  $handler->display->display_options['fields']['field_text']['element_type'] = 'h4';
-  $handler->display->display_options['fields']['field_text']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['field_text']['element_default_classes'] = FALSE;
+  $handler->display->display_options['fields']['field_os2web_spotbox_text']['id'] = 'field_os2web_spotbox_text';
+  $handler->display->display_options['fields']['field_os2web_spotbox_text']['table'] = 'field_data_field_os2web_spotbox_text';
+  $handler->display->display_options['fields']['field_os2web_spotbox_text']['field'] = 'field_os2web_spotbox_text';
+  $handler->display->display_options['fields']['field_os2web_spotbox_text']['label'] = '';
+  $handler->display->display_options['fields']['field_os2web_spotbox_text']['element_type'] = 'h4';
+  $handler->display->display_options['fields']['field_os2web_spotbox_text']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_os2web_spotbox_text']['element_default_classes'] = FALSE;
   /* Felt: Indhold: Egenavne / stednavne */
-  $handler->display->display_options['fields']['field_termref_sted']['id'] = 'field_termref_sted';
-  $handler->display->display_options['fields']['field_termref_sted']['table'] = 'field_data_field_termref_sted';
-  $handler->display->display_options['fields']['field_termref_sted']['field'] = 'field_termref_sted';
-  $handler->display->display_options['fields']['field_termref_sted']['exclude'] = TRUE;
-  $handler->display->display_options['fields']['field_termref_sted']['delta_offset'] = '0';
+  $handler->display->display_options['fields']['field_os2web_spotbox_ref_place']['id'] = 'field_os2web_spotbox_ref_place';
+  $handler->display->display_options['fields']['field_os2web_spotbox_ref_place']['table'] = 'field_data_field_os2web_spotbox_ref_place';
+  $handler->display->display_options['fields']['field_os2web_spotbox_ref_place']['field'] = 'field_os2web_spotbox_ref_place';
+  $handler->display->display_options['fields']['field_os2web_spotbox_ref_place']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_os2web_spotbox_ref_place']['delta_offset'] = '0';
   /* Felt: Indhold: Forfrem til */
-  $handler->display->display_options['fields']['field_promoteto']['id'] = 'field_promoteto';
-  $handler->display->display_options['fields']['field_promoteto']['table'] = 'field_data_field_promoteto';
-  $handler->display->display_options['fields']['field_promoteto']['field'] = 'field_promoteto';
-  $handler->display->display_options['fields']['field_promoteto']['exclude'] = TRUE;
-  $handler->display->display_options['fields']['field_promoteto']['delta_offset'] = '0';
+  $handler->display->display_options['fields']['field_os2web_spotbox_promote_to']['id'] = 'field_os2web_spotbox_promote_to';
+  $handler->display->display_options['fields']['field_os2web_spotbox_promote_to']['table'] = 'field_data_field_os2web_spotbox_promote_to';
+  $handler->display->display_options['fields']['field_os2web_spotbox_promote_to']['field'] = 'field_os2web_spotbox_promote_to';
+  $handler->display->display_options['fields']['field_os2web_spotbox_promote_to']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_os2web_spotbox_promote_to']['delta_offset'] = '0';
   /* Felt: Indhold: KL Emneord */
-  $handler->display->display_options['fields']['field_termref_kle']['id'] = 'field_termref_kle';
-  $handler->display->display_options['fields']['field_termref_kle']['table'] = 'field_data_field_termref_kle';
-  $handler->display->display_options['fields']['field_termref_kle']['field'] = 'field_termref_kle';
-  $handler->display->display_options['fields']['field_termref_kle']['exclude'] = TRUE;
-  $handler->display->display_options['fields']['field_termref_kle']['delta_offset'] = '0';
+  $handler->display->display_options['fields']['field_os2web_spotbox_ref_kle']['id'] = 'field_os2web_spotbox_ref_kle';
+  $handler->display->display_options['fields']['field_os2web_spotbox_ref_kle']['table'] = 'field_data_field_os2web_spotbox_ref_kle';
+  $handler->display->display_options['fields']['field_os2web_spotbox_ref_kle']['field'] = 'field_os2web_spotbox_ref_kle';
+  $handler->display->display_options['fields']['field_os2web_spotbox_ref_kle']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_os2web_spotbox_ref_kle']['delta_offset'] = '0';
   /* Felt: Indhold: Organisation */
-  $handler->display->display_options['fields']['field_organization']['id'] = 'field_organization';
-  $handler->display->display_options['fields']['field_organization']['table'] = 'field_data_field_organization';
-  $handler->display->display_options['fields']['field_organization']['field'] = 'field_organization';
-  $handler->display->display_options['fields']['field_organization']['exclude'] = TRUE;
-  $handler->display->display_options['fields']['field_organization']['delta_offset'] = '0';
+  $handler->display->display_options['fields']['field_os2web_spotbox_organizati']['id'] = 'field_os2web_spotbox_organizati';
+  $handler->display->display_options['fields']['field_os2web_spotbox_organizati']['table'] = 'field_data_field_os2web_spotbox_organizati';
+  $handler->display->display_options['fields']['field_os2web_spotbox_organizati']['field'] = 'field_os2web_spotbox_organizati';
+  $handler->display->display_options['fields']['field_os2web_spotbox_organizati']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_os2web_spotbox_organizati']['delta_offset'] = '0';
   /* Felt: Indhold: Politik */
-  $handler->display->display_options['fields']['field_politics']['id'] = 'field_politics';
-  $handler->display->display_options['fields']['field_politics']['table'] = 'field_data_field_politics';
-  $handler->display->display_options['fields']['field_politics']['field'] = 'field_politics';
-  $handler->display->display_options['fields']['field_politics']['exclude'] = TRUE;
-  $handler->display->display_options['fields']['field_politics']['delta_offset'] = '0';
+  $handler->display->display_options['fields']['field_os2web_spotbox_politics']['id'] = 'field_os2web_spotbox_politics';
+  $handler->display->display_options['fields']['field_os2web_spotbox_politics']['table'] = 'field_data_field_os2web_spotbox_politics';
+  $handler->display->display_options['fields']['field_os2web_spotbox_politics']['field'] = 'field_os2web_spotbox_politics';
+  $handler->display->display_options['fields']['field_os2web_spotbox_politics']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_os2web_spotbox_politics']['delta_offset'] = '0';
   /* Felt: Indhold: Portalkategori */
-  $handler->display->display_options['fields']['field_site_structure']['id'] = 'field_site_structure';
-  $handler->display->display_options['fields']['field_site_structure']['table'] = 'field_data_field_site_structure';
-  $handler->display->display_options['fields']['field_site_structure']['field'] = 'field_site_structure';
-  $handler->display->display_options['fields']['field_site_structure']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_os2web_spotbox_sitestruct']['id'] = 'field_os2web_spotbox_sitestruct';
+  $handler->display->display_options['fields']['field_os2web_spotbox_sitestruct']['table'] = 'field_data_field_os2web_spotbox_sitestruct';
+  $handler->display->display_options['fields']['field_os2web_spotbox_sitestruct']['field'] = 'field_os2web_spotbox_sitestruct';
+  $handler->display->display_options['fields']['field_os2web_spotbox_sitestruct']['exclude'] = TRUE;
   /* Felt: Indhold: Stikord */
-  $handler->display->display_options['fields']['field_editortags']['id'] = 'field_editortags';
-  $handler->display->display_options['fields']['field_editortags']['table'] = 'field_data_field_editortags';
-  $handler->display->display_options['fields']['field_editortags']['field'] = 'field_editortags';
-  $handler->display->display_options['fields']['field_editortags']['exclude'] = TRUE;
-  $handler->display->display_options['fields']['field_editortags']['delta_offset'] = '0';
+  $handler->display->display_options['fields']['field_os2web_spotbox_editor_tags']['id'] = 'field_os2web_spotbox_editor_tags';
+  $handler->display->display_options['fields']['field_os2web_spotbox_editor_tags']['table'] = 'field_data_field_os2web_spotbox_editor_tags';
+  $handler->display->display_options['fields']['field_os2web_spotbox_editor_tags']['field'] = 'field_os2web_spotbox_editor_tags';
+  $handler->display->display_options['fields']['field_os2web_spotbox_editor_tags']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_os2web_spotbox_editor_tags']['delta_offset'] = '0';
   /* Felt: Indhold: Redigér-link */
   $handler->display->display_options['fields']['edit_node']['id'] = 'edit_node';
   $handler->display->display_options['fields']['edit_node']['table'] = 'views_entity_node';
@@ -727,12 +727,12 @@ function os2web_spotbox_views_default_views() {
   $handler->display->display_options['fields']['edit_node']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['edit_node']['element_default_classes'] = FALSE;
   /* Felt: Indhold: Hjemmeside */
-  $handler->display->display_options['fields']['field_url']['id'] = 'field_url';
-  $handler->display->display_options['fields']['field_url']['table'] = 'field_data_field_url';
-  $handler->display->display_options['fields']['field_url']['field'] = 'field_url';
-  $handler->display->display_options['fields']['field_url']['label'] = '';
-  $handler->display->display_options['fields']['field_url']['exclude'] = TRUE;
-  $handler->display->display_options['fields']['field_url']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_os2web_spotbox_url']['id'] = 'field_os2web_spotbox_url';
+  $handler->display->display_options['fields']['field_os2web_spotbox_url']['table'] = 'field_data_field_os2web_spotbox_url';
+  $handler->display->display_options['fields']['field_os2web_spotbox_url']['field'] = 'field_os2web_spotbox_url';
+  $handler->display->display_options['fields']['field_os2web_spotbox_url']['label'] = '';
+  $handler->display->display_options['fields']['field_os2web_spotbox_url']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_os2web_spotbox_url']['element_label_colon'] = FALSE;
   /* Felt: Indhold: Titel */
   $handler->display->display_options['fields']['title_1']['id'] = 'title_1';
   $handler->display->display_options['fields']['title_1']['table'] = 'node';
@@ -757,32 +757,32 @@ function os2web_spotbox_views_default_views() {
   $handler->display->display_options['fields']['body']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['body']['element_default_classes'] = FALSE;
   /* Felt: Indhold: Primære billede */
-  $handler->display->display_options['fields']['field_lead_image']['id'] = 'field_lead_image';
-  $handler->display->display_options['fields']['field_lead_image']['table'] = 'field_data_field_lead_image';
-  $handler->display->display_options['fields']['field_lead_image']['field'] = 'field_lead_image';
-  $handler->display->display_options['fields']['field_lead_image']['label'] = '';
-  $handler->display->display_options['fields']['field_lead_image']['alter']['alter_text'] = TRUE;
-  $handler->display->display_options['fields']['field_lead_image']['alter']['text'] = '<a href=[field_url] title=[title_1]><img src="[field_lead_image]" alt="[title_1]" />
+  $handler->display->display_options['fields']['field_os2web_spotbox_lead_image']['id'] = 'field_os2web_spotbox_lead_image';
+  $handler->display->display_options['fields']['field_os2web_spotbox_lead_image']['table'] = 'field_data_field_os2web_spotbox_lead_image';
+  $handler->display->display_options['fields']['field_os2web_spotbox_lead_image']['field'] = 'field_os2web_spotbox_lead_image';
+  $handler->display->display_options['fields']['field_os2web_spotbox_lead_image']['label'] = '';
+  $handler->display->display_options['fields']['field_os2web_spotbox_lead_image']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['field_os2web_spotbox_lead_image']['alter']['text'] = '<a href=[field_os2web_spotbox_url] title=[title_1]><img src="[field_os2web_spotbox_lead_image]" alt="[title_1]" />
 <span class="zoom-icon"></span></a>';
-  $handler->display->display_options['fields']['field_lead_image']['alter']['link_class'] = 'overlayclass';
-  $handler->display->display_options['fields']['field_lead_image']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['field_lead_image']['element_default_classes'] = FALSE;
-  $handler->display->display_options['fields']['field_lead_image']['empty'] = '<div class="spotbox_no_picture"><div class="spotbox_no_picture_text"><a href=[field_url]>[body]</a></div></div>';
-  $handler->display->display_options['fields']['field_lead_image']['click_sort_column'] = 'fid';
-  $handler->display->display_options['fields']['field_lead_image']['type'] = 'image_url';
-  $handler->display->display_options['fields']['field_lead_image']['settings'] = array(
-    'image_style' => 'spotbox_right',
+  $handler->display->display_options['fields']['field_os2web_spotbox_lead_image']['alter']['link_class'] = 'overlayclass';
+  $handler->display->display_options['fields']['field_os2web_spotbox_lead_image']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_os2web_spotbox_lead_image']['element_default_classes'] = FALSE;
+  $handler->display->display_options['fields']['field_os2web_spotbox_lead_image']['empty'] = '<div class="spotbox_no_picture"><div class="spotbox_no_picture_text"><a href=[field_os2web_spotbox_url]>[body]</a></div></div>';
+  $handler->display->display_options['fields']['field_os2web_spotbox_lead_image']['click_sort_column'] = 'fid';
+  $handler->display->display_options['fields']['field_os2web_spotbox_lead_image']['type'] = 'image_url';
+  $handler->display->display_options['fields']['field_os2web_spotbox_lead_image']['settings'] = array(
+    'image_style' => 'os2web_spotbox_image_right',
     'image_link' => '',
   );
-  $handler->display->display_options['fields']['field_lead_image']['delta_limit'] = '1';
-  $handler->display->display_options['fields']['field_lead_image']['delta_offset'] = '0';
+  $handler->display->display_options['fields']['field_os2web_spotbox_lead_image']['delta_limit'] = '1';
+  $handler->display->display_options['fields']['field_os2web_spotbox_lead_image']['delta_offset'] = '0';
   /* Felt: Indhold: Titel */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
   $handler->display->display_options['fields']['title']['field'] = 'title';
   $handler->display->display_options['fields']['title']['label'] = '';
   $handler->display->display_options['fields']['title']['exclude'] = TRUE;
-  $handler->display->display_options['fields']['title']['alter']['path'] = '[field_url]';
+  $handler->display->display_options['fields']['title']['alter']['path'] = '[field_os2web_spotbox_url]';
   $handler->display->display_options['fields']['title']['alter']['max_length'] = '50';
   $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['title']['alter']['trim'] = TRUE;
@@ -791,62 +791,62 @@ function os2web_spotbox_views_default_views() {
   $handler->display->display_options['fields']['title']['element_default_classes'] = FALSE;
   $handler->display->display_options['fields']['title']['link_to_node'] = FALSE;
   /* Felt: Indhold: Intro */
-  $handler->display->display_options['fields']['field_text']['id'] = 'field_text';
-  $handler->display->display_options['fields']['field_text']['table'] = 'field_data_field_text';
-  $handler->display->display_options['fields']['field_text']['field'] = 'field_text';
-  $handler->display->display_options['fields']['field_text']['label'] = '';
-  $handler->display->display_options['fields']['field_text']['alter']['alter_text'] = TRUE;
-  $handler->display->display_options['fields']['field_text']['alter']['text'] = '<a href=[field_url] title=[field_text]>[field_text]</a>';
-  $handler->display->display_options['fields']['field_text']['alter']['path'] = '[field_url]';
-  $handler->display->display_options['fields']['field_text']['alter']['max_length'] = '100';
-  $handler->display->display_options['fields']['field_text']['alter']['trim'] = TRUE;
-  $handler->display->display_options['fields']['field_text']['alter']['html'] = TRUE;
-  $handler->display->display_options['fields']['field_text']['element_type'] = 'h3';
-  $handler->display->display_options['fields']['field_text']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['field_text']['element_default_classes'] = FALSE;
-  $handler->display->display_options['fields']['field_text']['empty'] = '[title]';
-  $handler->display->display_options['fields']['field_text']['hide_alter_empty'] = FALSE;
+  $handler->display->display_options['fields']['field_os2web_spotbox_text']['id'] = 'field_os2web_spotbox_text';
+  $handler->display->display_options['fields']['field_os2web_spotbox_text']['table'] = 'field_data_field_os2web_spotbox_text';
+  $handler->display->display_options['fields']['field_os2web_spotbox_text']['field'] = 'field_os2web_spotbox_text';
+  $handler->display->display_options['fields']['field_os2web_spotbox_text']['label'] = '';
+  $handler->display->display_options['fields']['field_os2web_spotbox_text']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['field_os2web_spotbox_text']['alter']['text'] = '<a href=[field_os2web_spotbox_url] title=[field_os2web_spotbox_text]>[field_os2web_spotbox_text]</a>';
+  $handler->display->display_options['fields']['field_os2web_spotbox_text']['alter']['path'] = '[field_os2web_spotbox_url]';
+  $handler->display->display_options['fields']['field_os2web_spotbox_text']['alter']['max_length'] = '100';
+  $handler->display->display_options['fields']['field_os2web_spotbox_text']['alter']['trim'] = TRUE;
+  $handler->display->display_options['fields']['field_os2web_spotbox_text']['alter']['html'] = TRUE;
+  $handler->display->display_options['fields']['field_os2web_spotbox_text']['element_type'] = 'h3';
+  $handler->display->display_options['fields']['field_os2web_spotbox_text']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_os2web_spotbox_text']['element_default_classes'] = FALSE;
+  $handler->display->display_options['fields']['field_os2web_spotbox_text']['empty'] = '[title]';
+  $handler->display->display_options['fields']['field_os2web_spotbox_text']['hide_alter_empty'] = FALSE;
   /* Felt: Indhold: Egenavne / stednavne */
-  $handler->display->display_options['fields']['field_termref_sted']['id'] = 'field_termref_sted';
-  $handler->display->display_options['fields']['field_termref_sted']['table'] = 'field_data_field_termref_sted';
-  $handler->display->display_options['fields']['field_termref_sted']['field'] = 'field_termref_sted';
-  $handler->display->display_options['fields']['field_termref_sted']['exclude'] = TRUE;
-  $handler->display->display_options['fields']['field_termref_sted']['delta_offset'] = '0';
+  $handler->display->display_options['fields']['field_os2web_spotbox_ref_place']['id'] = 'field_os2web_spotbox_ref_place';
+  $handler->display->display_options['fields']['field_os2web_spotbox_ref_place']['table'] = 'field_data_field_os2web_spotbox_ref_place';
+  $handler->display->display_options['fields']['field_os2web_spotbox_ref_place']['field'] = 'field_os2web_spotbox_ref_place';
+  $handler->display->display_options['fields']['field_os2web_spotbox_ref_place']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_os2web_spotbox_ref_place']['delta_offset'] = '0';
   /* Felt: Indhold: Forfrem til */
-  $handler->display->display_options['fields']['field_promoteto']['id'] = 'field_promoteto';
-  $handler->display->display_options['fields']['field_promoteto']['table'] = 'field_data_field_promoteto';
-  $handler->display->display_options['fields']['field_promoteto']['field'] = 'field_promoteto';
-  $handler->display->display_options['fields']['field_promoteto']['exclude'] = TRUE;
-  $handler->display->display_options['fields']['field_promoteto']['delta_offset'] = '0';
+  $handler->display->display_options['fields']['field_os2web_spotbox_promote_to']['id'] = 'field_os2web_spotbox_promote_to';
+  $handler->display->display_options['fields']['field_os2web_spotbox_promote_to']['table'] = 'field_data_field_os2web_spotbox_promote_to';
+  $handler->display->display_options['fields']['field_os2web_spotbox_promote_to']['field'] = 'field_os2web_spotbox_promote_to';
+  $handler->display->display_options['fields']['field_os2web_spotbox_promote_to']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_os2web_spotbox_promote_to']['delta_offset'] = '0';
   /* Felt: Indhold: KL Emneord */
-  $handler->display->display_options['fields']['field_termref_kle']['id'] = 'field_termref_kle';
-  $handler->display->display_options['fields']['field_termref_kle']['table'] = 'field_data_field_termref_kle';
-  $handler->display->display_options['fields']['field_termref_kle']['field'] = 'field_termref_kle';
-  $handler->display->display_options['fields']['field_termref_kle']['exclude'] = TRUE;
-  $handler->display->display_options['fields']['field_termref_kle']['delta_offset'] = '0';
+  $handler->display->display_options['fields']['field_os2web_spotbox_ref_kle']['id'] = 'field_os2web_spotbox_ref_kle';
+  $handler->display->display_options['fields']['field_os2web_spotbox_ref_kle']['table'] = 'field_data_field_os2web_spotbox_ref_kle';
+  $handler->display->display_options['fields']['field_os2web_spotbox_ref_kle']['field'] = 'field_os2web_spotbox_ref_kle';
+  $handler->display->display_options['fields']['field_os2web_spotbox_ref_kle']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_os2web_spotbox_ref_kle']['delta_offset'] = '0';
   /* Felt: Indhold: Organisation */
-  $handler->display->display_options['fields']['field_organization']['id'] = 'field_organization';
-  $handler->display->display_options['fields']['field_organization']['table'] = 'field_data_field_organization';
-  $handler->display->display_options['fields']['field_organization']['field'] = 'field_organization';
-  $handler->display->display_options['fields']['field_organization']['exclude'] = TRUE;
-  $handler->display->display_options['fields']['field_organization']['delta_offset'] = '0';
+  $handler->display->display_options['fields']['field_os2web_spotbox_organizati']['id'] = 'field_os2web_spotbox_organizati';
+  $handler->display->display_options['fields']['field_os2web_spotbox_organizati']['table'] = 'field_data_field_os2web_spotbox_organizati';
+  $handler->display->display_options['fields']['field_os2web_spotbox_organizati']['field'] = 'field_os2web_spotbox_organizati';
+  $handler->display->display_options['fields']['field_os2web_spotbox_organizati']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_os2web_spotbox_organizati']['delta_offset'] = '0';
   /* Felt: Indhold: Politik */
-  $handler->display->display_options['fields']['field_politics']['id'] = 'field_politics';
-  $handler->display->display_options['fields']['field_politics']['table'] = 'field_data_field_politics';
-  $handler->display->display_options['fields']['field_politics']['field'] = 'field_politics';
-  $handler->display->display_options['fields']['field_politics']['exclude'] = TRUE;
-  $handler->display->display_options['fields']['field_politics']['delta_offset'] = '0';
+  $handler->display->display_options['fields']['field_os2web_spotbox_politics']['id'] = 'field_os2web_spotbox_politics';
+  $handler->display->display_options['fields']['field_os2web_spotbox_politics']['table'] = 'field_data_field_os2web_spotbox_politics';
+  $handler->display->display_options['fields']['field_os2web_spotbox_politics']['field'] = 'field_os2web_spotbox_politics';
+  $handler->display->display_options['fields']['field_os2web_spotbox_politics']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_os2web_spotbox_politics']['delta_offset'] = '0';
   /* Felt: Indhold: Portalkategori */
-  $handler->display->display_options['fields']['field_site_structure']['id'] = 'field_site_structure';
-  $handler->display->display_options['fields']['field_site_structure']['table'] = 'field_data_field_site_structure';
-  $handler->display->display_options['fields']['field_site_structure']['field'] = 'field_site_structure';
-  $handler->display->display_options['fields']['field_site_structure']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_os2web_spotbox_sitestruct']['id'] = 'field_os2web_spotbox_sitestruct';
+  $handler->display->display_options['fields']['field_os2web_spotbox_sitestruct']['table'] = 'field_data_field_os2web_spotbox_sitestruct';
+  $handler->display->display_options['fields']['field_os2web_spotbox_sitestruct']['field'] = 'field_os2web_spotbox_sitestruct';
+  $handler->display->display_options['fields']['field_os2web_spotbox_sitestruct']['exclude'] = TRUE;
   /* Felt: Indhold: Stikord */
-  $handler->display->display_options['fields']['field_editortags']['id'] = 'field_editortags';
-  $handler->display->display_options['fields']['field_editortags']['table'] = 'field_data_field_editortags';
-  $handler->display->display_options['fields']['field_editortags']['field'] = 'field_editortags';
-  $handler->display->display_options['fields']['field_editortags']['exclude'] = TRUE;
-  $handler->display->display_options['fields']['field_editortags']['delta_offset'] = '0';
+  $handler->display->display_options['fields']['field_os2web_spotbox_editor_tags']['id'] = 'field_os2web_spotbox_editor_tags';
+  $handler->display->display_options['fields']['field_os2web_spotbox_editor_tags']['table'] = 'field_data_field_os2web_spotbox_editor_tags';
+  $handler->display->display_options['fields']['field_os2web_spotbox_editor_tags']['field'] = 'field_os2web_spotbox_editor_tags';
+  $handler->display->display_options['fields']['field_os2web_spotbox_editor_tags']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_os2web_spotbox_editor_tags']['delta_offset'] = '0';
   $handler->display->display_options['defaults']['arguments'] = FALSE;
   /* Kontekstuelt filter: Indhold: Nid */
   $handler->display->display_options['arguments']['nid']['id'] = 'nid';
@@ -860,7 +860,7 @@ function os2web_spotbox_views_default_views() {
   $handler->display->display_options['arguments']['nid']['specify_validation'] = TRUE;
   $handler->display->display_options['arguments']['nid']['validate']['type'] = 'node';
   $handler->display->display_options['arguments']['nid']['validate_options']['types'] = array(
-    'spotbox' => 'spotbox',
+    'os2web_spotbox_box' => 'os2web_spotbox_box',
   );
   $handler->display->display_options['arguments']['nid']['validate_options']['nid_type'] = 'nids';
   $handler->display->display_options['arguments']['nid']['validate']['fail'] = 'ignore';
@@ -879,23 +879,23 @@ function os2web_spotbox_views_default_views() {
   $handler->display->display_options['filters']['type']['table'] = 'node';
   $handler->display->display_options['filters']['type']['field'] = 'type';
   $handler->display->display_options['filters']['type']['value'] = array(
-    'spotbox' => 'spotbox',
+    'os2web_spotbox_box' => 'os2web_spotbox_box',
   );
-  /* Filterkriterie: Indhold: Forfrem til (field_promoteto) */
-  $handler->display->display_options['filters']['field_promoteto_tid']['id'] = 'field_promoteto_tid';
-  $handler->display->display_options['filters']['field_promoteto_tid']['table'] = 'field_data_field_promoteto';
-  $handler->display->display_options['filters']['field_promoteto_tid']['field'] = 'field_promoteto_tid';
-  $handler->display->display_options['filters']['field_promoteto_tid']['value'] = array(
+  /* Filterkriterie: Indhold: Forfrem til (field_os2web_spotbox_promote_to) */
+  $handler->display->display_options['filters']['field_os2web_spotbox_promote_to_tid']['id'] = 'field_os2web_spotbox_promote_to_tid';
+  $handler->display->display_options['filters']['field_os2web_spotbox_promote_to_tid']['table'] = 'field_data_field_os2web_spotbox_promote_to';
+  $handler->display->display_options['filters']['field_os2web_spotbox_promote_to_tid']['field'] = 'field_os2web_spotbox_promote_to_tid';
+  $handler->display->display_options['filters']['field_os2web_spotbox_promote_to_tid']['value'] = array(
     12264 => '12264',
   );
-  $handler->display->display_options['filters']['field_promoteto_tid']['type'] = 'select';
-  $handler->display->display_options['filters']['field_promoteto_tid']['vocabulary'] = 'forfrem_til';
-  $handler->display->display_options['filters']['field_promoteto_tid']['hierarchy'] = 1;
-  /* Filterkriterie: Indhold: Video (field_spotbox_video:fid) */
-  $handler->display->display_options['filters']['field_spotbox_video_fid']['id'] = 'field_spotbox_video_fid';
-  $handler->display->display_options['filters']['field_spotbox_video_fid']['table'] = 'field_data_field_spotbox_video';
-  $handler->display->display_options['filters']['field_spotbox_video_fid']['field'] = 'field_spotbox_video_fid';
-  $handler->display->display_options['filters']['field_spotbox_video_fid']['operator'] = 'empty';
+  $handler->display->display_options['filters']['field_os2web_spotbox_promote_to_tid']['type'] = 'select';
+  $handler->display->display_options['filters']['field_os2web_spotbox_promote_to_tid']['vocabulary'] = 'forfrem_til';
+  $handler->display->display_options['filters']['field_os2web_spotbox_promote_to_tid']['hierarchy'] = 1;
+  /* Filterkriterie: Indhold: Video (field_os2web_spotbox_video:fid) */
+  $handler->display->display_options['filters']['field_os2web_spotbox_video_fid']['id'] = 'field_os2web_spotbox_video_fid';
+  $handler->display->display_options['filters']['field_os2web_spotbox_video_fid']['table'] = 'field_data_field_os2web_spotbox_video';
+  $handler->display->display_options['filters']['field_os2web_spotbox_video_fid']['field'] = 'field_os2web_spotbox_video_fid';
+  $handler->display->display_options['filters']['field_os2web_spotbox_video_fid']['operator'] = 'empty';
   $handler->display->display_options['allow']['use_pager'] = 0;
   $handler->display->display_options['allow']['items_per_page'] = 'items_per_page';
   $handler->display->display_options['allow']['offset'] = 0;
@@ -945,12 +945,12 @@ function os2web_spotbox_views_default_views() {
   $handler->display->display_options['fields']['edit_node']['alter']['link_class'] = 'redigerlink';
   $handler->display->display_options['fields']['edit_node']['element_label_colon'] = FALSE;
   /* Felt: Indhold: Hjemmeside */
-  $handler->display->display_options['fields']['field_url']['id'] = 'field_url';
-  $handler->display->display_options['fields']['field_url']['table'] = 'field_data_field_url';
-  $handler->display->display_options['fields']['field_url']['field'] = 'field_url';
-  $handler->display->display_options['fields']['field_url']['label'] = '';
-  $handler->display->display_options['fields']['field_url']['exclude'] = TRUE;
-  $handler->display->display_options['fields']['field_url']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_os2web_spotbox_url']['id'] = 'field_os2web_spotbox_url';
+  $handler->display->display_options['fields']['field_os2web_spotbox_url']['table'] = 'field_data_field_os2web_spotbox_url';
+  $handler->display->display_options['fields']['field_os2web_spotbox_url']['field'] = 'field_os2web_spotbox_url';
+  $handler->display->display_options['fields']['field_os2web_spotbox_url']['label'] = '';
+  $handler->display->display_options['fields']['field_os2web_spotbox_url']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_os2web_spotbox_url']['element_label_colon'] = FALSE;
   /* Felt: Indhold: Titel */
   $handler->display->display_options['fields']['title_1']['id'] = 'title_1';
   $handler->display->display_options['fields']['title_1']['table'] = 'node';
@@ -972,26 +972,26 @@ function os2web_spotbox_views_default_views() {
   $handler->display->display_options['fields']['body']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['body']['element_default_classes'] = FALSE;
   /* Felt: Indhold: Primære billede */
-  $handler->display->display_options['fields']['field_lead_image']['id'] = 'field_lead_image';
-  $handler->display->display_options['fields']['field_lead_image']['table'] = 'field_data_field_lead_image';
-  $handler->display->display_options['fields']['field_lead_image']['field'] = 'field_lead_image';
-  $handler->display->display_options['fields']['field_lead_image']['label'] = '';
-  $handler->display->display_options['fields']['field_lead_image']['alter']['alter_text'] = TRUE;
-  $handler->display->display_options['fields']['field_lead_image']['alter']['text'] = '<a href=[field_url] title=[title_1]><img src="[field_lead_image]" alt="[title_1]" />
+  $handler->display->display_options['fields']['field_os2web_spotbox_lead_image']['id'] = 'field_os2web_spotbox_lead_image';
+  $handler->display->display_options['fields']['field_os2web_spotbox_lead_image']['table'] = 'field_data_field_os2web_spotbox_lead_image';
+  $handler->display->display_options['fields']['field_os2web_spotbox_lead_image']['field'] = 'field_os2web_spotbox_lead_image';
+  $handler->display->display_options['fields']['field_os2web_spotbox_lead_image']['label'] = '';
+  $handler->display->display_options['fields']['field_os2web_spotbox_lead_image']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['field_os2web_spotbox_lead_image']['alter']['text'] = '<a href=[field_os2web_spotbox_url] title=[title_1]><img src="[field_os2web_spotbox_lead_image]" alt="[title_1]" />
 <span class="zoom-icon"></span></a>';
-  $handler->display->display_options['fields']['field_lead_image']['alter']['path'] = '[field_url]';
-  $handler->display->display_options['fields']['field_lead_image']['alter']['link_class'] = 'overlayclass';
-  $handler->display->display_options['fields']['field_lead_image']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['field_lead_image']['element_default_classes'] = FALSE;
-  $handler->display->display_options['fields']['field_lead_image']['empty'] = '<div class="spotbox_no_picture"><div class="spotbox_no_picture_text"><a href=[field_url]  title=[title_1]>[body]</a></div></div>';
-  $handler->display->display_options['fields']['field_lead_image']['click_sort_column'] = 'fid';
-  $handler->display->display_options['fields']['field_lead_image']['type'] = 'image_url';
-  $handler->display->display_options['fields']['field_lead_image']['settings'] = array(
-    'image_style' => 'spotbox_right',
+  $handler->display->display_options['fields']['field_os2web_spotbox_lead_image']['alter']['path'] = '[field_os2web_spotbox_url]';
+  $handler->display->display_options['fields']['field_os2web_spotbox_lead_image']['alter']['link_class'] = 'overlayclass';
+  $handler->display->display_options['fields']['field_os2web_spotbox_lead_image']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_os2web_spotbox_lead_image']['element_default_classes'] = FALSE;
+  $handler->display->display_options['fields']['field_os2web_spotbox_lead_image']['empty'] = '<div class="spotbox_no_picture"><div class="spotbox_no_picture_text"><a href=[field_os2web_spotbox_url]  title=[title_1]>[body]</a></div></div>';
+  $handler->display->display_options['fields']['field_os2web_spotbox_lead_image']['click_sort_column'] = 'fid';
+  $handler->display->display_options['fields']['field_os2web_spotbox_lead_image']['type'] = 'image_url';
+  $handler->display->display_options['fields']['field_os2web_spotbox_lead_image']['settings'] = array(
+    'image_style' => 'os2web_spotbox_image_right',
     'image_link' => '',
   );
-  $handler->display->display_options['fields']['field_lead_image']['delta_limit'] = '1';
-  $handler->display->display_options['fields']['field_lead_image']['delta_offset'] = '0';
+  $handler->display->display_options['fields']['field_os2web_spotbox_lead_image']['delta_limit'] = '1';
+  $handler->display->display_options['fields']['field_os2web_spotbox_lead_image']['delta_offset'] = '0';
   /* Felt: Indhold: Titel */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
@@ -999,7 +999,7 @@ function os2web_spotbox_views_default_views() {
   $handler->display->display_options['fields']['title']['label'] = '';
   $handler->display->display_options['fields']['title']['exclude'] = TRUE;
   $handler->display->display_options['fields']['title']['alter']['make_link'] = TRUE;
-  $handler->display->display_options['fields']['title']['alter']['path'] = '[field_url]';
+  $handler->display->display_options['fields']['title']['alter']['path'] = '[field_os2web_spotbox_url]';
   $handler->display->display_options['fields']['title']['alter']['max_length'] = '50';
   $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['title']['alter']['strip_tags'] = TRUE;
@@ -1009,63 +1009,63 @@ function os2web_spotbox_views_default_views() {
   $handler->display->display_options['fields']['title']['element_default_classes'] = FALSE;
   $handler->display->display_options['fields']['title']['link_to_node'] = FALSE;
   /* Felt: Indhold: Intro */
-  $handler->display->display_options['fields']['field_text']['id'] = 'field_text';
-  $handler->display->display_options['fields']['field_text']['table'] = 'field_data_field_text';
-  $handler->display->display_options['fields']['field_text']['field'] = 'field_text';
-  $handler->display->display_options['fields']['field_text']['label'] = '';
-  $handler->display->display_options['fields']['field_text']['alter']['alter_text'] = TRUE;
-  $handler->display->display_options['fields']['field_text']['alter']['text'] = '<a href=[field_url] title=[title_1]>[field_text]</a>';
-  $handler->display->display_options['fields']['field_text']['alter']['path'] = '[field_url]';
-  $handler->display->display_options['fields']['field_text']['alter']['max_length'] = '100';
-  $handler->display->display_options['fields']['field_text']['alter']['word_boundary'] = FALSE;
-  $handler->display->display_options['fields']['field_text']['alter']['trim'] = TRUE;
-  $handler->display->display_options['fields']['field_text']['alter']['html'] = TRUE;
-  $handler->display->display_options['fields']['field_text']['element_type'] = 'h3';
-  $handler->display->display_options['fields']['field_text']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['field_text']['element_default_classes'] = FALSE;
-  $handler->display->display_options['fields']['field_text']['empty'] = '[title]';
-  $handler->display->display_options['fields']['field_text']['hide_alter_empty'] = FALSE;
+  $handler->display->display_options['fields']['field_os2web_spotbox_text']['id'] = 'field_os2web_spotbox_text';
+  $handler->display->display_options['fields']['field_os2web_spotbox_text']['table'] = 'field_data_field_os2web_spotbox_text';
+  $handler->display->display_options['fields']['field_os2web_spotbox_text']['field'] = 'field_os2web_spotbox_text';
+  $handler->display->display_options['fields']['field_os2web_spotbox_text']['label'] = '';
+  $handler->display->display_options['fields']['field_os2web_spotbox_text']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['field_os2web_spotbox_text']['alter']['text'] = '<a href=[field_os2web_spotbox_url] title=[title_1]>[field_os2web_spotbox_text]</a>';
+  $handler->display->display_options['fields']['field_os2web_spotbox_text']['alter']['path'] = '[field_os2web_spotbox_url]';
+  $handler->display->display_options['fields']['field_os2web_spotbox_text']['alter']['max_length'] = '100';
+  $handler->display->display_options['fields']['field_os2web_spotbox_text']['alter']['word_boundary'] = FALSE;
+  $handler->display->display_options['fields']['field_os2web_spotbox_text']['alter']['trim'] = TRUE;
+  $handler->display->display_options['fields']['field_os2web_spotbox_text']['alter']['html'] = TRUE;
+  $handler->display->display_options['fields']['field_os2web_spotbox_text']['element_type'] = 'h3';
+  $handler->display->display_options['fields']['field_os2web_spotbox_text']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_os2web_spotbox_text']['element_default_classes'] = FALSE;
+  $handler->display->display_options['fields']['field_os2web_spotbox_text']['empty'] = '[title]';
+  $handler->display->display_options['fields']['field_os2web_spotbox_text']['hide_alter_empty'] = FALSE;
   /* Felt: Indhold: Egenavne / stednavne */
-  $handler->display->display_options['fields']['field_termref_sted']['id'] = 'field_termref_sted';
-  $handler->display->display_options['fields']['field_termref_sted']['table'] = 'field_data_field_termref_sted';
-  $handler->display->display_options['fields']['field_termref_sted']['field'] = 'field_termref_sted';
-  $handler->display->display_options['fields']['field_termref_sted']['exclude'] = TRUE;
-  $handler->display->display_options['fields']['field_termref_sted']['delta_offset'] = '0';
+  $handler->display->display_options['fields']['field_os2web_spotbox_ref_place']['id'] = 'field_os2web_spotbox_ref_place';
+  $handler->display->display_options['fields']['field_os2web_spotbox_ref_place']['table'] = 'field_data_field_os2web_spotbox_ref_place';
+  $handler->display->display_options['fields']['field_os2web_spotbox_ref_place']['field'] = 'field_os2web_spotbox_ref_place';
+  $handler->display->display_options['fields']['field_os2web_spotbox_ref_place']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_os2web_spotbox_ref_place']['delta_offset'] = '0';
   /* Felt: Indhold: Forfrem til */
-  $handler->display->display_options['fields']['field_promoteto']['id'] = 'field_promoteto';
-  $handler->display->display_options['fields']['field_promoteto']['table'] = 'field_data_field_promoteto';
-  $handler->display->display_options['fields']['field_promoteto']['field'] = 'field_promoteto';
-  $handler->display->display_options['fields']['field_promoteto']['exclude'] = TRUE;
-  $handler->display->display_options['fields']['field_promoteto']['delta_offset'] = '0';
+  $handler->display->display_options['fields']['field_os2web_spotbox_promote_to']['id'] = 'field_os2web_spotbox_promote_to';
+  $handler->display->display_options['fields']['field_os2web_spotbox_promote_to']['table'] = 'field_data_field_os2web_spotbox_promote_to';
+  $handler->display->display_options['fields']['field_os2web_spotbox_promote_to']['field'] = 'field_os2web_spotbox_promote_to';
+  $handler->display->display_options['fields']['field_os2web_spotbox_promote_to']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_os2web_spotbox_promote_to']['delta_offset'] = '0';
   /* Felt: Indhold: KL Emneord */
-  $handler->display->display_options['fields']['field_termref_kle']['id'] = 'field_termref_kle';
-  $handler->display->display_options['fields']['field_termref_kle']['table'] = 'field_data_field_termref_kle';
-  $handler->display->display_options['fields']['field_termref_kle']['field'] = 'field_termref_kle';
-  $handler->display->display_options['fields']['field_termref_kle']['exclude'] = TRUE;
-  $handler->display->display_options['fields']['field_termref_kle']['delta_offset'] = '0';
+  $handler->display->display_options['fields']['field_os2web_spotbox_ref_kle']['id'] = 'field_os2web_spotbox_ref_kle';
+  $handler->display->display_options['fields']['field_os2web_spotbox_ref_kle']['table'] = 'field_data_field_os2web_spotbox_ref_kle';
+  $handler->display->display_options['fields']['field_os2web_spotbox_ref_kle']['field'] = 'field_os2web_spotbox_ref_kle';
+  $handler->display->display_options['fields']['field_os2web_spotbox_ref_kle']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_os2web_spotbox_ref_kle']['delta_offset'] = '0';
   /* Felt: Indhold: Organisation */
-  $handler->display->display_options['fields']['field_organization']['id'] = 'field_organization';
-  $handler->display->display_options['fields']['field_organization']['table'] = 'field_data_field_organization';
-  $handler->display->display_options['fields']['field_organization']['field'] = 'field_organization';
-  $handler->display->display_options['fields']['field_organization']['exclude'] = TRUE;
-  $handler->display->display_options['fields']['field_organization']['delta_offset'] = '0';
+  $handler->display->display_options['fields']['field_os2web_spotbox_organizati']['id'] = 'field_os2web_spotbox_organizati';
+  $handler->display->display_options['fields']['field_os2web_spotbox_organizati']['table'] = 'field_data_field_os2web_spotbox_organizati';
+  $handler->display->display_options['fields']['field_os2web_spotbox_organizati']['field'] = 'field_os2web_spotbox_organizati';
+  $handler->display->display_options['fields']['field_os2web_spotbox_organizati']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_os2web_spotbox_organizati']['delta_offset'] = '0';
   /* Felt: Indhold: Politik */
-  $handler->display->display_options['fields']['field_politics']['id'] = 'field_politics';
-  $handler->display->display_options['fields']['field_politics']['table'] = 'field_data_field_politics';
-  $handler->display->display_options['fields']['field_politics']['field'] = 'field_politics';
-  $handler->display->display_options['fields']['field_politics']['exclude'] = TRUE;
-  $handler->display->display_options['fields']['field_politics']['delta_offset'] = '0';
+  $handler->display->display_options['fields']['field_os2web_spotbox_politics']['id'] = 'field_os2web_spotbox_politics';
+  $handler->display->display_options['fields']['field_os2web_spotbox_politics']['table'] = 'field_data_field_os2web_spotbox_politics';
+  $handler->display->display_options['fields']['field_os2web_spotbox_politics']['field'] = 'field_os2web_spotbox_politics';
+  $handler->display->display_options['fields']['field_os2web_spotbox_politics']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_os2web_spotbox_politics']['delta_offset'] = '0';
   /* Felt: Indhold: Portalkategori */
-  $handler->display->display_options['fields']['field_site_structure']['id'] = 'field_site_structure';
-  $handler->display->display_options['fields']['field_site_structure']['table'] = 'field_data_field_site_structure';
-  $handler->display->display_options['fields']['field_site_structure']['field'] = 'field_site_structure';
-  $handler->display->display_options['fields']['field_site_structure']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_os2web_spotbox_sitestruct']['id'] = 'field_os2web_spotbox_sitestruct';
+  $handler->display->display_options['fields']['field_os2web_spotbox_sitestruct']['table'] = 'field_data_field_os2web_spotbox_sitestruct';
+  $handler->display->display_options['fields']['field_os2web_spotbox_sitestruct']['field'] = 'field_os2web_spotbox_sitestruct';
+  $handler->display->display_options['fields']['field_os2web_spotbox_sitestruct']['exclude'] = TRUE;
   /* Felt: Indhold: Stikord */
-  $handler->display->display_options['fields']['field_editortags']['id'] = 'field_editortags';
-  $handler->display->display_options['fields']['field_editortags']['table'] = 'field_data_field_editortags';
-  $handler->display->display_options['fields']['field_editortags']['field'] = 'field_editortags';
-  $handler->display->display_options['fields']['field_editortags']['exclude'] = TRUE;
-  $handler->display->display_options['fields']['field_editortags']['delta_offset'] = '0';
+  $handler->display->display_options['fields']['field_os2web_spotbox_editor_tags']['id'] = 'field_os2web_spotbox_editor_tags';
+  $handler->display->display_options['fields']['field_os2web_spotbox_editor_tags']['table'] = 'field_data_field_os2web_spotbox_editor_tags';
+  $handler->display->display_options['fields']['field_os2web_spotbox_editor_tags']['field'] = 'field_os2web_spotbox_editor_tags';
+  $handler->display->display_options['fields']['field_os2web_spotbox_editor_tags']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_os2web_spotbox_editor_tags']['delta_offset'] = '0';
   /* Felt: Global: Kontekstuelle links */
   $handler->display->display_options['fields']['contextual_links']['id'] = 'contextual_links';
   $handler->display->display_options['fields']['contextual_links']['table'] = 'views';
@@ -1074,19 +1074,19 @@ function os2web_spotbox_views_default_views() {
   $handler->display->display_options['fields']['contextual_links']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['contextual_links']['fields'] = array(
     'edit_node' => 'edit_node',
-    'field_url' => 'field_url',
+    'field_os2web_spotbox_url' => 'field_os2web_spotbox_url',
     'title_1' => 'title_1',
     'body' => 'body',
-    'field_text' => 'field_text',
-    'field_lead_image' => 0,
+    'field_os2web_spotbox_text' => 'field_os2web_spotbox_text',
+    'field_os2web_spotbox_lead_image' => 0,
     'title' => 0,
-    'field_termref_sted' => 0,
-    'field_promoteto' => 0,
-    'field_termref_kle' => 0,
-    'field_organization' => 0,
-    'field_politics' => 0,
-    'field_site_structure' => 0,
-    'field_editortags' => 0,
+    'field_os2web_spotbox_ref_place' => 0,
+    'field_os2web_spotbox_promote_to' => 0,
+    'field_os2web_spotbox_ref_kle' => 0,
+    'field_os2web_spotbox_organizati' => 0,
+    'field_os2web_spotbox_politics' => 0,
+    'field_os2web_spotbox_sitestruct' => 0,
+    'field_os2web_spotbox_editor_tags' => 0,
   );
   $handler->display->display_options['defaults']['arguments'] = FALSE;
   /* Kontekstuelt filter: Indhold: Nid */
@@ -1101,7 +1101,7 @@ function os2web_spotbox_views_default_views() {
   $handler->display->display_options['arguments']['nid']['specify_validation'] = TRUE;
   $handler->display->display_options['arguments']['nid']['validate']['type'] = 'node';
   $handler->display->display_options['arguments']['nid']['validate_options']['types'] = array(
-    'spotbox' => 'spotbox',
+    'os2web_spotbox_box' => 'os2web_spotbox_box',
   );
   $handler->display->display_options['arguments']['nid']['validate_options']['nid_type'] = 'nids';
   $handler->display->display_options['arguments']['nid']['validate']['fail'] = 'ignore';
@@ -1120,23 +1120,23 @@ function os2web_spotbox_views_default_views() {
   $handler->display->display_options['filters']['type']['table'] = 'node';
   $handler->display->display_options['filters']['type']['field'] = 'type';
   $handler->display->display_options['filters']['type']['value'] = array(
-    'spotbox' => 'spotbox',
+    'os2web_spotbox_box' => 'os2web_spotbox_box',
   );
-  /* Filterkriterie: Indhold: Forfrem til (field_promoteto) */
-  $handler->display->display_options['filters']['field_promoteto_tid']['id'] = 'field_promoteto_tid';
-  $handler->display->display_options['filters']['field_promoteto_tid']['table'] = 'field_data_field_promoteto';
-  $handler->display->display_options['filters']['field_promoteto_tid']['field'] = 'field_promoteto_tid';
-  $handler->display->display_options['filters']['field_promoteto_tid']['value'] = array(
+  /* Filterkriterie: Indhold: Forfrem til (field_os2web_spotbox_promote_to) */
+  $handler->display->display_options['filters']['field_os2web_spotbox_promote_to_tid']['id'] = 'field_os2web_spotbox_promote_to_tid';
+  $handler->display->display_options['filters']['field_os2web_spotbox_promote_to_tid']['table'] = 'field_data_field_os2web_spotbox_promote_to';
+  $handler->display->display_options['filters']['field_os2web_spotbox_promote_to_tid']['field'] = 'field_os2web_spotbox_promote_to_tid';
+  $handler->display->display_options['filters']['field_os2web_spotbox_promote_to_tid']['value'] = array(
     12264 => '12264',
   );
-  $handler->display->display_options['filters']['field_promoteto_tid']['type'] = 'select';
-  $handler->display->display_options['filters']['field_promoteto_tid']['vocabulary'] = 'forfrem_til';
-  $handler->display->display_options['filters']['field_promoteto_tid']['hierarchy'] = 1;
-  /* Filterkriterie: Indhold: Video (field_spotbox_video:fid) */
-  $handler->display->display_options['filters']['field_spotbox_video_fid']['id'] = 'field_spotbox_video_fid';
-  $handler->display->display_options['filters']['field_spotbox_video_fid']['table'] = 'field_data_field_spotbox_video';
-  $handler->display->display_options['filters']['field_spotbox_video_fid']['field'] = 'field_spotbox_video_fid';
-  $handler->display->display_options['filters']['field_spotbox_video_fid']['operator'] = 'empty';
+  $handler->display->display_options['filters']['field_os2web_spotbox_promote_to_tid']['type'] = 'select';
+  $handler->display->display_options['filters']['field_os2web_spotbox_promote_to_tid']['vocabulary'] = 'forfrem_til';
+  $handler->display->display_options['filters']['field_os2web_spotbox_promote_to_tid']['hierarchy'] = 1;
+  /* Filterkriterie: Indhold: Video (field_os2web_spotbox_video:fid) */
+  $handler->display->display_options['filters']['field_os2web_spotbox_video_fid']['id'] = 'field_os2web_spotbox_video_fid';
+  $handler->display->display_options['filters']['field_os2web_spotbox_video_fid']['table'] = 'field_data_field_os2web_spotbox_video';
+  $handler->display->display_options['filters']['field_os2web_spotbox_video_fid']['field'] = 'field_os2web_spotbox_video_fid';
+  $handler->display->display_options['filters']['field_os2web_spotbox_video_fid']['operator'] = 'empty';
   $handler->display->display_options['allow']['use_pager'] = 0;
   $handler->display->display_options['allow']['items_per_page'] = 0;
   $handler->display->display_options['allow']['offset'] = 'offset';
@@ -1161,7 +1161,7 @@ function os2web_spotbox_views_default_views() {
   $handler = $view->new_display('panel_pane', 'Spotboxe / forside - Høj', 'panel_pane_4');
   $handler->display->display_options['defaults']['title'] = FALSE;
   $handler->display->display_options['defaults']['css_class'] = FALSE;
-  $handler->display->display_options['css_class'] = 'spotbox spotbox-tall';
+  $handler->display->display_options['css_class'] = 'spotbox os2web_spotbox_image_tall';
   $handler->display->display_options['defaults']['hide_admin_links'] = FALSE;
   $handler->display->display_options['defaults']['pager'] = FALSE;
   $handler->display->display_options['pager']['type'] = 'some';
@@ -1186,12 +1186,12 @@ function os2web_spotbox_views_default_views() {
   $handler->display->display_options['fields']['edit_node']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['edit_node']['element_default_classes'] = FALSE;
   /* Felt: Indhold: Hjemmeside */
-  $handler->display->display_options['fields']['field_url']['id'] = 'field_url';
-  $handler->display->display_options['fields']['field_url']['table'] = 'field_data_field_url';
-  $handler->display->display_options['fields']['field_url']['field'] = 'field_url';
-  $handler->display->display_options['fields']['field_url']['label'] = '';
-  $handler->display->display_options['fields']['field_url']['exclude'] = TRUE;
-  $handler->display->display_options['fields']['field_url']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_os2web_spotbox_url']['id'] = 'field_os2web_spotbox_url';
+  $handler->display->display_options['fields']['field_os2web_spotbox_url']['table'] = 'field_data_field_os2web_spotbox_url';
+  $handler->display->display_options['fields']['field_os2web_spotbox_url']['field'] = 'field_os2web_spotbox_url';
+  $handler->display->display_options['fields']['field_os2web_spotbox_url']['label'] = '';
+  $handler->display->display_options['fields']['field_os2web_spotbox_url']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_os2web_spotbox_url']['element_label_colon'] = FALSE;
   /* Felt: Indhold: Indhold */
   $handler->display->display_options['fields']['body']['id'] = 'body';
   $handler->display->display_options['fields']['body']['table'] = 'field_data_body';
@@ -1199,7 +1199,7 @@ function os2web_spotbox_views_default_views() {
   $handler->display->display_options['fields']['body']['label'] = '';
   $handler->display->display_options['fields']['body']['exclude'] = TRUE;
   $handler->display->display_options['fields']['body']['element_type'] = 'div';
-  $handler->display->display_options['fields']['body']['element_class'] = 'spotbox-tall-body';
+  $handler->display->display_options['fields']['body']['element_class'] = 'os2web_spotbox_image_tall-body';
   $handler->display->display_options['fields']['body']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['body']['element_default_classes'] = FALSE;
   /* Felt: Indhold: Titel */
@@ -1215,45 +1215,45 @@ function os2web_spotbox_views_default_views() {
   $handler->display->display_options['fields']['title_1']['element_default_classes'] = FALSE;
   $handler->display->display_options['fields']['title_1']['link_to_node'] = FALSE;
   /* Felt: Indhold: Højt billede */
-  $handler->display->display_options['fields']['field_spotbox_image_tall']['id'] = 'field_spotbox_image_tall';
-  $handler->display->display_options['fields']['field_spotbox_image_tall']['table'] = 'field_data_field_spotbox_image_tall';
-  $handler->display->display_options['fields']['field_spotbox_image_tall']['field'] = 'field_spotbox_image_tall';
-  $handler->display->display_options['fields']['field_spotbox_image_tall']['label'] = '';
-  $handler->display->display_options['fields']['field_spotbox_image_tall']['alter']['alter_text'] = TRUE;
-  $handler->display->display_options['fields']['field_spotbox_image_tall']['alter']['text'] = '<a href=[field_url] title=[title_1]><img src="[field_spotbox_image_tall]" alt="[title_1]" />
+  $handler->display->display_options['fields']['field_os2web_spotbox_image_tall']['id'] = 'field_os2web_spotbox_image_tall';
+  $handler->display->display_options['fields']['field_os2web_spotbox_image_tall']['table'] = 'field_data_field_os2web_spotbox_image_tall';
+  $handler->display->display_options['fields']['field_os2web_spotbox_image_tall']['field'] = 'field_os2web_spotbox_image_tall';
+  $handler->display->display_options['fields']['field_os2web_spotbox_image_tall']['label'] = '';
+  $handler->display->display_options['fields']['field_os2web_spotbox_image_tall']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['field_os2web_spotbox_image_tall']['alter']['text'] = '<a href=[field_os2web_spotbox_url] title=[title_1]><img src="[field_os2web_spotbox_image_tall]" alt="[title_1]" />
 <span class="zoom-icon-tall"></span></a>';
-  $handler->display->display_options['fields']['field_spotbox_image_tall']['alter']['link_class'] = 'overlayclass';
-  $handler->display->display_options['fields']['field_spotbox_image_tall']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['field_spotbox_image_tall']['empty'] = '[body]';
-  $handler->display->display_options['fields']['field_spotbox_image_tall']['hide_alter_empty'] = FALSE;
-  $handler->display->display_options['fields']['field_spotbox_image_tall']['click_sort_column'] = 'fid';
-  $handler->display->display_options['fields']['field_spotbox_image_tall']['type'] = 'image_url';
-  $handler->display->display_options['fields']['field_spotbox_image_tall']['settings'] = array(
-    'image_style' => 'spotbox-tall',
+  $handler->display->display_options['fields']['field_os2web_spotbox_image_tall']['alter']['link_class'] = 'overlayclass';
+  $handler->display->display_options['fields']['field_os2web_spotbox_image_tall']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_os2web_spotbox_image_tall']['empty'] = '[body]';
+  $handler->display->display_options['fields']['field_os2web_spotbox_image_tall']['hide_alter_empty'] = FALSE;
+  $handler->display->display_options['fields']['field_os2web_spotbox_image_tall']['click_sort_column'] = 'fid';
+  $handler->display->display_options['fields']['field_os2web_spotbox_image_tall']['type'] = 'image_url';
+  $handler->display->display_options['fields']['field_os2web_spotbox_image_tall']['settings'] = array(
+    'image_style' => 'os2web_spotbox_image_tall',
     'image_link' => '',
   );
   /* Felt: Indhold: Primære billede */
-  $handler->display->display_options['fields']['field_lead_image']['id'] = 'field_lead_image';
-  $handler->display->display_options['fields']['field_lead_image']['table'] = 'field_data_field_lead_image';
-  $handler->display->display_options['fields']['field_lead_image']['field'] = 'field_lead_image';
-  $handler->display->display_options['fields']['field_lead_image']['label'] = '';
-  $handler->display->display_options['fields']['field_lead_image']['exclude'] = TRUE;
-  $handler->display->display_options['fields']['field_lead_image']['alter']['alter_text'] = TRUE;
-  $handler->display->display_options['fields']['field_lead_image']['alter']['text'] = '<a href=[field_url] title=[title_1]><img src="[field_lead_image]" alt="[title_1]" /></a>';
-  $handler->display->display_options['fields']['field_lead_image']['alter']['path'] = '[field_url]';
-  $handler->display->display_options['fields']['field_lead_image']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['field_lead_image']['element_default_classes'] = FALSE;
-  $handler->display->display_options['fields']['field_lead_image']['click_sort_column'] = 'fid';
-  $handler->display->display_options['fields']['field_lead_image']['type'] = 'image_url';
-  $handler->display->display_options['fields']['field_lead_image']['settings'] = array(
-    'image_style' => 'spotbox_right',
+  $handler->display->display_options['fields']['field_os2web_spotbox_lead_image']['id'] = 'field_os2web_spotbox_lead_image';
+  $handler->display->display_options['fields']['field_os2web_spotbox_lead_image']['table'] = 'field_data_field_os2web_spotbox_lead_image';
+  $handler->display->display_options['fields']['field_os2web_spotbox_lead_image']['field'] = 'field_os2web_spotbox_lead_image';
+  $handler->display->display_options['fields']['field_os2web_spotbox_lead_image']['label'] = '';
+  $handler->display->display_options['fields']['field_os2web_spotbox_lead_image']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_os2web_spotbox_lead_image']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['field_os2web_spotbox_lead_image']['alter']['text'] = '<a href=[field_os2web_spotbox_url] title=[title_1]><img src="[field_os2web_spotbox_lead_image]" alt="[title_1]" /></a>';
+  $handler->display->display_options['fields']['field_os2web_spotbox_lead_image']['alter']['path'] = '[field_os2web_spotbox_url]';
+  $handler->display->display_options['fields']['field_os2web_spotbox_lead_image']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_os2web_spotbox_lead_image']['element_default_classes'] = FALSE;
+  $handler->display->display_options['fields']['field_os2web_spotbox_lead_image']['click_sort_column'] = 'fid';
+  $handler->display->display_options['fields']['field_os2web_spotbox_lead_image']['type'] = 'image_url';
+  $handler->display->display_options['fields']['field_os2web_spotbox_lead_image']['settings'] = array(
+    'image_style' => 'os2web_spotbox_image_right',
     'image_link' => '',
   );
-  $handler->display->display_options['fields']['field_lead_image']['delta_limit'] = '1';
-  $handler->display->display_options['fields']['field_lead_image']['delta_offset'] = '0';
-  /* Felt: Indhold: Primære billede (field_lead_image:delta) */
+  $handler->display->display_options['fields']['field_os2web_spotbox_lead_image']['delta_limit'] = '1';
+  $handler->display->display_options['fields']['field_os2web_spotbox_lead_image']['delta_offset'] = '0';
+  /* Felt: Indhold: Primære billede (field_os2web_spotbox_lead_image:delta) */
   $handler->display->display_options['fields']['delta']['id'] = 'delta';
-  $handler->display->display_options['fields']['delta']['table'] = 'field_data_field_lead_image';
+  $handler->display->display_options['fields']['delta']['table'] = 'field_data_field_os2web_spotbox_lead_image';
   $handler->display->display_options['fields']['delta']['field'] = 'delta';
   $handler->display->display_options['fields']['delta']['label'] = '';
   $handler->display->display_options['fields']['delta']['exclude'] = TRUE;
@@ -1265,8 +1265,8 @@ function os2web_spotbox_views_default_views() {
   $handler->display->display_options['fields']['title']['label'] = '';
   $handler->display->display_options['fields']['title']['exclude'] = TRUE;
   $handler->display->display_options['fields']['title']['alter']['alter_text'] = TRUE;
-  $handler->display->display_options['fields']['title']['alter']['text'] = '<a href=[field_url] title=[title_1]>[title]</a>';
-  $handler->display->display_options['fields']['title']['alter']['path'] = '[field_url]';
+  $handler->display->display_options['fields']['title']['alter']['text'] = '<a href=[field_os2web_spotbox_url] title=[title_1]>[title]</a>';
+  $handler->display->display_options['fields']['title']['alter']['path'] = '[field_os2web_spotbox_url]';
   $handler->display->display_options['fields']['title']['alter']['max_length'] = '25';
   $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['title']['alter']['strip_tags'] = TRUE;
@@ -1276,62 +1276,62 @@ function os2web_spotbox_views_default_views() {
   $handler->display->display_options['fields']['title']['element_default_classes'] = FALSE;
   $handler->display->display_options['fields']['title']['link_to_node'] = FALSE;
   /* Felt: Indhold: Intro */
-  $handler->display->display_options['fields']['field_text']['id'] = 'field_text';
-  $handler->display->display_options['fields']['field_text']['table'] = 'field_data_field_text';
-  $handler->display->display_options['fields']['field_text']['field'] = 'field_text';
-  $handler->display->display_options['fields']['field_text']['label'] = '';
-  $handler->display->display_options['fields']['field_text']['alter']['alter_text'] = TRUE;
-  $handler->display->display_options['fields']['field_text']['alter']['text'] = '<a href=[field_url] title=[field_text]>[field_text]</a>';
-  $handler->display->display_options['fields']['field_text']['alter']['path'] = '[field_url]';
-  $handler->display->display_options['fields']['field_text']['alter']['max_length'] = '100';
-  $handler->display->display_options['fields']['field_text']['alter']['trim'] = TRUE;
-  $handler->display->display_options['fields']['field_text']['alter']['html'] = TRUE;
-  $handler->display->display_options['fields']['field_text']['element_type'] = 'h3';
-  $handler->display->display_options['fields']['field_text']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['field_text']['element_default_classes'] = FALSE;
-  $handler->display->display_options['fields']['field_text']['empty'] = '[title]';
-  $handler->display->display_options['fields']['field_text']['hide_alter_empty'] = FALSE;
+  $handler->display->display_options['fields']['field_os2web_spotbox_text']['id'] = 'field_os2web_spotbox_text';
+  $handler->display->display_options['fields']['field_os2web_spotbox_text']['table'] = 'field_data_field_os2web_spotbox_text';
+  $handler->display->display_options['fields']['field_os2web_spotbox_text']['field'] = 'field_os2web_spotbox_text';
+  $handler->display->display_options['fields']['field_os2web_spotbox_text']['label'] = '';
+  $handler->display->display_options['fields']['field_os2web_spotbox_text']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['field_os2web_spotbox_text']['alter']['text'] = '<a href=[field_os2web_spotbox_url] title=[field_os2web_spotbox_text]>[field_os2web_spotbox_text]</a>';
+  $handler->display->display_options['fields']['field_os2web_spotbox_text']['alter']['path'] = '[field_os2web_spotbox_url]';
+  $handler->display->display_options['fields']['field_os2web_spotbox_text']['alter']['max_length'] = '100';
+  $handler->display->display_options['fields']['field_os2web_spotbox_text']['alter']['trim'] = TRUE;
+  $handler->display->display_options['fields']['field_os2web_spotbox_text']['alter']['html'] = TRUE;
+  $handler->display->display_options['fields']['field_os2web_spotbox_text']['element_type'] = 'h3';
+  $handler->display->display_options['fields']['field_os2web_spotbox_text']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_os2web_spotbox_text']['element_default_classes'] = FALSE;
+  $handler->display->display_options['fields']['field_os2web_spotbox_text']['empty'] = '[title]';
+  $handler->display->display_options['fields']['field_os2web_spotbox_text']['hide_alter_empty'] = FALSE;
   /* Felt: Indhold: Egenavne / stednavne */
-  $handler->display->display_options['fields']['field_termref_sted']['id'] = 'field_termref_sted';
-  $handler->display->display_options['fields']['field_termref_sted']['table'] = 'field_data_field_termref_sted';
-  $handler->display->display_options['fields']['field_termref_sted']['field'] = 'field_termref_sted';
-  $handler->display->display_options['fields']['field_termref_sted']['exclude'] = TRUE;
-  $handler->display->display_options['fields']['field_termref_sted']['delta_offset'] = '0';
+  $handler->display->display_options['fields']['field_os2web_spotbox_ref_place']['id'] = 'field_os2web_spotbox_ref_place';
+  $handler->display->display_options['fields']['field_os2web_spotbox_ref_place']['table'] = 'field_data_field_os2web_spotbox_ref_place';
+  $handler->display->display_options['fields']['field_os2web_spotbox_ref_place']['field'] = 'field_os2web_spotbox_ref_place';
+  $handler->display->display_options['fields']['field_os2web_spotbox_ref_place']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_os2web_spotbox_ref_place']['delta_offset'] = '0';
   /* Felt: Indhold: Forfrem til */
-  $handler->display->display_options['fields']['field_promoteto']['id'] = 'field_promoteto';
-  $handler->display->display_options['fields']['field_promoteto']['table'] = 'field_data_field_promoteto';
-  $handler->display->display_options['fields']['field_promoteto']['field'] = 'field_promoteto';
-  $handler->display->display_options['fields']['field_promoteto']['exclude'] = TRUE;
-  $handler->display->display_options['fields']['field_promoteto']['delta_offset'] = '0';
+  $handler->display->display_options['fields']['field_os2web_spotbox_promote_to']['id'] = 'field_os2web_spotbox_promote_to';
+  $handler->display->display_options['fields']['field_os2web_spotbox_promote_to']['table'] = 'field_data_field_os2web_spotbox_promote_to';
+  $handler->display->display_options['fields']['field_os2web_spotbox_promote_to']['field'] = 'field_os2web_spotbox_promote_to';
+  $handler->display->display_options['fields']['field_os2web_spotbox_promote_to']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_os2web_spotbox_promote_to']['delta_offset'] = '0';
   /* Felt: Indhold: KL Emneord */
-  $handler->display->display_options['fields']['field_termref_kle']['id'] = 'field_termref_kle';
-  $handler->display->display_options['fields']['field_termref_kle']['table'] = 'field_data_field_termref_kle';
-  $handler->display->display_options['fields']['field_termref_kle']['field'] = 'field_termref_kle';
-  $handler->display->display_options['fields']['field_termref_kle']['exclude'] = TRUE;
-  $handler->display->display_options['fields']['field_termref_kle']['delta_offset'] = '0';
+  $handler->display->display_options['fields']['field_os2web_spotbox_ref_kle']['id'] = 'field_os2web_spotbox_ref_kle';
+  $handler->display->display_options['fields']['field_os2web_spotbox_ref_kle']['table'] = 'field_data_field_os2web_spotbox_ref_kle';
+  $handler->display->display_options['fields']['field_os2web_spotbox_ref_kle']['field'] = 'field_os2web_spotbox_ref_kle';
+  $handler->display->display_options['fields']['field_os2web_spotbox_ref_kle']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_os2web_spotbox_ref_kle']['delta_offset'] = '0';
   /* Felt: Indhold: Organisation */
-  $handler->display->display_options['fields']['field_organization']['id'] = 'field_organization';
-  $handler->display->display_options['fields']['field_organization']['table'] = 'field_data_field_organization';
-  $handler->display->display_options['fields']['field_organization']['field'] = 'field_organization';
-  $handler->display->display_options['fields']['field_organization']['exclude'] = TRUE;
-  $handler->display->display_options['fields']['field_organization']['delta_offset'] = '0';
+  $handler->display->display_options['fields']['field_os2web_spotbox_organizati']['id'] = 'field_os2web_spotbox_organizati';
+  $handler->display->display_options['fields']['field_os2web_spotbox_organizati']['table'] = 'field_data_field_os2web_spotbox_organizati';
+  $handler->display->display_options['fields']['field_os2web_spotbox_organizati']['field'] = 'field_os2web_spotbox_organizati';
+  $handler->display->display_options['fields']['field_os2web_spotbox_organizati']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_os2web_spotbox_organizati']['delta_offset'] = '0';
   /* Felt: Indhold: Politik */
-  $handler->display->display_options['fields']['field_politics']['id'] = 'field_politics';
-  $handler->display->display_options['fields']['field_politics']['table'] = 'field_data_field_politics';
-  $handler->display->display_options['fields']['field_politics']['field'] = 'field_politics';
-  $handler->display->display_options['fields']['field_politics']['exclude'] = TRUE;
-  $handler->display->display_options['fields']['field_politics']['delta_offset'] = '0';
+  $handler->display->display_options['fields']['field_os2web_spotbox_politics']['id'] = 'field_os2web_spotbox_politics';
+  $handler->display->display_options['fields']['field_os2web_spotbox_politics']['table'] = 'field_data_field_os2web_spotbox_politics';
+  $handler->display->display_options['fields']['field_os2web_spotbox_politics']['field'] = 'field_os2web_spotbox_politics';
+  $handler->display->display_options['fields']['field_os2web_spotbox_politics']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_os2web_spotbox_politics']['delta_offset'] = '0';
   /* Felt: Indhold: Portalkategori */
-  $handler->display->display_options['fields']['field_site_structure']['id'] = 'field_site_structure';
-  $handler->display->display_options['fields']['field_site_structure']['table'] = 'field_data_field_site_structure';
-  $handler->display->display_options['fields']['field_site_structure']['field'] = 'field_site_structure';
-  $handler->display->display_options['fields']['field_site_structure']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_os2web_spotbox_sitestruct']['id'] = 'field_os2web_spotbox_sitestruct';
+  $handler->display->display_options['fields']['field_os2web_spotbox_sitestruct']['table'] = 'field_data_field_os2web_spotbox_sitestruct';
+  $handler->display->display_options['fields']['field_os2web_spotbox_sitestruct']['field'] = 'field_os2web_spotbox_sitestruct';
+  $handler->display->display_options['fields']['field_os2web_spotbox_sitestruct']['exclude'] = TRUE;
   /* Felt: Indhold: Stikord */
-  $handler->display->display_options['fields']['field_editortags']['id'] = 'field_editortags';
-  $handler->display->display_options['fields']['field_editortags']['table'] = 'field_data_field_editortags';
-  $handler->display->display_options['fields']['field_editortags']['field'] = 'field_editortags';
-  $handler->display->display_options['fields']['field_editortags']['exclude'] = TRUE;
-  $handler->display->display_options['fields']['field_editortags']['delta_offset'] = '0';
+  $handler->display->display_options['fields']['field_os2web_spotbox_editor_tags']['id'] = 'field_os2web_spotbox_editor_tags';
+  $handler->display->display_options['fields']['field_os2web_spotbox_editor_tags']['table'] = 'field_data_field_os2web_spotbox_editor_tags';
+  $handler->display->display_options['fields']['field_os2web_spotbox_editor_tags']['field'] = 'field_os2web_spotbox_editor_tags';
+  $handler->display->display_options['fields']['field_os2web_spotbox_editor_tags']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_os2web_spotbox_editor_tags']['delta_offset'] = '0';
   $handler->display->display_options['defaults']['arguments'] = FALSE;
   /* Kontekstuelt filter: Indhold: Nid */
   $handler->display->display_options['arguments']['nid']['id'] = 'nid';
@@ -1345,7 +1345,7 @@ function os2web_spotbox_views_default_views() {
   $handler->display->display_options['arguments']['nid']['specify_validation'] = TRUE;
   $handler->display->display_options['arguments']['nid']['validate']['type'] = 'node';
   $handler->display->display_options['arguments']['nid']['validate_options']['types'] = array(
-    'spotbox' => 'spotbox',
+    'os2web_spotbox_box' => 'os2web_spotbox_box',
   );
   $handler->display->display_options['arguments']['nid']['validate_options']['nid_type'] = 'nids';
   $handler->display->display_options['arguments']['nid']['validate']['fail'] = 'ignore';
@@ -1364,28 +1364,28 @@ function os2web_spotbox_views_default_views() {
   $handler->display->display_options['filters']['type']['table'] = 'node';
   $handler->display->display_options['filters']['type']['field'] = 'type';
   $handler->display->display_options['filters']['type']['value'] = array(
-    'spotbox' => 'spotbox',
+    'os2web_spotbox_box' => 'os2web_spotbox_box',
   );
-  /* Filterkriterie: Indhold: Forfrem til (field_promoteto) */
-  $handler->display->display_options['filters']['field_promoteto_tid']['id'] = 'field_promoteto_tid';
-  $handler->display->display_options['filters']['field_promoteto_tid']['table'] = 'field_data_field_promoteto';
-  $handler->display->display_options['filters']['field_promoteto_tid']['field'] = 'field_promoteto_tid';
-  $handler->display->display_options['filters']['field_promoteto_tid']['value'] = array(
+  /* Filterkriterie: Indhold: Forfrem til (field_os2web_spotbox_promote_to) */
+  $handler->display->display_options['filters']['field_os2web_spotbox_promote_to_tid']['id'] = 'field_os2web_spotbox_promote_to_tid';
+  $handler->display->display_options['filters']['field_os2web_spotbox_promote_to_tid']['table'] = 'field_data_field_os2web_spotbox_promote_to';
+  $handler->display->display_options['filters']['field_os2web_spotbox_promote_to_tid']['field'] = 'field_os2web_spotbox_promote_to_tid';
+  $handler->display->display_options['filters']['field_os2web_spotbox_promote_to_tid']['value'] = array(
     12264 => '12264',
   );
-  $handler->display->display_options['filters']['field_promoteto_tid']['type'] = 'select';
-  $handler->display->display_options['filters']['field_promoteto_tid']['vocabulary'] = 'forfrem_til';
-  $handler->display->display_options['filters']['field_promoteto_tid']['hierarchy'] = 1;
-  /* Filterkriterie: Indhold: Højt billede (field_spotbox_image_tall:fid) */
-  $handler->display->display_options['filters']['field_spotbox_image_tall_fid']['id'] = 'field_spotbox_image_tall_fid';
-  $handler->display->display_options['filters']['field_spotbox_image_tall_fid']['table'] = 'field_data_field_spotbox_image_tall';
-  $handler->display->display_options['filters']['field_spotbox_image_tall_fid']['field'] = 'field_spotbox_image_tall_fid';
-  $handler->display->display_options['filters']['field_spotbox_image_tall_fid']['operator'] = 'not empty';
-  /* Filterkriterie: Indhold: Video (field_spotbox_video:fid) */
-  $handler->display->display_options['filters']['field_spotbox_video_fid']['id'] = 'field_spotbox_video_fid';
-  $handler->display->display_options['filters']['field_spotbox_video_fid']['table'] = 'field_data_field_spotbox_video';
-  $handler->display->display_options['filters']['field_spotbox_video_fid']['field'] = 'field_spotbox_video_fid';
-  $handler->display->display_options['filters']['field_spotbox_video_fid']['operator'] = 'empty';
+  $handler->display->display_options['filters']['field_os2web_spotbox_promote_to_tid']['type'] = 'select';
+  $handler->display->display_options['filters']['field_os2web_spotbox_promote_to_tid']['vocabulary'] = 'forfrem_til';
+  $handler->display->display_options['filters']['field_os2web_spotbox_promote_to_tid']['hierarchy'] = 1;
+  /* Filterkriterie: Indhold: Højt billede (field_os2web_spotbox_image_tall:fid) */
+  $handler->display->display_options['filters']['field_os2web_spotbox_image_tall_fid']['id'] = 'field_os2web_spotbox_image_tall_fid';
+  $handler->display->display_options['filters']['field_os2web_spotbox_image_tall_fid']['table'] = 'field_data_field_os2web_spotbox_image_tall';
+  $handler->display->display_options['filters']['field_os2web_spotbox_image_tall_fid']['field'] = 'field_os2web_spotbox_image_tall_fid';
+  $handler->display->display_options['filters']['field_os2web_spotbox_image_tall_fid']['operator'] = 'not empty';
+  /* Filterkriterie: Indhold: Video (field_os2web_spotbox_video:fid) */
+  $handler->display->display_options['filters']['field_os2web_spotbox_video_fid']['id'] = 'field_os2web_spotbox_video_fid';
+  $handler->display->display_options['filters']['field_os2web_spotbox_video_fid']['table'] = 'field_data_field_os2web_spotbox_video';
+  $handler->display->display_options['filters']['field_os2web_spotbox_video_fid']['field'] = 'field_os2web_spotbox_video_fid';
+  $handler->display->display_options['filters']['field_os2web_spotbox_video_fid']['operator'] = 'empty';
   $handler->display->display_options['allow']['use_pager'] = 0;
   $handler->display->display_options['allow']['items_per_page'] = 0;
   $handler->display->display_options['allow']['offset'] = 0;
@@ -1436,12 +1436,12 @@ function os2web_spotbox_views_default_views() {
   $handler->display->display_options['fields']['edit_node']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['edit_node']['element_default_classes'] = FALSE;
   /* Felt: Indhold: Hjemmeside */
-  $handler->display->display_options['fields']['field_url']['id'] = 'field_url';
-  $handler->display->display_options['fields']['field_url']['table'] = 'field_data_field_url';
-  $handler->display->display_options['fields']['field_url']['field'] = 'field_url';
-  $handler->display->display_options['fields']['field_url']['label'] = '';
-  $handler->display->display_options['fields']['field_url']['exclude'] = TRUE;
-  $handler->display->display_options['fields']['field_url']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_os2web_spotbox_url']['id'] = 'field_os2web_spotbox_url';
+  $handler->display->display_options['fields']['field_os2web_spotbox_url']['table'] = 'field_data_field_os2web_spotbox_url';
+  $handler->display->display_options['fields']['field_os2web_spotbox_url']['field'] = 'field_os2web_spotbox_url';
+  $handler->display->display_options['fields']['field_os2web_spotbox_url']['label'] = '';
+  $handler->display->display_options['fields']['field_os2web_spotbox_url']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_os2web_spotbox_url']['element_label_colon'] = FALSE;
   /* Felt: Indhold: Indhold */
   $handler->display->display_options['fields']['body_1']['id'] = 'body_1';
   $handler->display->display_options['fields']['body_1']['table'] = 'field_data_body';
@@ -1454,16 +1454,16 @@ function os2web_spotbox_views_default_views() {
   $handler->display->display_options['fields']['body_1']['alter']['trim'] = TRUE;
   $handler->display->display_options['fields']['body_1']['element_label_colon'] = FALSE;
   /* Felt: Indhold: Intro */
-  $handler->display->display_options['fields']['field_text']['id'] = 'field_text';
-  $handler->display->display_options['fields']['field_text']['table'] = 'field_data_field_text';
-  $handler->display->display_options['fields']['field_text']['field'] = 'field_text';
-  $handler->display->display_options['fields']['field_text']['label'] = '';
-  $handler->display->display_options['fields']['field_text']['exclude'] = TRUE;
-  $handler->display->display_options['fields']['field_text']['alter']['max_length'] = '100';
-  $handler->display->display_options['fields']['field_text']['alter']['trim'] = TRUE;
-  $handler->display->display_options['fields']['field_text']['element_type'] = 'h4';
-  $handler->display->display_options['fields']['field_text']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['field_text']['element_default_classes'] = FALSE;
+  $handler->display->display_options['fields']['field_os2web_spotbox_text']['id'] = 'field_os2web_spotbox_text';
+  $handler->display->display_options['fields']['field_os2web_spotbox_text']['table'] = 'field_data_field_os2web_spotbox_text';
+  $handler->display->display_options['fields']['field_os2web_spotbox_text']['field'] = 'field_os2web_spotbox_text';
+  $handler->display->display_options['fields']['field_os2web_spotbox_text']['label'] = '';
+  $handler->display->display_options['fields']['field_os2web_spotbox_text']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_os2web_spotbox_text']['alter']['max_length'] = '100';
+  $handler->display->display_options['fields']['field_os2web_spotbox_text']['alter']['trim'] = TRUE;
+  $handler->display->display_options['fields']['field_os2web_spotbox_text']['element_type'] = 'h4';
+  $handler->display->display_options['fields']['field_os2web_spotbox_text']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_os2web_spotbox_text']['element_default_classes'] = FALSE;
   /* Felt: Indhold: Titel */
   $handler->display->display_options['fields']['title_1']['id'] = 'title_1';
   $handler->display->display_options['fields']['title_1']['table'] = 'node';
@@ -1481,47 +1481,47 @@ function os2web_spotbox_views_default_views() {
   $handler->display->display_options['fields']['title']['field'] = 'title';
   $handler->display->display_options['fields']['title']['label'] = '';
   $handler->display->display_options['fields']['title']['alter']['alter_text'] = TRUE;
-  $handler->display->display_options['fields']['title']['alter']['text'] = '<div class="video-text"><a href=[field_url] title=[title_1]>[body_1]</a>
-<h4><a href=[field_url] title=[title_1]>[field_text]</a></h4></div>';
-  $handler->display->display_options['fields']['title']['alter']['path'] = '[field_url]';
+  $handler->display->display_options['fields']['title']['alter']['text'] = '<div class="video-text"><a href=[field_os2web_spotbox_url] title=[title_1]>[body_1]</a>
+<h4><a href=[field_os2web_spotbox_url] title=[title_1]>[field_os2web_spotbox_text]</a></h4></div>';
+  $handler->display->display_options['fields']['title']['alter']['path'] = '[field_os2web_spotbox_url]';
   $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
   $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['title']['element_default_classes'] = FALSE;
   $handler->display->display_options['fields']['title']['link_to_node'] = FALSE;
   /* Felt: Indhold: Video */
-  $handler->display->display_options['fields']['field_spotbox_video']['id'] = 'field_spotbox_video';
-  $handler->display->display_options['fields']['field_spotbox_video']['table'] = 'field_data_field_spotbox_video';
-  $handler->display->display_options['fields']['field_spotbox_video']['field'] = 'field_spotbox_video';
-  $handler->display->display_options['fields']['field_spotbox_video']['label'] = '';
-  $handler->display->display_options['fields']['field_spotbox_video']['exclude'] = TRUE;
-  $handler->display->display_options['fields']['field_spotbox_video']['alter']['text'] = '<img src="[field_lead_image]" alt="[title_1]" />
+  $handler->display->display_options['fields']['field_os2web_spotbox_video']['id'] = 'field_os2web_spotbox_video';
+  $handler->display->display_options['fields']['field_os2web_spotbox_video']['table'] = 'field_data_field_os2web_spotbox_video';
+  $handler->display->display_options['fields']['field_os2web_spotbox_video']['field'] = 'field_os2web_spotbox_video';
+  $handler->display->display_options['fields']['field_os2web_spotbox_video']['label'] = '';
+  $handler->display->display_options['fields']['field_os2web_spotbox_video']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_os2web_spotbox_video']['alter']['text'] = '<img src="[field_os2web_spotbox_lead_image]" alt="[title_1]" />
 <span class="zoom-icon-video"></span>';
-  $handler->display->display_options['fields']['field_spotbox_video']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['field_spotbox_video']['click_sort_column'] = 'fid';
-  $handler->display->display_options['fields']['field_spotbox_video']['type'] = 'file_rendered';
-  $handler->display->display_options['fields']['field_spotbox_video']['settings'] = array(
+  $handler->display->display_options['fields']['field_os2web_spotbox_video']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_os2web_spotbox_video']['click_sort_column'] = 'fid';
+  $handler->display->display_options['fields']['field_os2web_spotbox_video']['type'] = 'file_rendered';
+  $handler->display->display_options['fields']['field_os2web_spotbox_video']['settings'] = array(
     'file_view_mode' => 'default',
   );
   /* Felt: Indhold: Primære billede */
-  $handler->display->display_options['fields']['field_lead_image']['id'] = 'field_lead_image';
-  $handler->display->display_options['fields']['field_lead_image']['table'] = 'field_data_field_lead_image';
-  $handler->display->display_options['fields']['field_lead_image']['field'] = 'field_lead_image';
-  $handler->display->display_options['fields']['field_lead_image']['label'] = '';
-  $handler->display->display_options['fields']['field_lead_image']['alter']['text'] = '<img src="[field_lead_image]" alt="[title_1]" />
+  $handler->display->display_options['fields']['field_os2web_spotbox_lead_image']['id'] = 'field_os2web_spotbox_lead_image';
+  $handler->display->display_options['fields']['field_os2web_spotbox_lead_image']['table'] = 'field_data_field_os2web_spotbox_lead_image';
+  $handler->display->display_options['fields']['field_os2web_spotbox_lead_image']['field'] = 'field_os2web_spotbox_lead_image';
+  $handler->display->display_options['fields']['field_os2web_spotbox_lead_image']['label'] = '';
+  $handler->display->display_options['fields']['field_os2web_spotbox_lead_image']['alter']['text'] = '<img src="[field_os2web_spotbox_lead_image]" alt="[title_1]" />
 <span class="zoom-icon-video"></span>';
-  $handler->display->display_options['fields']['field_lead_image']['alter']['make_link'] = TRUE;
-  $handler->display->display_options['fields']['field_lead_image']['alter']['path'] = '[field_url]';
-  $handler->display->display_options['fields']['field_lead_image']['alter']['link_class'] = 'overlayclass';
-  $handler->display->display_options['fields']['field_lead_image']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['field_lead_image']['empty'] = '[field_spotbox_video]';
-  $handler->display->display_options['fields']['field_lead_image']['click_sort_column'] = 'fid';
-  $handler->display->display_options['fields']['field_lead_image']['settings'] = array(
-    'image_style' => 'video_forside',
+  $handler->display->display_options['fields']['field_os2web_spotbox_lead_image']['alter']['make_link'] = TRUE;
+  $handler->display->display_options['fields']['field_os2web_spotbox_lead_image']['alter']['path'] = '[field_os2web_spotbox_url]';
+  $handler->display->display_options['fields']['field_os2web_spotbox_lead_image']['alter']['link_class'] = 'overlayclass';
+  $handler->display->display_options['fields']['field_os2web_spotbox_lead_image']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_os2web_spotbox_lead_image']['empty'] = '[field_os2web_spotbox_video]';
+  $handler->display->display_options['fields']['field_os2web_spotbox_lead_image']['click_sort_column'] = 'fid';
+  $handler->display->display_options['fields']['field_os2web_spotbox_lead_image']['settings'] = array(
+    'image_style' => 'os2web_spotbox_image_video_front',
     'image_link' => '',
   );
-  $handler->display->display_options['fields']['field_lead_image']['delta_limit'] = '1';
-  $handler->display->display_options['fields']['field_lead_image']['delta_offset'] = '0';
+  $handler->display->display_options['fields']['field_os2web_spotbox_lead_image']['delta_limit'] = '1';
+  $handler->display->display_options['fields']['field_os2web_spotbox_lead_image']['delta_offset'] = '0';
   /* Felt: Indhold: Indhold */
   $handler->display->display_options['fields']['body']['id'] = 'body';
   $handler->display->display_options['fields']['body']['table'] = 'field_data_body';
@@ -1532,46 +1532,46 @@ function os2web_spotbox_views_default_views() {
   $handler->display->display_options['fields']['body']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['body']['element_default_classes'] = FALSE;
   /* Felt: Indhold: Egenavne / stednavne */
-  $handler->display->display_options['fields']['field_termref_sted']['id'] = 'field_termref_sted';
-  $handler->display->display_options['fields']['field_termref_sted']['table'] = 'field_data_field_termref_sted';
-  $handler->display->display_options['fields']['field_termref_sted']['field'] = 'field_termref_sted';
-  $handler->display->display_options['fields']['field_termref_sted']['exclude'] = TRUE;
-  $handler->display->display_options['fields']['field_termref_sted']['delta_offset'] = '0';
+  $handler->display->display_options['fields']['field_os2web_spotbox_ref_place']['id'] = 'field_os2web_spotbox_ref_place';
+  $handler->display->display_options['fields']['field_os2web_spotbox_ref_place']['table'] = 'field_data_field_os2web_spotbox_ref_place';
+  $handler->display->display_options['fields']['field_os2web_spotbox_ref_place']['field'] = 'field_os2web_spotbox_ref_place';
+  $handler->display->display_options['fields']['field_os2web_spotbox_ref_place']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_os2web_spotbox_ref_place']['delta_offset'] = '0';
   /* Felt: Indhold: Forfrem til */
-  $handler->display->display_options['fields']['field_promoteto']['id'] = 'field_promoteto';
-  $handler->display->display_options['fields']['field_promoteto']['table'] = 'field_data_field_promoteto';
-  $handler->display->display_options['fields']['field_promoteto']['field'] = 'field_promoteto';
-  $handler->display->display_options['fields']['field_promoteto']['exclude'] = TRUE;
-  $handler->display->display_options['fields']['field_promoteto']['delta_offset'] = '0';
+  $handler->display->display_options['fields']['field_os2web_spotbox_promote_to']['id'] = 'field_os2web_spotbox_promote_to';
+  $handler->display->display_options['fields']['field_os2web_spotbox_promote_to']['table'] = 'field_data_field_os2web_spotbox_promote_to';
+  $handler->display->display_options['fields']['field_os2web_spotbox_promote_to']['field'] = 'field_os2web_spotbox_promote_to';
+  $handler->display->display_options['fields']['field_os2web_spotbox_promote_to']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_os2web_spotbox_promote_to']['delta_offset'] = '0';
   /* Felt: Indhold: KL Emneord */
-  $handler->display->display_options['fields']['field_termref_kle']['id'] = 'field_termref_kle';
-  $handler->display->display_options['fields']['field_termref_kle']['table'] = 'field_data_field_termref_kle';
-  $handler->display->display_options['fields']['field_termref_kle']['field'] = 'field_termref_kle';
-  $handler->display->display_options['fields']['field_termref_kle']['exclude'] = TRUE;
-  $handler->display->display_options['fields']['field_termref_kle']['delta_offset'] = '0';
+  $handler->display->display_options['fields']['field_os2web_spotbox_ref_kle']['id'] = 'field_os2web_spotbox_ref_kle';
+  $handler->display->display_options['fields']['field_os2web_spotbox_ref_kle']['table'] = 'field_data_field_os2web_spotbox_ref_kle';
+  $handler->display->display_options['fields']['field_os2web_spotbox_ref_kle']['field'] = 'field_os2web_spotbox_ref_kle';
+  $handler->display->display_options['fields']['field_os2web_spotbox_ref_kle']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_os2web_spotbox_ref_kle']['delta_offset'] = '0';
   /* Felt: Indhold: Organisation */
-  $handler->display->display_options['fields']['field_organization']['id'] = 'field_organization';
-  $handler->display->display_options['fields']['field_organization']['table'] = 'field_data_field_organization';
-  $handler->display->display_options['fields']['field_organization']['field'] = 'field_organization';
-  $handler->display->display_options['fields']['field_organization']['exclude'] = TRUE;
-  $handler->display->display_options['fields']['field_organization']['delta_offset'] = '0';
+  $handler->display->display_options['fields']['field_os2web_spotbox_organizati']['id'] = 'field_os2web_spotbox_organizati';
+  $handler->display->display_options['fields']['field_os2web_spotbox_organizati']['table'] = 'field_data_field_os2web_spotbox_organizati';
+  $handler->display->display_options['fields']['field_os2web_spotbox_organizati']['field'] = 'field_os2web_spotbox_organizati';
+  $handler->display->display_options['fields']['field_os2web_spotbox_organizati']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_os2web_spotbox_organizati']['delta_offset'] = '0';
   /* Felt: Indhold: Politik */
-  $handler->display->display_options['fields']['field_politics']['id'] = 'field_politics';
-  $handler->display->display_options['fields']['field_politics']['table'] = 'field_data_field_politics';
-  $handler->display->display_options['fields']['field_politics']['field'] = 'field_politics';
-  $handler->display->display_options['fields']['field_politics']['exclude'] = TRUE;
-  $handler->display->display_options['fields']['field_politics']['delta_offset'] = '0';
+  $handler->display->display_options['fields']['field_os2web_spotbox_politics']['id'] = 'field_os2web_spotbox_politics';
+  $handler->display->display_options['fields']['field_os2web_spotbox_politics']['table'] = 'field_data_field_os2web_spotbox_politics';
+  $handler->display->display_options['fields']['field_os2web_spotbox_politics']['field'] = 'field_os2web_spotbox_politics';
+  $handler->display->display_options['fields']['field_os2web_spotbox_politics']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_os2web_spotbox_politics']['delta_offset'] = '0';
   /* Felt: Indhold: Portalkategori */
-  $handler->display->display_options['fields']['field_site_structure']['id'] = 'field_site_structure';
-  $handler->display->display_options['fields']['field_site_structure']['table'] = 'field_data_field_site_structure';
-  $handler->display->display_options['fields']['field_site_structure']['field'] = 'field_site_structure';
-  $handler->display->display_options['fields']['field_site_structure']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_os2web_spotbox_sitestruct']['id'] = 'field_os2web_spotbox_sitestruct';
+  $handler->display->display_options['fields']['field_os2web_spotbox_sitestruct']['table'] = 'field_data_field_os2web_spotbox_sitestruct';
+  $handler->display->display_options['fields']['field_os2web_spotbox_sitestruct']['field'] = 'field_os2web_spotbox_sitestruct';
+  $handler->display->display_options['fields']['field_os2web_spotbox_sitestruct']['exclude'] = TRUE;
   /* Felt: Indhold: Stikord */
-  $handler->display->display_options['fields']['field_editortags']['id'] = 'field_editortags';
-  $handler->display->display_options['fields']['field_editortags']['table'] = 'field_data_field_editortags';
-  $handler->display->display_options['fields']['field_editortags']['field'] = 'field_editortags';
-  $handler->display->display_options['fields']['field_editortags']['exclude'] = TRUE;
-  $handler->display->display_options['fields']['field_editortags']['delta_offset'] = '0';
+  $handler->display->display_options['fields']['field_os2web_spotbox_editor_tags']['id'] = 'field_os2web_spotbox_editor_tags';
+  $handler->display->display_options['fields']['field_os2web_spotbox_editor_tags']['table'] = 'field_data_field_os2web_spotbox_editor_tags';
+  $handler->display->display_options['fields']['field_os2web_spotbox_editor_tags']['field'] = 'field_os2web_spotbox_editor_tags';
+  $handler->display->display_options['fields']['field_os2web_spotbox_editor_tags']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_os2web_spotbox_editor_tags']['delta_offset'] = '0';
   /* Felt: Global: Kontekstuelle links */
   $handler->display->display_options['fields']['contextual_links']['id'] = 'contextual_links';
   $handler->display->display_options['fields']['contextual_links']['table'] = 'views';
@@ -1580,22 +1580,22 @@ function os2web_spotbox_views_default_views() {
   $handler->display->display_options['fields']['contextual_links']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['contextual_links']['fields'] = array(
     'edit_node' => 'edit_node',
-    'field_url' => 'field_url',
+    'field_os2web_spotbox_url' => 'field_os2web_spotbox_url',
     'title_1' => 'title_1',
-    'field_text' => 'field_text',
+    'field_os2web_spotbox_text' => 'field_os2web_spotbox_text',
     'body_1' => 0,
     'title' => 0,
-    'field_spotbox_video' => 0,
-    'field_lead_image' => 0,
+    'field_os2web_spotbox_video' => 0,
+    'field_os2web_spotbox_lead_image' => 0,
     'delta' => 0,
     'body' => 0,
-    'field_termref_sted' => 0,
-    'field_promoteto' => 0,
-    'field_termref_kle' => 0,
-    'field_organization' => 0,
-    'field_politics' => 0,
-    'field_site_structure' => 0,
-    'field_editortags' => 0,
+    'field_os2web_spotbox_ref_place' => 0,
+    'field_os2web_spotbox_promote_to' => 0,
+    'field_os2web_spotbox_ref_kle' => 0,
+    'field_os2web_spotbox_organizati' => 0,
+    'field_os2web_spotbox_politics' => 0,
+    'field_os2web_spotbox_sitestruct' => 0,
+    'field_os2web_spotbox_editor_tags' => 0,
   );
   $handler->display->display_options['defaults']['arguments'] = FALSE;
   /* Kontekstuelt filter: Indhold: Nid */
@@ -1610,7 +1610,7 @@ function os2web_spotbox_views_default_views() {
   $handler->display->display_options['arguments']['nid']['specify_validation'] = TRUE;
   $handler->display->display_options['arguments']['nid']['validate']['type'] = 'node';
   $handler->display->display_options['arguments']['nid']['validate_options']['types'] = array(
-    'spotbox' => 'spotbox',
+    'os2web_spotbox_box' => 'os2web_spotbox_box',
   );
   $handler->display->display_options['arguments']['nid']['validate_options']['nid_type'] = 'nids';
   $handler->display->display_options['arguments']['nid']['validate']['fail'] = 'ignore';
@@ -1629,28 +1629,28 @@ function os2web_spotbox_views_default_views() {
   $handler->display->display_options['filters']['type']['table'] = 'node';
   $handler->display->display_options['filters']['type']['field'] = 'type';
   $handler->display->display_options['filters']['type']['value'] = array(
-    'spotbox' => 'spotbox',
+    'os2web_spotbox_box' => 'os2web_spotbox_box',
   );
-  /* Filterkriterie: Indhold: Forfrem til (field_promoteto) */
-  $handler->display->display_options['filters']['field_promoteto_tid']['id'] = 'field_promoteto_tid';
-  $handler->display->display_options['filters']['field_promoteto_tid']['table'] = 'field_data_field_promoteto';
-  $handler->display->display_options['filters']['field_promoteto_tid']['field'] = 'field_promoteto_tid';
-  $handler->display->display_options['filters']['field_promoteto_tid']['value'] = array(
+  /* Filterkriterie: Indhold: Forfrem til (field_os2web_spotbox_promote_to) */
+  $handler->display->display_options['filters']['field_os2web_spotbox_promote_to_tid']['id'] = 'field_os2web_spotbox_promote_to_tid';
+  $handler->display->display_options['filters']['field_os2web_spotbox_promote_to_tid']['table'] = 'field_data_field_os2web_spotbox_promote_to';
+  $handler->display->display_options['filters']['field_os2web_spotbox_promote_to_tid']['field'] = 'field_os2web_spotbox_promote_to_tid';
+  $handler->display->display_options['filters']['field_os2web_spotbox_promote_to_tid']['value'] = array(
     12264 => '12264',
     12265 => '12265',
   );
-  $handler->display->display_options['filters']['field_promoteto_tid']['type'] = 'select';
-  $handler->display->display_options['filters']['field_promoteto_tid']['vocabulary'] = 'forfrem_til';
-  $handler->display->display_options['filters']['field_promoteto_tid']['hierarchy'] = 1;
-  /* Filterkriterie: Indhold: Video (field_spotbox_video:fid) */
-  $handler->display->display_options['filters']['field_spotbox_video_fid']['id'] = 'field_spotbox_video_fid';
-  $handler->display->display_options['filters']['field_spotbox_video_fid']['table'] = 'field_data_field_spotbox_video';
-  $handler->display->display_options['filters']['field_spotbox_video_fid']['field'] = 'field_spotbox_video_fid';
-  $handler->display->display_options['filters']['field_spotbox_video_fid']['operator'] = 'not empty';
-  $handler->display->display_options['filters']['field_spotbox_video_fid']['expose']['operator_id'] = 'field_spotbox_video_fid_op';
-  $handler->display->display_options['filters']['field_spotbox_video_fid']['expose']['label'] = 'Video (field_spotbox_video:fid)';
-  $handler->display->display_options['filters']['field_spotbox_video_fid']['expose']['operator'] = 'field_spotbox_video_fid_op';
-  $handler->display->display_options['filters']['field_spotbox_video_fid']['expose']['identifier'] = 'field_spotbox_video_fid';
+  $handler->display->display_options['filters']['field_os2web_spotbox_promote_to_tid']['type'] = 'select';
+  $handler->display->display_options['filters']['field_os2web_spotbox_promote_to_tid']['vocabulary'] = 'forfrem_til';
+  $handler->display->display_options['filters']['field_os2web_spotbox_promote_to_tid']['hierarchy'] = 1;
+  /* Filterkriterie: Indhold: Video (field_os2web_spotbox_video:fid) */
+  $handler->display->display_options['filters']['field_os2web_spotbox_video_fid']['id'] = 'field_os2web_spotbox_video_fid';
+  $handler->display->display_options['filters']['field_os2web_spotbox_video_fid']['table'] = 'field_data_field_os2web_spotbox_video';
+  $handler->display->display_options['filters']['field_os2web_spotbox_video_fid']['field'] = 'field_os2web_spotbox_video_fid';
+  $handler->display->display_options['filters']['field_os2web_spotbox_video_fid']['operator'] = 'not empty';
+  $handler->display->display_options['filters']['field_os2web_spotbox_video_fid']['expose']['operator_id'] = 'field_os2web_spotbox_video_fid_op';
+  $handler->display->display_options['filters']['field_os2web_spotbox_video_fid']['expose']['label'] = 'Video (field_os2web_spotbox_video:fid)';
+  $handler->display->display_options['filters']['field_os2web_spotbox_video_fid']['expose']['operator'] = 'field_os2web_spotbox_video_fid_op';
+  $handler->display->display_options['filters']['field_os2web_spotbox_video_fid']['expose']['identifier'] = 'field_os2web_spotbox_video_fid';
   $handler->display->display_options['allow']['use_pager'] = 0;
   $handler->display->display_options['allow']['items_per_page'] = 0;
   $handler->display->display_options['allow']['offset'] = 0;
@@ -1676,12 +1676,12 @@ function os2web_spotbox_views_default_views() {
   $handler->display->display_options['defaults']['hide_admin_links'] = FALSE;
   $handler->display->display_options['defaults']['fields'] = FALSE;
   /* Felt: Indhold: Hjemmeside */
-  $handler->display->display_options['fields']['field_url']['id'] = 'field_url';
-  $handler->display->display_options['fields']['field_url']['table'] = 'field_data_field_url';
-  $handler->display->display_options['fields']['field_url']['field'] = 'field_url';
-  $handler->display->display_options['fields']['field_url']['label'] = '';
-  $handler->display->display_options['fields']['field_url']['exclude'] = TRUE;
-  $handler->display->display_options['fields']['field_url']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_os2web_spotbox_url']['id'] = 'field_os2web_spotbox_url';
+  $handler->display->display_options['fields']['field_os2web_spotbox_url']['table'] = 'field_data_field_os2web_spotbox_url';
+  $handler->display->display_options['fields']['field_os2web_spotbox_url']['field'] = 'field_os2web_spotbox_url';
+  $handler->display->display_options['fields']['field_os2web_spotbox_url']['label'] = '';
+  $handler->display->display_options['fields']['field_os2web_spotbox_url']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_os2web_spotbox_url']['element_label_colon'] = FALSE;
   /* Felt: Indhold: Titel */
   $handler->display->display_options['fields']['title_1']['id'] = 'title_1';
   $handler->display->display_options['fields']['title_1']['table'] = 'node';
@@ -1700,32 +1700,32 @@ function os2web_spotbox_views_default_views() {
   $handler->display->display_options['fields']['body']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['body']['element_default_classes'] = FALSE;
   /* Felt: Indhold: Primære billede */
-  $handler->display->display_options['fields']['field_lead_image']['id'] = 'field_lead_image';
-  $handler->display->display_options['fields']['field_lead_image']['table'] = 'field_data_field_lead_image';
-  $handler->display->display_options['fields']['field_lead_image']['field'] = 'field_lead_image';
-  $handler->display->display_options['fields']['field_lead_image']['label'] = '';
-  $handler->display->display_options['fields']['field_lead_image']['alter']['alter_text'] = TRUE;
-  $handler->display->display_options['fields']['field_lead_image']['alter']['text'] = '<a href=[field_url] title=[title_1]><img src="[field_lead_image]" alt="[title_1]" /></a>';
-  $handler->display->display_options['fields']['field_lead_image']['alter']['path'] = '[field_url]';
-  $handler->display->display_options['fields']['field_lead_image']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['field_lead_image']['element_default_classes'] = FALSE;
-  $handler->display->display_options['fields']['field_lead_image']['empty'] = '<div class="spotbox_no_picture"><div class="spotbox_no_picture_text"><a href=[field_url]>[body]</a></div></div>';
-  $handler->display->display_options['fields']['field_lead_image']['click_sort_column'] = 'fid';
-  $handler->display->display_options['fields']['field_lead_image']['type'] = 'image_url';
-  $handler->display->display_options['fields']['field_lead_image']['settings'] = array(
-    'image_style' => 'spotbox_right',
+  $handler->display->display_options['fields']['field_os2web_spotbox_lead_image']['id'] = 'field_os2web_spotbox_lead_image';
+  $handler->display->display_options['fields']['field_os2web_spotbox_lead_image']['table'] = 'field_data_field_os2web_spotbox_lead_image';
+  $handler->display->display_options['fields']['field_os2web_spotbox_lead_image']['field'] = 'field_os2web_spotbox_lead_image';
+  $handler->display->display_options['fields']['field_os2web_spotbox_lead_image']['label'] = '';
+  $handler->display->display_options['fields']['field_os2web_spotbox_lead_image']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['field_os2web_spotbox_lead_image']['alter']['text'] = '<a href=[field_os2web_spotbox_url] title=[title_1]><img src="[field_os2web_spotbox_lead_image]" alt="[title_1]" /></a>';
+  $handler->display->display_options['fields']['field_os2web_spotbox_lead_image']['alter']['path'] = '[field_os2web_spotbox_url]';
+  $handler->display->display_options['fields']['field_os2web_spotbox_lead_image']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_os2web_spotbox_lead_image']['element_default_classes'] = FALSE;
+  $handler->display->display_options['fields']['field_os2web_spotbox_lead_image']['empty'] = '<div class="spotbox_no_picture"><div class="spotbox_no_picture_text"><a href=[field_os2web_spotbox_url]>[body]</a></div></div>';
+  $handler->display->display_options['fields']['field_os2web_spotbox_lead_image']['click_sort_column'] = 'fid';
+  $handler->display->display_options['fields']['field_os2web_spotbox_lead_image']['type'] = 'image_url';
+  $handler->display->display_options['fields']['field_os2web_spotbox_lead_image']['settings'] = array(
+    'image_style' => 'os2web_spotbox_image_right',
     'image_link' => '',
   );
-  $handler->display->display_options['fields']['field_lead_image']['delta_limit'] = '1';
-  $handler->display->display_options['fields']['field_lead_image']['delta_offset'] = '0';
+  $handler->display->display_options['fields']['field_os2web_spotbox_lead_image']['delta_limit'] = '1';
+  $handler->display->display_options['fields']['field_os2web_spotbox_lead_image']['delta_offset'] = '0';
   /* Felt: Indhold: Titel */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
   $handler->display->display_options['fields']['title']['field'] = 'title';
   $handler->display->display_options['fields']['title']['label'] = '';
   $handler->display->display_options['fields']['title']['alter']['alter_text'] = TRUE;
-  $handler->display->display_options['fields']['title']['alter']['text'] = '<a href=[field_url] title=[title_1]>[title]</a>';
-  $handler->display->display_options['fields']['title']['alter']['path'] = '[field_url]';
+  $handler->display->display_options['fields']['title']['alter']['text'] = '<a href=[field_os2web_spotbox_url] title=[title_1]>[title]</a>';
+  $handler->display->display_options['fields']['title']['alter']['path'] = '[field_os2web_spotbox_url]';
   $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
   $handler->display->display_options['fields']['title']['element_type'] = 'h3';
@@ -1734,54 +1734,54 @@ function os2web_spotbox_views_default_views() {
   $handler->display->display_options['fields']['title']['element_default_classes'] = FALSE;
   $handler->display->display_options['fields']['title']['link_to_node'] = FALSE;
   /* Felt: Indhold: Intro */
-  $handler->display->display_options['fields']['field_text']['id'] = 'field_text';
-  $handler->display->display_options['fields']['field_text']['table'] = 'field_data_field_text';
-  $handler->display->display_options['fields']['field_text']['field'] = 'field_text';
-  $handler->display->display_options['fields']['field_text']['label'] = '';
-  $handler->display->display_options['fields']['field_text']['element_type'] = 'h4';
-  $handler->display->display_options['fields']['field_text']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['field_text']['element_default_classes'] = FALSE;
+  $handler->display->display_options['fields']['field_os2web_spotbox_text']['id'] = 'field_os2web_spotbox_text';
+  $handler->display->display_options['fields']['field_os2web_spotbox_text']['table'] = 'field_data_field_os2web_spotbox_text';
+  $handler->display->display_options['fields']['field_os2web_spotbox_text']['field'] = 'field_os2web_spotbox_text';
+  $handler->display->display_options['fields']['field_os2web_spotbox_text']['label'] = '';
+  $handler->display->display_options['fields']['field_os2web_spotbox_text']['element_type'] = 'h4';
+  $handler->display->display_options['fields']['field_os2web_spotbox_text']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_os2web_spotbox_text']['element_default_classes'] = FALSE;
   /* Felt: Indhold: Egenavne / stednavne */
-  $handler->display->display_options['fields']['field_termref_sted']['id'] = 'field_termref_sted';
-  $handler->display->display_options['fields']['field_termref_sted']['table'] = 'field_data_field_termref_sted';
-  $handler->display->display_options['fields']['field_termref_sted']['field'] = 'field_termref_sted';
-  $handler->display->display_options['fields']['field_termref_sted']['exclude'] = TRUE;
-  $handler->display->display_options['fields']['field_termref_sted']['delta_offset'] = '0';
+  $handler->display->display_options['fields']['field_os2web_spotbox_ref_place']['id'] = 'field_os2web_spotbox_ref_place';
+  $handler->display->display_options['fields']['field_os2web_spotbox_ref_place']['table'] = 'field_data_field_os2web_spotbox_ref_place';
+  $handler->display->display_options['fields']['field_os2web_spotbox_ref_place']['field'] = 'field_os2web_spotbox_ref_place';
+  $handler->display->display_options['fields']['field_os2web_spotbox_ref_place']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_os2web_spotbox_ref_place']['delta_offset'] = '0';
   /* Felt: Indhold: Forfrem til */
-  $handler->display->display_options['fields']['field_promoteto']['id'] = 'field_promoteto';
-  $handler->display->display_options['fields']['field_promoteto']['table'] = 'field_data_field_promoteto';
-  $handler->display->display_options['fields']['field_promoteto']['field'] = 'field_promoteto';
-  $handler->display->display_options['fields']['field_promoteto']['exclude'] = TRUE;
-  $handler->display->display_options['fields']['field_promoteto']['delta_offset'] = '0';
+  $handler->display->display_options['fields']['field_os2web_spotbox_promote_to']['id'] = 'field_os2web_spotbox_promote_to';
+  $handler->display->display_options['fields']['field_os2web_spotbox_promote_to']['table'] = 'field_data_field_os2web_spotbox_promote_to';
+  $handler->display->display_options['fields']['field_os2web_spotbox_promote_to']['field'] = 'field_os2web_spotbox_promote_to';
+  $handler->display->display_options['fields']['field_os2web_spotbox_promote_to']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_os2web_spotbox_promote_to']['delta_offset'] = '0';
   /* Felt: Indhold: KL Emneord */
-  $handler->display->display_options['fields']['field_termref_kle']['id'] = 'field_termref_kle';
-  $handler->display->display_options['fields']['field_termref_kle']['table'] = 'field_data_field_termref_kle';
-  $handler->display->display_options['fields']['field_termref_kle']['field'] = 'field_termref_kle';
-  $handler->display->display_options['fields']['field_termref_kle']['exclude'] = TRUE;
-  $handler->display->display_options['fields']['field_termref_kle']['delta_offset'] = '0';
+  $handler->display->display_options['fields']['field_os2web_spotbox_ref_kle']['id'] = 'field_os2web_spotbox_ref_kle';
+  $handler->display->display_options['fields']['field_os2web_spotbox_ref_kle']['table'] = 'field_data_field_os2web_spotbox_ref_kle';
+  $handler->display->display_options['fields']['field_os2web_spotbox_ref_kle']['field'] = 'field_os2web_spotbox_ref_kle';
+  $handler->display->display_options['fields']['field_os2web_spotbox_ref_kle']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_os2web_spotbox_ref_kle']['delta_offset'] = '0';
   /* Felt: Indhold: Organisation */
-  $handler->display->display_options['fields']['field_organization']['id'] = 'field_organization';
-  $handler->display->display_options['fields']['field_organization']['table'] = 'field_data_field_organization';
-  $handler->display->display_options['fields']['field_organization']['field'] = 'field_organization';
-  $handler->display->display_options['fields']['field_organization']['exclude'] = TRUE;
-  $handler->display->display_options['fields']['field_organization']['delta_offset'] = '0';
+  $handler->display->display_options['fields']['field_os2web_spotbox_organizati']['id'] = 'field_os2web_spotbox_organizati';
+  $handler->display->display_options['fields']['field_os2web_spotbox_organizati']['table'] = 'field_data_field_os2web_spotbox_organizati';
+  $handler->display->display_options['fields']['field_os2web_spotbox_organizati']['field'] = 'field_os2web_spotbox_organizati';
+  $handler->display->display_options['fields']['field_os2web_spotbox_organizati']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_os2web_spotbox_organizati']['delta_offset'] = '0';
   /* Felt: Indhold: Politik */
-  $handler->display->display_options['fields']['field_politics']['id'] = 'field_politics';
-  $handler->display->display_options['fields']['field_politics']['table'] = 'field_data_field_politics';
-  $handler->display->display_options['fields']['field_politics']['field'] = 'field_politics';
-  $handler->display->display_options['fields']['field_politics']['exclude'] = TRUE;
-  $handler->display->display_options['fields']['field_politics']['delta_offset'] = '0';
+  $handler->display->display_options['fields']['field_os2web_spotbox_politics']['id'] = 'field_os2web_spotbox_politics';
+  $handler->display->display_options['fields']['field_os2web_spotbox_politics']['table'] = 'field_data_field_os2web_spotbox_politics';
+  $handler->display->display_options['fields']['field_os2web_spotbox_politics']['field'] = 'field_os2web_spotbox_politics';
+  $handler->display->display_options['fields']['field_os2web_spotbox_politics']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_os2web_spotbox_politics']['delta_offset'] = '0';
   /* Felt: Indhold: Portalkategori */
-  $handler->display->display_options['fields']['field_site_structure']['id'] = 'field_site_structure';
-  $handler->display->display_options['fields']['field_site_structure']['table'] = 'field_data_field_site_structure';
-  $handler->display->display_options['fields']['field_site_structure']['field'] = 'field_site_structure';
-  $handler->display->display_options['fields']['field_site_structure']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_os2web_spotbox_sitestruct']['id'] = 'field_os2web_spotbox_sitestruct';
+  $handler->display->display_options['fields']['field_os2web_spotbox_sitestruct']['table'] = 'field_data_field_os2web_spotbox_sitestruct';
+  $handler->display->display_options['fields']['field_os2web_spotbox_sitestruct']['field'] = 'field_os2web_spotbox_sitestruct';
+  $handler->display->display_options['fields']['field_os2web_spotbox_sitestruct']['exclude'] = TRUE;
   /* Felt: Indhold: Stikord */
-  $handler->display->display_options['fields']['field_editortags']['id'] = 'field_editortags';
-  $handler->display->display_options['fields']['field_editortags']['table'] = 'field_data_field_editortags';
-  $handler->display->display_options['fields']['field_editortags']['field'] = 'field_editortags';
-  $handler->display->display_options['fields']['field_editortags']['exclude'] = TRUE;
-  $handler->display->display_options['fields']['field_editortags']['delta_offset'] = '0';
+  $handler->display->display_options['fields']['field_os2web_spotbox_editor_tags']['id'] = 'field_os2web_spotbox_editor_tags';
+  $handler->display->display_options['fields']['field_os2web_spotbox_editor_tags']['table'] = 'field_data_field_os2web_spotbox_editor_tags';
+  $handler->display->display_options['fields']['field_os2web_spotbox_editor_tags']['field'] = 'field_os2web_spotbox_editor_tags';
+  $handler->display->display_options['fields']['field_os2web_spotbox_editor_tags']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_os2web_spotbox_editor_tags']['delta_offset'] = '0';
   /* Felt: Indhold: Redigér-link */
   $handler->display->display_options['fields']['edit_node']['id'] = 'edit_node';
   $handler->display->display_options['fields']['edit_node']['table'] = 'views_entity_node';
@@ -1789,24 +1789,24 @@ function os2web_spotbox_views_default_views() {
   $handler->display->display_options['fields']['edit_node']['label'] = '';
   $handler->display->display_options['fields']['edit_node']['element_label_colon'] = FALSE;
   $handler->display->display_options['defaults']['arguments'] = FALSE;
-  /* Kontekstuelt filter: Indhold: Portalkategori (field_site_structure) */
-  $handler->display->display_options['arguments']['field_site_structure_tid']['id'] = 'field_site_structure_tid';
-  $handler->display->display_options['arguments']['field_site_structure_tid']['table'] = 'field_data_field_site_structure';
-  $handler->display->display_options['arguments']['field_site_structure_tid']['field'] = 'field_site_structure_tid';
-  $handler->display->display_options['arguments']['field_site_structure_tid']['default_action'] = 'default';
-  $handler->display->display_options['arguments']['field_site_structure_tid']['exception']['title'] = 'Alle';
-  $handler->display->display_options['arguments']['field_site_structure_tid']['default_argument_type'] = 'taxonomy_tid';
-  $handler->display->display_options['arguments']['field_site_structure_tid']['default_argument_options']['node'] = TRUE;
-  $handler->display->display_options['arguments']['field_site_structure_tid']['default_argument_options']['limit'] = TRUE;
-  $handler->display->display_options['arguments']['field_site_structure_tid']['default_argument_options']['vocabularies'] = array(
+  /* Kontekstuelt filter: Indhold: Portalkategori (field_os2web_spotbox_sitestruct) */
+  $handler->display->display_options['arguments']['field_os2web_spotbox_sitestruct_tid']['id'] = 'field_os2web_spotbox_sitestruct_tid';
+  $handler->display->display_options['arguments']['field_os2web_spotbox_sitestruct_tid']['table'] = 'field_data_field_os2web_spotbox_sitestruct';
+  $handler->display->display_options['arguments']['field_os2web_spotbox_sitestruct_tid']['field'] = 'field_os2web_spotbox_sitestruct_tid';
+  $handler->display->display_options['arguments']['field_os2web_spotbox_sitestruct_tid']['default_action'] = 'default';
+  $handler->display->display_options['arguments']['field_os2web_spotbox_sitestruct_tid']['exception']['title'] = 'Alle';
+  $handler->display->display_options['arguments']['field_os2web_spotbox_sitestruct_tid']['default_argument_type'] = 'taxonomy_tid';
+  $handler->display->display_options['arguments']['field_os2web_spotbox_sitestruct_tid']['default_argument_options']['node'] = TRUE;
+  $handler->display->display_options['arguments']['field_os2web_spotbox_sitestruct_tid']['default_argument_options']['limit'] = TRUE;
+  $handler->display->display_options['arguments']['field_os2web_spotbox_sitestruct_tid']['default_argument_options']['vocabularies'] = array(
     'site_struktur' => 'site_struktur',
   );
-  $handler->display->display_options['arguments']['field_site_structure_tid']['summary']['number_of_records'] = '0';
-  $handler->display->display_options['arguments']['field_site_structure_tid']['summary']['format'] = 'default_summary';
-  $handler->display->display_options['arguments']['field_site_structure_tid']['summary_options']['items_per_page'] = '25';
-  $handler->display->display_options['arguments']['field_site_structure_tid']['specify_validation'] = TRUE;
-  $handler->display->display_options['arguments']['field_site_structure_tid']['validate']['type'] = 'taxonomy_term';
-  $handler->display->display_options['arguments']['field_site_structure_tid']['validate_options']['vocabularies'] = array(
+  $handler->display->display_options['arguments']['field_os2web_spotbox_sitestruct_tid']['summary']['number_of_records'] = '0';
+  $handler->display->display_options['arguments']['field_os2web_spotbox_sitestruct_tid']['summary']['format'] = 'default_summary';
+  $handler->display->display_options['arguments']['field_os2web_spotbox_sitestruct_tid']['summary_options']['items_per_page'] = '25';
+  $handler->display->display_options['arguments']['field_os2web_spotbox_sitestruct_tid']['specify_validation'] = TRUE;
+  $handler->display->display_options['arguments']['field_os2web_spotbox_sitestruct_tid']['validate']['type'] = 'taxonomy_term';
+  $handler->display->display_options['arguments']['field_os2web_spotbox_sitestruct_tid']['validate_options']['vocabularies'] = array(
     'site_struktur' => 'site_struktur',
   );
   /* Kontekstuelt filter: Indhold: Nid */
@@ -1821,7 +1821,7 @@ function os2web_spotbox_views_default_views() {
   $handler->display->display_options['arguments']['nid']['specify_validation'] = TRUE;
   $handler->display->display_options['arguments']['nid']['validate']['type'] = 'node';
   $handler->display->display_options['arguments']['nid']['validate_options']['types'] = array(
-    'spotbox' => 'spotbox',
+    'os2web_spotbox_box' => 'os2web_spotbox_box',
   );
   $handler->display->display_options['arguments']['nid']['validate_options']['nid_type'] = 'nids';
   $handler->display->display_options['arguments']['nid']['validate']['fail'] = 'ignore';
@@ -1855,12 +1855,12 @@ function os2web_spotbox_views_default_views() {
   $handler->display->display_options['fields']['edit_node']['alter']['link_class'] = 'redigerlink';
   $handler->display->display_options['fields']['edit_node']['element_label_colon'] = FALSE;
   /* Felt: Indhold: Hjemmeside */
-  $handler->display->display_options['fields']['field_url']['id'] = 'field_url';
-  $handler->display->display_options['fields']['field_url']['table'] = 'field_data_field_url';
-  $handler->display->display_options['fields']['field_url']['field'] = 'field_url';
-  $handler->display->display_options['fields']['field_url']['label'] = '';
-  $handler->display->display_options['fields']['field_url']['exclude'] = TRUE;
-  $handler->display->display_options['fields']['field_url']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_os2web_spotbox_url']['id'] = 'field_os2web_spotbox_url';
+  $handler->display->display_options['fields']['field_os2web_spotbox_url']['table'] = 'field_data_field_os2web_spotbox_url';
+  $handler->display->display_options['fields']['field_os2web_spotbox_url']['field'] = 'field_os2web_spotbox_url';
+  $handler->display->display_options['fields']['field_os2web_spotbox_url']['label'] = '';
+  $handler->display->display_options['fields']['field_os2web_spotbox_url']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_os2web_spotbox_url']['element_label_colon'] = FALSE;
   /* Felt: Indhold: Titel */
   $handler->display->display_options['fields']['title_1']['id'] = 'title_1';
   $handler->display->display_options['fields']['title_1']['table'] = 'node';
@@ -1882,35 +1882,35 @@ function os2web_spotbox_views_default_views() {
   $handler->display->display_options['fields']['body']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['body']['element_default_classes'] = FALSE;
   /* Felt: Indhold: Primære billede */
-  $handler->display->display_options['fields']['field_lead_image']['id'] = 'field_lead_image';
-  $handler->display->display_options['fields']['field_lead_image']['table'] = 'field_data_field_lead_image';
-  $handler->display->display_options['fields']['field_lead_image']['field'] = 'field_lead_image';
-  $handler->display->display_options['fields']['field_lead_image']['label'] = '';
-  $handler->display->display_options['fields']['field_lead_image']['alter']['alter_text'] = TRUE;
-  $handler->display->display_options['fields']['field_lead_image']['alter']['text'] = '<a href=[field_url] title=[title_1]><img src="[field_lead_image]" alt="[title_1]" />
+  $handler->display->display_options['fields']['field_os2web_spotbox_lead_image']['id'] = 'field_os2web_spotbox_lead_image';
+  $handler->display->display_options['fields']['field_os2web_spotbox_lead_image']['table'] = 'field_data_field_os2web_spotbox_lead_image';
+  $handler->display->display_options['fields']['field_os2web_spotbox_lead_image']['field'] = 'field_os2web_spotbox_lead_image';
+  $handler->display->display_options['fields']['field_os2web_spotbox_lead_image']['label'] = '';
+  $handler->display->display_options['fields']['field_os2web_spotbox_lead_image']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['field_os2web_spotbox_lead_image']['alter']['text'] = '<a href=[field_os2web_spotbox_url] title=[title_1]><img src="[field_os2web_spotbox_lead_image]" alt="[title_1]" />
 <span class="zoom-icon"></span></a>';
-  $handler->display->display_options['fields']['field_lead_image']['alter']['path'] = '[field_url]';
-  $handler->display->display_options['fields']['field_lead_image']['alter']['link_class'] = 'overlayclass';
-  $handler->display->display_options['fields']['field_lead_image']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['field_lead_image']['element_default_classes'] = FALSE;
-  $handler->display->display_options['fields']['field_lead_image']['empty'] = '<div class="spotbox_no_picture"><div class="spotbox_no_picture_text"><a href=[field_url]>[body]</a></div></div>';
-  $handler->display->display_options['fields']['field_lead_image']['hide_alter_empty'] = FALSE;
-  $handler->display->display_options['fields']['field_lead_image']['click_sort_column'] = 'fid';
-  $handler->display->display_options['fields']['field_lead_image']['type'] = 'image_url';
-  $handler->display->display_options['fields']['field_lead_image']['settings'] = array(
-    'image_style' => 'spotbox_right',
+  $handler->display->display_options['fields']['field_os2web_spotbox_lead_image']['alter']['path'] = '[field_os2web_spotbox_url]';
+  $handler->display->display_options['fields']['field_os2web_spotbox_lead_image']['alter']['link_class'] = 'overlayclass';
+  $handler->display->display_options['fields']['field_os2web_spotbox_lead_image']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_os2web_spotbox_lead_image']['element_default_classes'] = FALSE;
+  $handler->display->display_options['fields']['field_os2web_spotbox_lead_image']['empty'] = '<div class="spotbox_no_picture"><div class="spotbox_no_picture_text"><a href=[field_os2web_spotbox_url]>[body]</a></div></div>';
+  $handler->display->display_options['fields']['field_os2web_spotbox_lead_image']['hide_alter_empty'] = FALSE;
+  $handler->display->display_options['fields']['field_os2web_spotbox_lead_image']['click_sort_column'] = 'fid';
+  $handler->display->display_options['fields']['field_os2web_spotbox_lead_image']['type'] = 'image_url';
+  $handler->display->display_options['fields']['field_os2web_spotbox_lead_image']['settings'] = array(
+    'image_style' => 'os2web_spotbox_image_right',
     'image_link' => '',
   );
-  $handler->display->display_options['fields']['field_lead_image']['delta_limit'] = '1';
-  $handler->display->display_options['fields']['field_lead_image']['delta_offset'] = '0';
+  $handler->display->display_options['fields']['field_os2web_spotbox_lead_image']['delta_limit'] = '1';
+  $handler->display->display_options['fields']['field_os2web_spotbox_lead_image']['delta_offset'] = '0';
   /* Felt: Indhold: Titel */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
   $handler->display->display_options['fields']['title']['field'] = 'title';
   $handler->display->display_options['fields']['title']['label'] = '';
   $handler->display->display_options['fields']['title']['alter']['alter_text'] = TRUE;
-  $handler->display->display_options['fields']['title']['alter']['text'] = '<a href=[field_url] title=[title_1]>[title]</a>';
-  $handler->display->display_options['fields']['title']['alter']['path'] = '[field_url]';
+  $handler->display->display_options['fields']['title']['alter']['text'] = '<a href=[field_os2web_spotbox_url] title=[title_1]>[title]</a>';
+  $handler->display->display_options['fields']['title']['alter']['path'] = '[field_os2web_spotbox_url]';
   $handler->display->display_options['fields']['title']['alter']['max_length'] = '100';
   $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['title']['alter']['trim'] = TRUE;
@@ -1919,63 +1919,63 @@ function os2web_spotbox_views_default_views() {
   $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['title']['element_default_classes'] = FALSE;
   $handler->display->display_options['fields']['title']['link_to_node'] = FALSE;
-  /* Felt: Indhold: Primære billede (field_lead_image:delta) */
+  /* Felt: Indhold: Primære billede (field_os2web_spotbox_lead_image:delta) */
   $handler->display->display_options['fields']['delta']['id'] = 'delta';
-  $handler->display->display_options['fields']['delta']['table'] = 'field_data_field_lead_image';
+  $handler->display->display_options['fields']['delta']['table'] = 'field_data_field_os2web_spotbox_lead_image';
   $handler->display->display_options['fields']['delta']['field'] = 'delta';
   $handler->display->display_options['fields']['delta']['label'] = '';
   $handler->display->display_options['fields']['delta']['exclude'] = TRUE;
   $handler->display->display_options['fields']['delta']['element_label_colon'] = FALSE;
   /* Felt: Indhold: Intro */
-  $handler->display->display_options['fields']['field_text']['id'] = 'field_text';
-  $handler->display->display_options['fields']['field_text']['table'] = 'field_data_field_text';
-  $handler->display->display_options['fields']['field_text']['field'] = 'field_text';
-  $handler->display->display_options['fields']['field_text']['label'] = '';
-  $handler->display->display_options['fields']['field_text']['exclude'] = TRUE;
-  $handler->display->display_options['fields']['field_text']['element_type'] = 'h4';
-  $handler->display->display_options['fields']['field_text']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['field_text']['element_default_classes'] = FALSE;
+  $handler->display->display_options['fields']['field_os2web_spotbox_text']['id'] = 'field_os2web_spotbox_text';
+  $handler->display->display_options['fields']['field_os2web_spotbox_text']['table'] = 'field_data_field_os2web_spotbox_text';
+  $handler->display->display_options['fields']['field_os2web_spotbox_text']['field'] = 'field_os2web_spotbox_text';
+  $handler->display->display_options['fields']['field_os2web_spotbox_text']['label'] = '';
+  $handler->display->display_options['fields']['field_os2web_spotbox_text']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_os2web_spotbox_text']['element_type'] = 'h4';
+  $handler->display->display_options['fields']['field_os2web_spotbox_text']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_os2web_spotbox_text']['element_default_classes'] = FALSE;
   /* Felt: Indhold: Egenavne / stednavne */
-  $handler->display->display_options['fields']['field_termref_sted']['id'] = 'field_termref_sted';
-  $handler->display->display_options['fields']['field_termref_sted']['table'] = 'field_data_field_termref_sted';
-  $handler->display->display_options['fields']['field_termref_sted']['field'] = 'field_termref_sted';
-  $handler->display->display_options['fields']['field_termref_sted']['exclude'] = TRUE;
-  $handler->display->display_options['fields']['field_termref_sted']['delta_offset'] = '0';
+  $handler->display->display_options['fields']['field_os2web_spotbox_ref_place']['id'] = 'field_os2web_spotbox_ref_place';
+  $handler->display->display_options['fields']['field_os2web_spotbox_ref_place']['table'] = 'field_data_field_os2web_spotbox_ref_place';
+  $handler->display->display_options['fields']['field_os2web_spotbox_ref_place']['field'] = 'field_os2web_spotbox_ref_place';
+  $handler->display->display_options['fields']['field_os2web_spotbox_ref_place']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_os2web_spotbox_ref_place']['delta_offset'] = '0';
   /* Felt: Indhold: Forfrem til */
-  $handler->display->display_options['fields']['field_promoteto']['id'] = 'field_promoteto';
-  $handler->display->display_options['fields']['field_promoteto']['table'] = 'field_data_field_promoteto';
-  $handler->display->display_options['fields']['field_promoteto']['field'] = 'field_promoteto';
-  $handler->display->display_options['fields']['field_promoteto']['exclude'] = TRUE;
-  $handler->display->display_options['fields']['field_promoteto']['delta_offset'] = '0';
+  $handler->display->display_options['fields']['field_os2web_spotbox_promote_to']['id'] = 'field_os2web_spotbox_promote_to';
+  $handler->display->display_options['fields']['field_os2web_spotbox_promote_to']['table'] = 'field_data_field_os2web_spotbox_promote_to';
+  $handler->display->display_options['fields']['field_os2web_spotbox_promote_to']['field'] = 'field_os2web_spotbox_promote_to';
+  $handler->display->display_options['fields']['field_os2web_spotbox_promote_to']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_os2web_spotbox_promote_to']['delta_offset'] = '0';
   /* Felt: Indhold: KL Emneord */
-  $handler->display->display_options['fields']['field_termref_kle']['id'] = 'field_termref_kle';
-  $handler->display->display_options['fields']['field_termref_kle']['table'] = 'field_data_field_termref_kle';
-  $handler->display->display_options['fields']['field_termref_kle']['field'] = 'field_termref_kle';
-  $handler->display->display_options['fields']['field_termref_kle']['exclude'] = TRUE;
-  $handler->display->display_options['fields']['field_termref_kle']['delta_offset'] = '0';
+  $handler->display->display_options['fields']['field_os2web_spotbox_ref_kle']['id'] = 'field_os2web_spotbox_ref_kle';
+  $handler->display->display_options['fields']['field_os2web_spotbox_ref_kle']['table'] = 'field_data_field_os2web_spotbox_ref_kle';
+  $handler->display->display_options['fields']['field_os2web_spotbox_ref_kle']['field'] = 'field_os2web_spotbox_ref_kle';
+  $handler->display->display_options['fields']['field_os2web_spotbox_ref_kle']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_os2web_spotbox_ref_kle']['delta_offset'] = '0';
   /* Felt: Indhold: Organisation */
-  $handler->display->display_options['fields']['field_organization']['id'] = 'field_organization';
-  $handler->display->display_options['fields']['field_organization']['table'] = 'field_data_field_organization';
-  $handler->display->display_options['fields']['field_organization']['field'] = 'field_organization';
-  $handler->display->display_options['fields']['field_organization']['exclude'] = TRUE;
-  $handler->display->display_options['fields']['field_organization']['delta_offset'] = '0';
+  $handler->display->display_options['fields']['field_os2web_spotbox_organizati']['id'] = 'field_os2web_spotbox_organizati';
+  $handler->display->display_options['fields']['field_os2web_spotbox_organizati']['table'] = 'field_data_field_os2web_spotbox_organizati';
+  $handler->display->display_options['fields']['field_os2web_spotbox_organizati']['field'] = 'field_os2web_spotbox_organizati';
+  $handler->display->display_options['fields']['field_os2web_spotbox_organizati']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_os2web_spotbox_organizati']['delta_offset'] = '0';
   /* Felt: Indhold: Politik */
-  $handler->display->display_options['fields']['field_politics']['id'] = 'field_politics';
-  $handler->display->display_options['fields']['field_politics']['table'] = 'field_data_field_politics';
-  $handler->display->display_options['fields']['field_politics']['field'] = 'field_politics';
-  $handler->display->display_options['fields']['field_politics']['exclude'] = TRUE;
-  $handler->display->display_options['fields']['field_politics']['delta_offset'] = '0';
+  $handler->display->display_options['fields']['field_os2web_spotbox_politics']['id'] = 'field_os2web_spotbox_politics';
+  $handler->display->display_options['fields']['field_os2web_spotbox_politics']['table'] = 'field_data_field_os2web_spotbox_politics';
+  $handler->display->display_options['fields']['field_os2web_spotbox_politics']['field'] = 'field_os2web_spotbox_politics';
+  $handler->display->display_options['fields']['field_os2web_spotbox_politics']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_os2web_spotbox_politics']['delta_offset'] = '0';
   /* Felt: Indhold: Portalkategori */
-  $handler->display->display_options['fields']['field_site_structure']['id'] = 'field_site_structure';
-  $handler->display->display_options['fields']['field_site_structure']['table'] = 'field_data_field_site_structure';
-  $handler->display->display_options['fields']['field_site_structure']['field'] = 'field_site_structure';
-  $handler->display->display_options['fields']['field_site_structure']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_os2web_spotbox_sitestruct']['id'] = 'field_os2web_spotbox_sitestruct';
+  $handler->display->display_options['fields']['field_os2web_spotbox_sitestruct']['table'] = 'field_data_field_os2web_spotbox_sitestruct';
+  $handler->display->display_options['fields']['field_os2web_spotbox_sitestruct']['field'] = 'field_os2web_spotbox_sitestruct';
+  $handler->display->display_options['fields']['field_os2web_spotbox_sitestruct']['exclude'] = TRUE;
   /* Felt: Indhold: Stikord */
-  $handler->display->display_options['fields']['field_editortags']['id'] = 'field_editortags';
-  $handler->display->display_options['fields']['field_editortags']['table'] = 'field_data_field_editortags';
-  $handler->display->display_options['fields']['field_editortags']['field'] = 'field_editortags';
-  $handler->display->display_options['fields']['field_editortags']['exclude'] = TRUE;
-  $handler->display->display_options['fields']['field_editortags']['delta_offset'] = '0';
+  $handler->display->display_options['fields']['field_os2web_spotbox_editor_tags']['id'] = 'field_os2web_spotbox_editor_tags';
+  $handler->display->display_options['fields']['field_os2web_spotbox_editor_tags']['table'] = 'field_data_field_os2web_spotbox_editor_tags';
+  $handler->display->display_options['fields']['field_os2web_spotbox_editor_tags']['field'] = 'field_os2web_spotbox_editor_tags';
+  $handler->display->display_options['fields']['field_os2web_spotbox_editor_tags']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_os2web_spotbox_editor_tags']['delta_offset'] = '0';
   $handler->display->display_options['defaults']['arguments'] = FALSE;
   /* Kontekstuelt filter: Indhold: Nid */
   $handler->display->display_options['arguments']['nid']['id'] = 'nid';
@@ -1991,26 +1991,26 @@ function os2web_spotbox_views_default_views() {
   $handler->display->display_options['arguments']['nid']['specify_validation'] = TRUE;
   $handler->display->display_options['arguments']['nid']['validate']['type'] = 'node';
   $handler->display->display_options['arguments']['nid']['validate_options']['types'] = array(
-    'spotbox' => 'spotbox',
+    'os2web_spotbox_box' => 'os2web_spotbox_box',
   );
   $handler->display->display_options['arguments']['nid']['validate_options']['nid_type'] = 'nids';
   $handler->display->display_options['arguments']['nid']['break_phrase'] = TRUE;
-  /* Kontekstuelt filter: Indhold: Portalkategori (field_site_structure) */
-  $handler->display->display_options['arguments']['field_site_structure_tid']['id'] = 'field_site_structure_tid';
-  $handler->display->display_options['arguments']['field_site_structure_tid']['table'] = 'field_data_field_site_structure';
-  $handler->display->display_options['arguments']['field_site_structure_tid']['field'] = 'field_site_structure_tid';
-  $handler->display->display_options['arguments']['field_site_structure_tid']['exception']['title'] = 'Alle';
-  $handler->display->display_options['arguments']['field_site_structure_tid']['default_argument_type'] = 'taxonomy_tid';
-  $handler->display->display_options['arguments']['field_site_structure_tid']['default_argument_options']['limit'] = TRUE;
-  $handler->display->display_options['arguments']['field_site_structure_tid']['default_argument_options']['vocabularies'] = array(
+  /* Kontekstuelt filter: Indhold: Portalkategori (field_os2web_spotbox_sitestruct) */
+  $handler->display->display_options['arguments']['field_os2web_spotbox_sitestruct_tid']['id'] = 'field_os2web_spotbox_sitestruct_tid';
+  $handler->display->display_options['arguments']['field_os2web_spotbox_sitestruct_tid']['table'] = 'field_data_field_os2web_spotbox_sitestruct';
+  $handler->display->display_options['arguments']['field_os2web_spotbox_sitestruct_tid']['field'] = 'field_os2web_spotbox_sitestruct_tid';
+  $handler->display->display_options['arguments']['field_os2web_spotbox_sitestruct_tid']['exception']['title'] = 'Alle';
+  $handler->display->display_options['arguments']['field_os2web_spotbox_sitestruct_tid']['default_argument_type'] = 'taxonomy_tid';
+  $handler->display->display_options['arguments']['field_os2web_spotbox_sitestruct_tid']['default_argument_options']['limit'] = TRUE;
+  $handler->display->display_options['arguments']['field_os2web_spotbox_sitestruct_tid']['default_argument_options']['vocabularies'] = array(
     'site_struktur' => 'site_struktur',
   );
-  $handler->display->display_options['arguments']['field_site_structure_tid']['summary']['number_of_records'] = '0';
-  $handler->display->display_options['arguments']['field_site_structure_tid']['summary']['format'] = 'default_summary';
-  $handler->display->display_options['arguments']['field_site_structure_tid']['summary_options']['items_per_page'] = '25';
-  $handler->display->display_options['arguments']['field_site_structure_tid']['specify_validation'] = TRUE;
-  $handler->display->display_options['arguments']['field_site_structure_tid']['validate']['type'] = 'taxonomy_term';
-  $handler->display->display_options['arguments']['field_site_structure_tid']['validate_options']['vocabularies'] = array(
+  $handler->display->display_options['arguments']['field_os2web_spotbox_sitestruct_tid']['summary']['number_of_records'] = '0';
+  $handler->display->display_options['arguments']['field_os2web_spotbox_sitestruct_tid']['summary']['format'] = 'default_summary';
+  $handler->display->display_options['arguments']['field_os2web_spotbox_sitestruct_tid']['summary_options']['items_per_page'] = '25';
+  $handler->display->display_options['arguments']['field_os2web_spotbox_sitestruct_tid']['specify_validation'] = TRUE;
+  $handler->display->display_options['arguments']['field_os2web_spotbox_sitestruct_tid']['validate']['type'] = 'taxonomy_term';
+  $handler->display->display_options['arguments']['field_os2web_spotbox_sitestruct_tid']['validate_options']['vocabularies'] = array(
     'site_struktur' => 'site_struktur',
   );
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
@@ -2027,16 +2027,16 @@ function os2web_spotbox_views_default_views() {
   $handler->display->display_options['filters']['type']['table'] = 'node';
   $handler->display->display_options['filters']['type']['field'] = 'type';
   $handler->display->display_options['filters']['type']['value'] = array(
-    'spotbox' => 'spotbox',
+    'os2web_spotbox_box' => 'os2web_spotbox_box',
   );
   $handler->display->display_options['argument_input'] = array(
-    'field_site_structure_tid' => array(
+    'field_os2web_spotbox_sitestruct_tid' => array(
       'type' => 'none',
       'context' => 'entity:user.uid',
       'context_optional' => 0,
       'panel' => '0',
       'fixed' => '',
-      'label' => 'Indhold: Portalkategori (field_site_structure)',
+      'label' => 'Indhold: Portalkategori (field_os2web_spotbox_sitestruct)',
     ),
     'nid' => array(
       'type' => 'user',
@@ -2076,12 +2076,12 @@ function os2web_spotbox_views_default_views() {
   $handler->display->display_options['fields']['edit_node']['alter']['link_class'] = 'redigerlink';
   $handler->display->display_options['fields']['edit_node']['element_label_colon'] = FALSE;
   /* Felt: Indhold: Hjemmeside */
-  $handler->display->display_options['fields']['field_url']['id'] = 'field_url';
-  $handler->display->display_options['fields']['field_url']['table'] = 'field_data_field_url';
-  $handler->display->display_options['fields']['field_url']['field'] = 'field_url';
-  $handler->display->display_options['fields']['field_url']['label'] = '';
-  $handler->display->display_options['fields']['field_url']['exclude'] = TRUE;
-  $handler->display->display_options['fields']['field_url']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_os2web_spotbox_url']['id'] = 'field_os2web_spotbox_url';
+  $handler->display->display_options['fields']['field_os2web_spotbox_url']['table'] = 'field_data_field_os2web_spotbox_url';
+  $handler->display->display_options['fields']['field_os2web_spotbox_url']['field'] = 'field_os2web_spotbox_url';
+  $handler->display->display_options['fields']['field_os2web_spotbox_url']['label'] = '';
+  $handler->display->display_options['fields']['field_os2web_spotbox_url']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_os2web_spotbox_url']['element_label_colon'] = FALSE;
   /* Felt: Indhold: Titel */
   $handler->display->display_options['fields']['title_1']['id'] = 'title_1';
   $handler->display->display_options['fields']['title_1']['table'] = 'node';
@@ -2101,34 +2101,34 @@ function os2web_spotbox_views_default_views() {
   $handler->display->display_options['fields']['body']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['body']['element_default_classes'] = FALSE;
   /* Felt: Indhold: Primære billede */
-  $handler->display->display_options['fields']['field_lead_image']['id'] = 'field_lead_image';
-  $handler->display->display_options['fields']['field_lead_image']['table'] = 'field_data_field_lead_image';
-  $handler->display->display_options['fields']['field_lead_image']['field'] = 'field_lead_image';
-  $handler->display->display_options['fields']['field_lead_image']['label'] = '';
-  $handler->display->display_options['fields']['field_lead_image']['alter']['alter_text'] = TRUE;
-  $handler->display->display_options['fields']['field_lead_image']['alter']['text'] = '<a href=[field_url] title=[title_1]><img src="[field_lead_image]" alt="[title_1]" />
+  $handler->display->display_options['fields']['field_os2web_spotbox_lead_image']['id'] = 'field_os2web_spotbox_lead_image';
+  $handler->display->display_options['fields']['field_os2web_spotbox_lead_image']['table'] = 'field_data_field_os2web_spotbox_lead_image';
+  $handler->display->display_options['fields']['field_os2web_spotbox_lead_image']['field'] = 'field_os2web_spotbox_lead_image';
+  $handler->display->display_options['fields']['field_os2web_spotbox_lead_image']['label'] = '';
+  $handler->display->display_options['fields']['field_os2web_spotbox_lead_image']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['field_os2web_spotbox_lead_image']['alter']['text'] = '<a href=[field_os2web_spotbox_url] title=[title_1]><img src="[field_os2web_spotbox_lead_image]" alt="[title_1]" />
 <span class="zoom-icon"></span></a>';
-  $handler->display->display_options['fields']['field_lead_image']['alter']['path'] = '[field_url]';
-  $handler->display->display_options['fields']['field_lead_image']['alter']['link_class'] = 'overlayclass';
-  $handler->display->display_options['fields']['field_lead_image']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['field_lead_image']['element_default_classes'] = FALSE;
-  $handler->display->display_options['fields']['field_lead_image']['empty'] = '<div class="spotbox_no_picture"><div class="spotbox_no_picture_text"><a href=[field_url]>[body]</a></div></div>';
-  $handler->display->display_options['fields']['field_lead_image']['click_sort_column'] = 'fid';
-  $handler->display->display_options['fields']['field_lead_image']['type'] = 'image_url';
-  $handler->display->display_options['fields']['field_lead_image']['settings'] = array(
-    'image_style' => 'spotbox_right',
+  $handler->display->display_options['fields']['field_os2web_spotbox_lead_image']['alter']['path'] = '[field_os2web_spotbox_url]';
+  $handler->display->display_options['fields']['field_os2web_spotbox_lead_image']['alter']['link_class'] = 'overlayclass';
+  $handler->display->display_options['fields']['field_os2web_spotbox_lead_image']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_os2web_spotbox_lead_image']['element_default_classes'] = FALSE;
+  $handler->display->display_options['fields']['field_os2web_spotbox_lead_image']['empty'] = '<div class="spotbox_no_picture"><div class="spotbox_no_picture_text"><a href=[field_os2web_spotbox_url]>[body]</a></div></div>';
+  $handler->display->display_options['fields']['field_os2web_spotbox_lead_image']['click_sort_column'] = 'fid';
+  $handler->display->display_options['fields']['field_os2web_spotbox_lead_image']['type'] = 'image_url';
+  $handler->display->display_options['fields']['field_os2web_spotbox_lead_image']['settings'] = array(
+    'image_style' => 'os2web_spotbox_image_right',
     'image_link' => '',
   );
-  $handler->display->display_options['fields']['field_lead_image']['delta_limit'] = '1';
-  $handler->display->display_options['fields']['field_lead_image']['delta_offset'] = '0';
+  $handler->display->display_options['fields']['field_os2web_spotbox_lead_image']['delta_limit'] = '1';
+  $handler->display->display_options['fields']['field_os2web_spotbox_lead_image']['delta_offset'] = '0';
   /* Felt: Indhold: Titel */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
   $handler->display->display_options['fields']['title']['field'] = 'title';
   $handler->display->display_options['fields']['title']['label'] = '';
   $handler->display->display_options['fields']['title']['alter']['alter_text'] = TRUE;
-  $handler->display->display_options['fields']['title']['alter']['text'] = '<a href=[field_url] title=[title]>[title]</a>';
-  $handler->display->display_options['fields']['title']['alter']['path'] = '[field_url]';
+  $handler->display->display_options['fields']['title']['alter']['text'] = '<a href=[field_os2web_spotbox_url] title=[title]>[title]</a>';
+  $handler->display->display_options['fields']['title']['alter']['path'] = '[field_os2web_spotbox_url]';
   $handler->display->display_options['fields']['title']['alter']['max_length'] = '100';
   $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['title']['alter']['trim'] = TRUE;
@@ -2137,81 +2137,81 @@ function os2web_spotbox_views_default_views() {
   $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['title']['element_default_classes'] = FALSE;
   $handler->display->display_options['fields']['title']['link_to_node'] = FALSE;
-  /* Felt: Indhold: Primære billede (field_lead_image:delta) */
+  /* Felt: Indhold: Primære billede (field_os2web_spotbox_lead_image:delta) */
   $handler->display->display_options['fields']['delta']['id'] = 'delta';
-  $handler->display->display_options['fields']['delta']['table'] = 'field_data_field_lead_image';
+  $handler->display->display_options['fields']['delta']['table'] = 'field_data_field_os2web_spotbox_lead_image';
   $handler->display->display_options['fields']['delta']['field'] = 'delta';
   $handler->display->display_options['fields']['delta']['label'] = '';
   $handler->display->display_options['fields']['delta']['exclude'] = TRUE;
   $handler->display->display_options['fields']['delta']['element_label_colon'] = FALSE;
   /* Felt: Indhold: Intro */
-  $handler->display->display_options['fields']['field_text']['id'] = 'field_text';
-  $handler->display->display_options['fields']['field_text']['table'] = 'field_data_field_text';
-  $handler->display->display_options['fields']['field_text']['field'] = 'field_text';
-  $handler->display->display_options['fields']['field_text']['label'] = '';
-  $handler->display->display_options['fields']['field_text']['exclude'] = TRUE;
-  $handler->display->display_options['fields']['field_text']['element_type'] = 'h4';
-  $handler->display->display_options['fields']['field_text']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['field_text']['element_default_classes'] = FALSE;
+  $handler->display->display_options['fields']['field_os2web_spotbox_text']['id'] = 'field_os2web_spotbox_text';
+  $handler->display->display_options['fields']['field_os2web_spotbox_text']['table'] = 'field_data_field_os2web_spotbox_text';
+  $handler->display->display_options['fields']['field_os2web_spotbox_text']['field'] = 'field_os2web_spotbox_text';
+  $handler->display->display_options['fields']['field_os2web_spotbox_text']['label'] = '';
+  $handler->display->display_options['fields']['field_os2web_spotbox_text']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_os2web_spotbox_text']['element_type'] = 'h4';
+  $handler->display->display_options['fields']['field_os2web_spotbox_text']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_os2web_spotbox_text']['element_default_classes'] = FALSE;
   /* Felt: Indhold: Egenavne / stednavne */
-  $handler->display->display_options['fields']['field_termref_sted']['id'] = 'field_termref_sted';
-  $handler->display->display_options['fields']['field_termref_sted']['table'] = 'field_data_field_termref_sted';
-  $handler->display->display_options['fields']['field_termref_sted']['field'] = 'field_termref_sted';
-  $handler->display->display_options['fields']['field_termref_sted']['exclude'] = TRUE;
-  $handler->display->display_options['fields']['field_termref_sted']['delta_offset'] = '0';
+  $handler->display->display_options['fields']['field_os2web_spotbox_ref_place']['id'] = 'field_os2web_spotbox_ref_place';
+  $handler->display->display_options['fields']['field_os2web_spotbox_ref_place']['table'] = 'field_data_field_os2web_spotbox_ref_place';
+  $handler->display->display_options['fields']['field_os2web_spotbox_ref_place']['field'] = 'field_os2web_spotbox_ref_place';
+  $handler->display->display_options['fields']['field_os2web_spotbox_ref_place']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_os2web_spotbox_ref_place']['delta_offset'] = '0';
   /* Felt: Indhold: Forfrem til */
-  $handler->display->display_options['fields']['field_promoteto']['id'] = 'field_promoteto';
-  $handler->display->display_options['fields']['field_promoteto']['table'] = 'field_data_field_promoteto';
-  $handler->display->display_options['fields']['field_promoteto']['field'] = 'field_promoteto';
-  $handler->display->display_options['fields']['field_promoteto']['exclude'] = TRUE;
-  $handler->display->display_options['fields']['field_promoteto']['delta_offset'] = '0';
+  $handler->display->display_options['fields']['field_os2web_spotbox_promote_to']['id'] = 'field_os2web_spotbox_promote_to';
+  $handler->display->display_options['fields']['field_os2web_spotbox_promote_to']['table'] = 'field_data_field_os2web_spotbox_promote_to';
+  $handler->display->display_options['fields']['field_os2web_spotbox_promote_to']['field'] = 'field_os2web_spotbox_promote_to';
+  $handler->display->display_options['fields']['field_os2web_spotbox_promote_to']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_os2web_spotbox_promote_to']['delta_offset'] = '0';
   /* Felt: Indhold: KL Emneord */
-  $handler->display->display_options['fields']['field_termref_kle']['id'] = 'field_termref_kle';
-  $handler->display->display_options['fields']['field_termref_kle']['table'] = 'field_data_field_termref_kle';
-  $handler->display->display_options['fields']['field_termref_kle']['field'] = 'field_termref_kle';
-  $handler->display->display_options['fields']['field_termref_kle']['exclude'] = TRUE;
-  $handler->display->display_options['fields']['field_termref_kle']['delta_offset'] = '0';
+  $handler->display->display_options['fields']['field_os2web_spotbox_ref_kle']['id'] = 'field_os2web_spotbox_ref_kle';
+  $handler->display->display_options['fields']['field_os2web_spotbox_ref_kle']['table'] = 'field_data_field_os2web_spotbox_ref_kle';
+  $handler->display->display_options['fields']['field_os2web_spotbox_ref_kle']['field'] = 'field_os2web_spotbox_ref_kle';
+  $handler->display->display_options['fields']['field_os2web_spotbox_ref_kle']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_os2web_spotbox_ref_kle']['delta_offset'] = '0';
   /* Felt: Indhold: Organisation */
-  $handler->display->display_options['fields']['field_organization']['id'] = 'field_organization';
-  $handler->display->display_options['fields']['field_organization']['table'] = 'field_data_field_organization';
-  $handler->display->display_options['fields']['field_organization']['field'] = 'field_organization';
-  $handler->display->display_options['fields']['field_organization']['exclude'] = TRUE;
-  $handler->display->display_options['fields']['field_organization']['delta_offset'] = '0';
+  $handler->display->display_options['fields']['field_os2web_spotbox_organizati']['id'] = 'field_os2web_spotbox_organizati';
+  $handler->display->display_options['fields']['field_os2web_spotbox_organizati']['table'] = 'field_data_field_os2web_spotbox_organizati';
+  $handler->display->display_options['fields']['field_os2web_spotbox_organizati']['field'] = 'field_os2web_spotbox_organizati';
+  $handler->display->display_options['fields']['field_os2web_spotbox_organizati']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_os2web_spotbox_organizati']['delta_offset'] = '0';
   /* Felt: Indhold: Politik */
-  $handler->display->display_options['fields']['field_politics']['id'] = 'field_politics';
-  $handler->display->display_options['fields']['field_politics']['table'] = 'field_data_field_politics';
-  $handler->display->display_options['fields']['field_politics']['field'] = 'field_politics';
-  $handler->display->display_options['fields']['field_politics']['exclude'] = TRUE;
-  $handler->display->display_options['fields']['field_politics']['delta_offset'] = '0';
+  $handler->display->display_options['fields']['field_os2web_spotbox_politics']['id'] = 'field_os2web_spotbox_politics';
+  $handler->display->display_options['fields']['field_os2web_spotbox_politics']['table'] = 'field_data_field_os2web_spotbox_politics';
+  $handler->display->display_options['fields']['field_os2web_spotbox_politics']['field'] = 'field_os2web_spotbox_politics';
+  $handler->display->display_options['fields']['field_os2web_spotbox_politics']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_os2web_spotbox_politics']['delta_offset'] = '0';
   /* Felt: Indhold: Portalkategori */
-  $handler->display->display_options['fields']['field_site_structure']['id'] = 'field_site_structure';
-  $handler->display->display_options['fields']['field_site_structure']['table'] = 'field_data_field_site_structure';
-  $handler->display->display_options['fields']['field_site_structure']['field'] = 'field_site_structure';
-  $handler->display->display_options['fields']['field_site_structure']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_os2web_spotbox_sitestruct']['id'] = 'field_os2web_spotbox_sitestruct';
+  $handler->display->display_options['fields']['field_os2web_spotbox_sitestruct']['table'] = 'field_data_field_os2web_spotbox_sitestruct';
+  $handler->display->display_options['fields']['field_os2web_spotbox_sitestruct']['field'] = 'field_os2web_spotbox_sitestruct';
+  $handler->display->display_options['fields']['field_os2web_spotbox_sitestruct']['exclude'] = TRUE;
   /* Felt: Indhold: Stikord */
-  $handler->display->display_options['fields']['field_editortags']['id'] = 'field_editortags';
-  $handler->display->display_options['fields']['field_editortags']['table'] = 'field_data_field_editortags';
-  $handler->display->display_options['fields']['field_editortags']['field'] = 'field_editortags';
-  $handler->display->display_options['fields']['field_editortags']['exclude'] = TRUE;
-  $handler->display->display_options['fields']['field_editortags']['delta_offset'] = '0';
+  $handler->display->display_options['fields']['field_os2web_spotbox_editor_tags']['id'] = 'field_os2web_spotbox_editor_tags';
+  $handler->display->display_options['fields']['field_os2web_spotbox_editor_tags']['table'] = 'field_data_field_os2web_spotbox_editor_tags';
+  $handler->display->display_options['fields']['field_os2web_spotbox_editor_tags']['field'] = 'field_os2web_spotbox_editor_tags';
+  $handler->display->display_options['fields']['field_os2web_spotbox_editor_tags']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_os2web_spotbox_editor_tags']['delta_offset'] = '0';
   $handler->display->display_options['defaults']['arguments'] = FALSE;
-  /* Kontekstuelt filter: Indhold: Portalkategori (field_site_structure) */
-  $handler->display->display_options['arguments']['field_site_structure_tid']['id'] = 'field_site_structure_tid';
-  $handler->display->display_options['arguments']['field_site_structure_tid']['table'] = 'field_data_field_site_structure';
-  $handler->display->display_options['arguments']['field_site_structure_tid']['field'] = 'field_site_structure_tid';
-  $handler->display->display_options['arguments']['field_site_structure_tid']['default_action'] = 'default';
-  $handler->display->display_options['arguments']['field_site_structure_tid']['exception']['title'] = 'Alle';
-  $handler->display->display_options['arguments']['field_site_structure_tid']['default_argument_type'] = 'taxonomy_tid';
-  $handler->display->display_options['arguments']['field_site_structure_tid']['default_argument_options']['node'] = TRUE;
-  $handler->display->display_options['arguments']['field_site_structure_tid']['default_argument_options']['vocabularies'] = array(
+  /* Kontekstuelt filter: Indhold: Portalkategori (field_os2web_spotbox_sitestruct) */
+  $handler->display->display_options['arguments']['field_os2web_spotbox_sitestruct_tid']['id'] = 'field_os2web_spotbox_sitestruct_tid';
+  $handler->display->display_options['arguments']['field_os2web_spotbox_sitestruct_tid']['table'] = 'field_data_field_os2web_spotbox_sitestruct';
+  $handler->display->display_options['arguments']['field_os2web_spotbox_sitestruct_tid']['field'] = 'field_os2web_spotbox_sitestruct_tid';
+  $handler->display->display_options['arguments']['field_os2web_spotbox_sitestruct_tid']['default_action'] = 'default';
+  $handler->display->display_options['arguments']['field_os2web_spotbox_sitestruct_tid']['exception']['title'] = 'Alle';
+  $handler->display->display_options['arguments']['field_os2web_spotbox_sitestruct_tid']['default_argument_type'] = 'taxonomy_tid';
+  $handler->display->display_options['arguments']['field_os2web_spotbox_sitestruct_tid']['default_argument_options']['node'] = TRUE;
+  $handler->display->display_options['arguments']['field_os2web_spotbox_sitestruct_tid']['default_argument_options']['vocabularies'] = array(
     'site_struktur' => 'site_struktur',
   );
-  $handler->display->display_options['arguments']['field_site_structure_tid']['summary']['number_of_records'] = '0';
-  $handler->display->display_options['arguments']['field_site_structure_tid']['summary']['format'] = 'default_summary';
-  $handler->display->display_options['arguments']['field_site_structure_tid']['summary_options']['items_per_page'] = '25';
-  $handler->display->display_options['arguments']['field_site_structure_tid']['specify_validation'] = TRUE;
-  $handler->display->display_options['arguments']['field_site_structure_tid']['validate']['type'] = 'taxonomy_term';
-  $handler->display->display_options['arguments']['field_site_structure_tid']['validate_options']['vocabularies'] = array(
+  $handler->display->display_options['arguments']['field_os2web_spotbox_sitestruct_tid']['summary']['number_of_records'] = '0';
+  $handler->display->display_options['arguments']['field_os2web_spotbox_sitestruct_tid']['summary']['format'] = 'default_summary';
+  $handler->display->display_options['arguments']['field_os2web_spotbox_sitestruct_tid']['summary_options']['items_per_page'] = '25';
+  $handler->display->display_options['arguments']['field_os2web_spotbox_sitestruct_tid']['specify_validation'] = TRUE;
+  $handler->display->display_options['arguments']['field_os2web_spotbox_sitestruct_tid']['validate']['type'] = 'taxonomy_term';
+  $handler->display->display_options['arguments']['field_os2web_spotbox_sitestruct_tid']['validate_options']['vocabularies'] = array(
     'site_struktur' => 'site_struktur',
   );
   /* Kontekstuelt filter: Indhold: Nid */
@@ -2226,7 +2226,7 @@ function os2web_spotbox_views_default_views() {
   $handler->display->display_options['arguments']['nid']['specify_validation'] = TRUE;
   $handler->display->display_options['arguments']['nid']['validate']['type'] = 'node';
   $handler->display->display_options['arguments']['nid']['validate_options']['types'] = array(
-    'spotbox' => 'spotbox',
+    'os2web_spotbox_box' => 'os2web_spotbox_box',
   );
   $handler->display->display_options['arguments']['nid']['validate_options']['nid_type'] = 'nids';
   $handler->display->display_options['arguments']['nid']['validate']['fail'] = 'ignore';
@@ -2245,19 +2245,19 @@ function os2web_spotbox_views_default_views() {
   $handler->display->display_options['filters']['type']['table'] = 'node';
   $handler->display->display_options['filters']['type']['field'] = 'type';
   $handler->display->display_options['filters']['type']['value'] = array(
-    'spotbox' => 'spotbox',
+    'os2web_spotbox_box' => 'os2web_spotbox_box',
   );
-  /* Filterkriterie: Indhold: Forfrem til (field_promoteto) */
-  $handler->display->display_options['filters']['field_promoteto_tid']['id'] = 'field_promoteto_tid';
-  $handler->display->display_options['filters']['field_promoteto_tid']['table'] = 'field_data_field_promoteto';
-  $handler->display->display_options['filters']['field_promoteto_tid']['field'] = 'field_promoteto_tid';
-  $handler->display->display_options['filters']['field_promoteto_tid']['value'] = array(
+  /* Filterkriterie: Indhold: Forfrem til (field_os2web_spotbox_promote_to) */
+  $handler->display->display_options['filters']['field_os2web_spotbox_promote_to_tid']['id'] = 'field_os2web_spotbox_promote_to_tid';
+  $handler->display->display_options['filters']['field_os2web_spotbox_promote_to_tid']['table'] = 'field_data_field_os2web_spotbox_promote_to';
+  $handler->display->display_options['filters']['field_os2web_spotbox_promote_to_tid']['field'] = 'field_os2web_spotbox_promote_to_tid';
+  $handler->display->display_options['filters']['field_os2web_spotbox_promote_to_tid']['value'] = array(
     12264 => '12264',
     12265 => '12265',
   );
-  $handler->display->display_options['filters']['field_promoteto_tid']['type'] = 'select';
-  $handler->display->display_options['filters']['field_promoteto_tid']['vocabulary'] = 'forfrem_til';
-  $handler->display->display_options['filters']['field_promoteto_tid']['hierarchy'] = 1;
+  $handler->display->display_options['filters']['field_os2web_spotbox_promote_to_tid']['type'] = 'select';
+  $handler->display->display_options['filters']['field_os2web_spotbox_promote_to_tid']['vocabulary'] = 'forfrem_til';
+  $handler->display->display_options['filters']['field_os2web_spotbox_promote_to_tid']['hierarchy'] = 1;
 
   /* Display: Spotboxe sektion - 3 */
   $handler = $view->new_display('panel_pane', 'Spotboxe sektion - 3', 'panel_pane_8');
@@ -2287,12 +2287,12 @@ function os2web_spotbox_views_default_views() {
   $handler->display->display_options['fields']['edit_node']['alter']['link_class'] = 'redigerlink';
   $handler->display->display_options['fields']['edit_node']['element_label_colon'] = FALSE;
   /* Felt: Indhold: Hjemmeside */
-  $handler->display->display_options['fields']['field_url']['id'] = 'field_url';
-  $handler->display->display_options['fields']['field_url']['table'] = 'field_data_field_url';
-  $handler->display->display_options['fields']['field_url']['field'] = 'field_url';
-  $handler->display->display_options['fields']['field_url']['label'] = '';
-  $handler->display->display_options['fields']['field_url']['exclude'] = TRUE;
-  $handler->display->display_options['fields']['field_url']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_os2web_spotbox_url']['id'] = 'field_os2web_spotbox_url';
+  $handler->display->display_options['fields']['field_os2web_spotbox_url']['table'] = 'field_data_field_os2web_spotbox_url';
+  $handler->display->display_options['fields']['field_os2web_spotbox_url']['field'] = 'field_os2web_spotbox_url';
+  $handler->display->display_options['fields']['field_os2web_spotbox_url']['label'] = '';
+  $handler->display->display_options['fields']['field_os2web_spotbox_url']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_os2web_spotbox_url']['element_label_colon'] = FALSE;
   /* Felt: Indhold: Titel */
   $handler->display->display_options['fields']['title_1']['id'] = 'title_1';
   $handler->display->display_options['fields']['title_1']['table'] = 'node';
@@ -2314,34 +2314,34 @@ function os2web_spotbox_views_default_views() {
   $handler->display->display_options['fields']['body']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['body']['element_default_classes'] = FALSE;
   /* Felt: Indhold: Primære billede */
-  $handler->display->display_options['fields']['field_lead_image']['id'] = 'field_lead_image';
-  $handler->display->display_options['fields']['field_lead_image']['table'] = 'field_data_field_lead_image';
-  $handler->display->display_options['fields']['field_lead_image']['field'] = 'field_lead_image';
-  $handler->display->display_options['fields']['field_lead_image']['label'] = '';
-  $handler->display->display_options['fields']['field_lead_image']['alter']['alter_text'] = TRUE;
-  $handler->display->display_options['fields']['field_lead_image']['alter']['text'] = '<img src="[field_lead_image]" alt="[title_1]" />
+  $handler->display->display_options['fields']['field_os2web_spotbox_lead_image']['id'] = 'field_os2web_spotbox_lead_image';
+  $handler->display->display_options['fields']['field_os2web_spotbox_lead_image']['table'] = 'field_data_field_os2web_spotbox_lead_image';
+  $handler->display->display_options['fields']['field_os2web_spotbox_lead_image']['field'] = 'field_os2web_spotbox_lead_image';
+  $handler->display->display_options['fields']['field_os2web_spotbox_lead_image']['label'] = '';
+  $handler->display->display_options['fields']['field_os2web_spotbox_lead_image']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['field_os2web_spotbox_lead_image']['alter']['text'] = '<img src="[field_os2web_spotbox_lead_image]" alt="[title_1]" />
 <span class="zoom-icon"></span>';
-  $handler->display->display_options['fields']['field_lead_image']['alter']['make_link'] = TRUE;
-  $handler->display->display_options['fields']['field_lead_image']['alter']['path'] = '[field_url]';
-  $handler->display->display_options['fields']['field_lead_image']['alter']['link_class'] = 'overlayclass';
-  $handler->display->display_options['fields']['field_lead_image']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['field_lead_image']['element_default_classes'] = FALSE;
-  $handler->display->display_options['fields']['field_lead_image']['empty'] = '<div class="spotbox_no_picture"><div class="spotbox_no_picture_text"><a href=[field_url]>[body]</a></div></div>';
-  $handler->display->display_options['fields']['field_lead_image']['click_sort_column'] = 'fid';
-  $handler->display->display_options['fields']['field_lead_image']['type'] = 'image_url';
-  $handler->display->display_options['fields']['field_lead_image']['settings'] = array(
-    'image_style' => 'spotbox_right',
+  $handler->display->display_options['fields']['field_os2web_spotbox_lead_image']['alter']['make_link'] = TRUE;
+  $handler->display->display_options['fields']['field_os2web_spotbox_lead_image']['alter']['path'] = '[field_os2web_spotbox_url]';
+  $handler->display->display_options['fields']['field_os2web_spotbox_lead_image']['alter']['link_class'] = 'overlayclass';
+  $handler->display->display_options['fields']['field_os2web_spotbox_lead_image']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_os2web_spotbox_lead_image']['element_default_classes'] = FALSE;
+  $handler->display->display_options['fields']['field_os2web_spotbox_lead_image']['empty'] = '<div class="spotbox_no_picture"><div class="spotbox_no_picture_text"><a href=[field_os2web_spotbox_url]>[body]</a></div></div>';
+  $handler->display->display_options['fields']['field_os2web_spotbox_lead_image']['click_sort_column'] = 'fid';
+  $handler->display->display_options['fields']['field_os2web_spotbox_lead_image']['type'] = 'image_url';
+  $handler->display->display_options['fields']['field_os2web_spotbox_lead_image']['settings'] = array(
+    'image_style' => 'os2web_spotbox_image_right',
     'image_link' => '',
   );
-  $handler->display->display_options['fields']['field_lead_image']['delta_limit'] = '1';
-  $handler->display->display_options['fields']['field_lead_image']['delta_offset'] = '0';
+  $handler->display->display_options['fields']['field_os2web_spotbox_lead_image']['delta_limit'] = '1';
+  $handler->display->display_options['fields']['field_os2web_spotbox_lead_image']['delta_offset'] = '0';
   /* Felt: Indhold: Titel */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
   $handler->display->display_options['fields']['title']['field'] = 'title';
   $handler->display->display_options['fields']['title']['label'] = '';
   $handler->display->display_options['fields']['title']['alter']['make_link'] = TRUE;
-  $handler->display->display_options['fields']['title']['alter']['path'] = '[field_url]';
+  $handler->display->display_options['fields']['title']['alter']['path'] = '[field_os2web_spotbox_url]';
   $handler->display->display_options['fields']['title']['alter']['max_length'] = '60';
   $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['title']['alter']['strip_tags'] = TRUE;
@@ -2350,82 +2350,82 @@ function os2web_spotbox_views_default_views() {
   $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['title']['element_default_classes'] = FALSE;
   $handler->display->display_options['fields']['title']['link_to_node'] = FALSE;
-  /* Felt: Indhold: Primære billede (field_lead_image:delta) */
+  /* Felt: Indhold: Primære billede (field_os2web_spotbox_lead_image:delta) */
   $handler->display->display_options['fields']['delta']['id'] = 'delta';
-  $handler->display->display_options['fields']['delta']['table'] = 'field_data_field_lead_image';
+  $handler->display->display_options['fields']['delta']['table'] = 'field_data_field_os2web_spotbox_lead_image';
   $handler->display->display_options['fields']['delta']['field'] = 'delta';
   $handler->display->display_options['fields']['delta']['label'] = '';
   $handler->display->display_options['fields']['delta']['exclude'] = TRUE;
   $handler->display->display_options['fields']['delta']['element_label_colon'] = FALSE;
   /* Felt: Indhold: Intro */
-  $handler->display->display_options['fields']['field_text']['id'] = 'field_text';
-  $handler->display->display_options['fields']['field_text']['table'] = 'field_data_field_text';
-  $handler->display->display_options['fields']['field_text']['field'] = 'field_text';
-  $handler->display->display_options['fields']['field_text']['label'] = '';
-  $handler->display->display_options['fields']['field_text']['exclude'] = TRUE;
-  $handler->display->display_options['fields']['field_text']['element_type'] = 'h4';
-  $handler->display->display_options['fields']['field_text']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['field_text']['element_default_classes'] = FALSE;
+  $handler->display->display_options['fields']['field_os2web_spotbox_text']['id'] = 'field_os2web_spotbox_text';
+  $handler->display->display_options['fields']['field_os2web_spotbox_text']['table'] = 'field_data_field_os2web_spotbox_text';
+  $handler->display->display_options['fields']['field_os2web_spotbox_text']['field'] = 'field_os2web_spotbox_text';
+  $handler->display->display_options['fields']['field_os2web_spotbox_text']['label'] = '';
+  $handler->display->display_options['fields']['field_os2web_spotbox_text']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_os2web_spotbox_text']['element_type'] = 'h4';
+  $handler->display->display_options['fields']['field_os2web_spotbox_text']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_os2web_spotbox_text']['element_default_classes'] = FALSE;
   /* Felt: Indhold: Egenavne / stednavne */
-  $handler->display->display_options['fields']['field_termref_sted']['id'] = 'field_termref_sted';
-  $handler->display->display_options['fields']['field_termref_sted']['table'] = 'field_data_field_termref_sted';
-  $handler->display->display_options['fields']['field_termref_sted']['field'] = 'field_termref_sted';
-  $handler->display->display_options['fields']['field_termref_sted']['exclude'] = TRUE;
-  $handler->display->display_options['fields']['field_termref_sted']['delta_offset'] = '0';
+  $handler->display->display_options['fields']['field_os2web_spotbox_ref_place']['id'] = 'field_os2web_spotbox_ref_place';
+  $handler->display->display_options['fields']['field_os2web_spotbox_ref_place']['table'] = 'field_data_field_os2web_spotbox_ref_place';
+  $handler->display->display_options['fields']['field_os2web_spotbox_ref_place']['field'] = 'field_os2web_spotbox_ref_place';
+  $handler->display->display_options['fields']['field_os2web_spotbox_ref_place']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_os2web_spotbox_ref_place']['delta_offset'] = '0';
   /* Felt: Indhold: Forfrem til */
-  $handler->display->display_options['fields']['field_promoteto']['id'] = 'field_promoteto';
-  $handler->display->display_options['fields']['field_promoteto']['table'] = 'field_data_field_promoteto';
-  $handler->display->display_options['fields']['field_promoteto']['field'] = 'field_promoteto';
-  $handler->display->display_options['fields']['field_promoteto']['exclude'] = TRUE;
-  $handler->display->display_options['fields']['field_promoteto']['delta_offset'] = '0';
+  $handler->display->display_options['fields']['field_os2web_spotbox_promote_to']['id'] = 'field_os2web_spotbox_promote_to';
+  $handler->display->display_options['fields']['field_os2web_spotbox_promote_to']['table'] = 'field_data_field_os2web_spotbox_promote_to';
+  $handler->display->display_options['fields']['field_os2web_spotbox_promote_to']['field'] = 'field_os2web_spotbox_promote_to';
+  $handler->display->display_options['fields']['field_os2web_spotbox_promote_to']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_os2web_spotbox_promote_to']['delta_offset'] = '0';
   /* Felt: Indhold: KL Emneord */
-  $handler->display->display_options['fields']['field_termref_kle']['id'] = 'field_termref_kle';
-  $handler->display->display_options['fields']['field_termref_kle']['table'] = 'field_data_field_termref_kle';
-  $handler->display->display_options['fields']['field_termref_kle']['field'] = 'field_termref_kle';
-  $handler->display->display_options['fields']['field_termref_kle']['exclude'] = TRUE;
-  $handler->display->display_options['fields']['field_termref_kle']['delta_offset'] = '0';
+  $handler->display->display_options['fields']['field_os2web_spotbox_ref_kle']['id'] = 'field_os2web_spotbox_ref_kle';
+  $handler->display->display_options['fields']['field_os2web_spotbox_ref_kle']['table'] = 'field_data_field_os2web_spotbox_ref_kle';
+  $handler->display->display_options['fields']['field_os2web_spotbox_ref_kle']['field'] = 'field_os2web_spotbox_ref_kle';
+  $handler->display->display_options['fields']['field_os2web_spotbox_ref_kle']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_os2web_spotbox_ref_kle']['delta_offset'] = '0';
   /* Felt: Indhold: Organisation */
-  $handler->display->display_options['fields']['field_organization']['id'] = 'field_organization';
-  $handler->display->display_options['fields']['field_organization']['table'] = 'field_data_field_organization';
-  $handler->display->display_options['fields']['field_organization']['field'] = 'field_organization';
-  $handler->display->display_options['fields']['field_organization']['exclude'] = TRUE;
-  $handler->display->display_options['fields']['field_organization']['delta_offset'] = '0';
+  $handler->display->display_options['fields']['field_os2web_spotbox_organizati']['id'] = 'field_os2web_spotbox_organizati';
+  $handler->display->display_options['fields']['field_os2web_spotbox_organizati']['table'] = 'field_data_field_os2web_spotbox_organizati';
+  $handler->display->display_options['fields']['field_os2web_spotbox_organizati']['field'] = 'field_os2web_spotbox_organizati';
+  $handler->display->display_options['fields']['field_os2web_spotbox_organizati']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_os2web_spotbox_organizati']['delta_offset'] = '0';
   /* Felt: Indhold: Politik */
-  $handler->display->display_options['fields']['field_politics']['id'] = 'field_politics';
-  $handler->display->display_options['fields']['field_politics']['table'] = 'field_data_field_politics';
-  $handler->display->display_options['fields']['field_politics']['field'] = 'field_politics';
-  $handler->display->display_options['fields']['field_politics']['exclude'] = TRUE;
-  $handler->display->display_options['fields']['field_politics']['delta_offset'] = '0';
+  $handler->display->display_options['fields']['field_os2web_spotbox_politics']['id'] = 'field_os2web_spotbox_politics';
+  $handler->display->display_options['fields']['field_os2web_spotbox_politics']['table'] = 'field_data_field_os2web_spotbox_politics';
+  $handler->display->display_options['fields']['field_os2web_spotbox_politics']['field'] = 'field_os2web_spotbox_politics';
+  $handler->display->display_options['fields']['field_os2web_spotbox_politics']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_os2web_spotbox_politics']['delta_offset'] = '0';
   /* Felt: Indhold: Portalkategori */
-  $handler->display->display_options['fields']['field_site_structure']['id'] = 'field_site_structure';
-  $handler->display->display_options['fields']['field_site_structure']['table'] = 'field_data_field_site_structure';
-  $handler->display->display_options['fields']['field_site_structure']['field'] = 'field_site_structure';
-  $handler->display->display_options['fields']['field_site_structure']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_os2web_spotbox_sitestruct']['id'] = 'field_os2web_spotbox_sitestruct';
+  $handler->display->display_options['fields']['field_os2web_spotbox_sitestruct']['table'] = 'field_data_field_os2web_spotbox_sitestruct';
+  $handler->display->display_options['fields']['field_os2web_spotbox_sitestruct']['field'] = 'field_os2web_spotbox_sitestruct';
+  $handler->display->display_options['fields']['field_os2web_spotbox_sitestruct']['exclude'] = TRUE;
   /* Felt: Indhold: Stikord */
-  $handler->display->display_options['fields']['field_editortags']['id'] = 'field_editortags';
-  $handler->display->display_options['fields']['field_editortags']['table'] = 'field_data_field_editortags';
-  $handler->display->display_options['fields']['field_editortags']['field'] = 'field_editortags';
-  $handler->display->display_options['fields']['field_editortags']['exclude'] = TRUE;
-  $handler->display->display_options['fields']['field_editortags']['delta_offset'] = '0';
+  $handler->display->display_options['fields']['field_os2web_spotbox_editor_tags']['id'] = 'field_os2web_spotbox_editor_tags';
+  $handler->display->display_options['fields']['field_os2web_spotbox_editor_tags']['table'] = 'field_data_field_os2web_spotbox_editor_tags';
+  $handler->display->display_options['fields']['field_os2web_spotbox_editor_tags']['field'] = 'field_os2web_spotbox_editor_tags';
+  $handler->display->display_options['fields']['field_os2web_spotbox_editor_tags']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_os2web_spotbox_editor_tags']['delta_offset'] = '0';
   $handler->display->display_options['defaults']['arguments'] = FALSE;
-  /* Kontekstuelt filter: Indhold: Portalkategori (field_site_structure) */
-  $handler->display->display_options['arguments']['field_site_structure_tid']['id'] = 'field_site_structure_tid';
-  $handler->display->display_options['arguments']['field_site_structure_tid']['table'] = 'field_data_field_site_structure';
-  $handler->display->display_options['arguments']['field_site_structure_tid']['field'] = 'field_site_structure_tid';
-  $handler->display->display_options['arguments']['field_site_structure_tid']['default_action'] = 'default';
-  $handler->display->display_options['arguments']['field_site_structure_tid']['exception']['title'] = 'Alle';
-  $handler->display->display_options['arguments']['field_site_structure_tid']['default_argument_type'] = 'taxonomy_tid';
-  $handler->display->display_options['arguments']['field_site_structure_tid']['default_argument_options']['node'] = TRUE;
-  $handler->display->display_options['arguments']['field_site_structure_tid']['default_argument_options']['limit'] = TRUE;
-  $handler->display->display_options['arguments']['field_site_structure_tid']['default_argument_options']['vocabularies'] = array(
+  /* Kontekstuelt filter: Indhold: Portalkategori (field_os2web_spotbox_sitestruct) */
+  $handler->display->display_options['arguments']['field_os2web_spotbox_sitestruct_tid']['id'] = 'field_os2web_spotbox_sitestruct_tid';
+  $handler->display->display_options['arguments']['field_os2web_spotbox_sitestruct_tid']['table'] = 'field_data_field_os2web_spotbox_sitestruct';
+  $handler->display->display_options['arguments']['field_os2web_spotbox_sitestruct_tid']['field'] = 'field_os2web_spotbox_sitestruct_tid';
+  $handler->display->display_options['arguments']['field_os2web_spotbox_sitestruct_tid']['default_action'] = 'default';
+  $handler->display->display_options['arguments']['field_os2web_spotbox_sitestruct_tid']['exception']['title'] = 'Alle';
+  $handler->display->display_options['arguments']['field_os2web_spotbox_sitestruct_tid']['default_argument_type'] = 'taxonomy_tid';
+  $handler->display->display_options['arguments']['field_os2web_spotbox_sitestruct_tid']['default_argument_options']['node'] = TRUE;
+  $handler->display->display_options['arguments']['field_os2web_spotbox_sitestruct_tid']['default_argument_options']['limit'] = TRUE;
+  $handler->display->display_options['arguments']['field_os2web_spotbox_sitestruct_tid']['default_argument_options']['vocabularies'] = array(
     'site_struktur' => 'site_struktur',
   );
-  $handler->display->display_options['arguments']['field_site_structure_tid']['summary']['number_of_records'] = '0';
-  $handler->display->display_options['arguments']['field_site_structure_tid']['summary']['format'] = 'default_summary';
-  $handler->display->display_options['arguments']['field_site_structure_tid']['summary_options']['items_per_page'] = '25';
-  $handler->display->display_options['arguments']['field_site_structure_tid']['specify_validation'] = TRUE;
-  $handler->display->display_options['arguments']['field_site_structure_tid']['validate']['type'] = 'taxonomy_term';
-  $handler->display->display_options['arguments']['field_site_structure_tid']['validate_options']['vocabularies'] = array(
+  $handler->display->display_options['arguments']['field_os2web_spotbox_sitestruct_tid']['summary']['number_of_records'] = '0';
+  $handler->display->display_options['arguments']['field_os2web_spotbox_sitestruct_tid']['summary']['format'] = 'default_summary';
+  $handler->display->display_options['arguments']['field_os2web_spotbox_sitestruct_tid']['summary_options']['items_per_page'] = '25';
+  $handler->display->display_options['arguments']['field_os2web_spotbox_sitestruct_tid']['specify_validation'] = TRUE;
+  $handler->display->display_options['arguments']['field_os2web_spotbox_sitestruct_tid']['validate']['type'] = 'taxonomy_term';
+  $handler->display->display_options['arguments']['field_os2web_spotbox_sitestruct_tid']['validate_options']['vocabularies'] = array(
     'site_struktur' => 'site_struktur',
   );
   /* Kontekstuelt filter: Indhold: Nid */
@@ -2440,7 +2440,7 @@ function os2web_spotbox_views_default_views() {
   $handler->display->display_options['arguments']['nid']['specify_validation'] = TRUE;
   $handler->display->display_options['arguments']['nid']['validate']['type'] = 'node';
   $handler->display->display_options['arguments']['nid']['validate_options']['types'] = array(
-    'spotbox' => 'spotbox',
+    'os2web_spotbox_box' => 'os2web_spotbox_box',
   );
   $handler->display->display_options['arguments']['nid']['validate_options']['nid_type'] = 'nids';
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
@@ -2457,7 +2457,7 @@ function os2web_spotbox_views_default_views() {
   $handler->display->display_options['filters']['type']['table'] = 'node';
   $handler->display->display_options['filters']['type']['field'] = 'type';
   $handler->display->display_options['filters']['type']['value'] = array(
-    'spotbox' => 'spotbox',
+    'os2web_spotbox_box' => 'os2web_spotbox_box',
   );
 
   /* Display: Spotboxe sektion - 1 */
@@ -2488,12 +2488,12 @@ function os2web_spotbox_views_default_views() {
   $handler->display->display_options['fields']['edit_node']['alter']['link_class'] = 'redigerlink';
   $handler->display->display_options['fields']['edit_node']['element_label_colon'] = FALSE;
   /* Felt: Indhold: Hjemmeside */
-  $handler->display->display_options['fields']['field_url']['id'] = 'field_url';
-  $handler->display->display_options['fields']['field_url']['table'] = 'field_data_field_url';
-  $handler->display->display_options['fields']['field_url']['field'] = 'field_url';
-  $handler->display->display_options['fields']['field_url']['label'] = '';
-  $handler->display->display_options['fields']['field_url']['exclude'] = TRUE;
-  $handler->display->display_options['fields']['field_url']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_os2web_spotbox_url']['id'] = 'field_os2web_spotbox_url';
+  $handler->display->display_options['fields']['field_os2web_spotbox_url']['table'] = 'field_data_field_os2web_spotbox_url';
+  $handler->display->display_options['fields']['field_os2web_spotbox_url']['field'] = 'field_os2web_spotbox_url';
+  $handler->display->display_options['fields']['field_os2web_spotbox_url']['label'] = '';
+  $handler->display->display_options['fields']['field_os2web_spotbox_url']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_os2web_spotbox_url']['element_label_colon'] = FALSE;
   /* Felt: Indhold: Titel */
   $handler->display->display_options['fields']['title_1']['id'] = 'title_1';
   $handler->display->display_options['fields']['title_1']['table'] = 'node';
@@ -2515,43 +2515,43 @@ function os2web_spotbox_views_default_views() {
   $handler->display->display_options['fields']['body']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['body']['element_default_classes'] = FALSE;
   /* Felt: Indhold: Primære billede */
-  $handler->display->display_options['fields']['field_lead_image']['id'] = 'field_lead_image';
-  $handler->display->display_options['fields']['field_lead_image']['table'] = 'field_data_field_lead_image';
-  $handler->display->display_options['fields']['field_lead_image']['field'] = 'field_lead_image';
-  $handler->display->display_options['fields']['field_lead_image']['label'] = '';
-  $handler->display->display_options['fields']['field_lead_image']['exclude'] = TRUE;
-  $handler->display->display_options['fields']['field_lead_image']['alter']['alter_text'] = TRUE;
-  $handler->display->display_options['fields']['field_lead_image']['alter']['text'] = '<a href=[field_url] title=[title_1]><img src="[field_lead_image]" alt="[title_1]" />
+  $handler->display->display_options['fields']['field_os2web_spotbox_lead_image']['id'] = 'field_os2web_spotbox_lead_image';
+  $handler->display->display_options['fields']['field_os2web_spotbox_lead_image']['table'] = 'field_data_field_os2web_spotbox_lead_image';
+  $handler->display->display_options['fields']['field_os2web_spotbox_lead_image']['field'] = 'field_os2web_spotbox_lead_image';
+  $handler->display->display_options['fields']['field_os2web_spotbox_lead_image']['label'] = '';
+  $handler->display->display_options['fields']['field_os2web_spotbox_lead_image']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_os2web_spotbox_lead_image']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['field_os2web_spotbox_lead_image']['alter']['text'] = '<a href=[field_os2web_spotbox_url] title=[title_1]><img src="[field_os2web_spotbox_lead_image]" alt="[title_1]" />
 <span class="zoom-icon"></span></a>';
-  $handler->display->display_options['fields']['field_lead_image']['alter']['path'] = '[field_url]';
-  $handler->display->display_options['fields']['field_lead_image']['alter']['link_class'] = 'overlayclass';
-  $handler->display->display_options['fields']['field_lead_image']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['field_lead_image']['element_default_classes'] = FALSE;
-  $handler->display->display_options['fields']['field_lead_image']['empty'] = '<div class="spotbox_no_picture"><div class="spotbox_no_picture_text"><a href=[field_url]>[body]</a></div></div>';
-  $handler->display->display_options['fields']['field_lead_image']['click_sort_column'] = 'fid';
-  $handler->display->display_options['fields']['field_lead_image']['type'] = 'image_url';
-  $handler->display->display_options['fields']['field_lead_image']['settings'] = array(
+  $handler->display->display_options['fields']['field_os2web_spotbox_lead_image']['alter']['path'] = '[field_os2web_spotbox_url]';
+  $handler->display->display_options['fields']['field_os2web_spotbox_lead_image']['alter']['link_class'] = 'overlayclass';
+  $handler->display->display_options['fields']['field_os2web_spotbox_lead_image']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_os2web_spotbox_lead_image']['element_default_classes'] = FALSE;
+  $handler->display->display_options['fields']['field_os2web_spotbox_lead_image']['empty'] = '<div class="spotbox_no_picture"><div class="spotbox_no_picture_text"><a href=[field_os2web_spotbox_url]>[body]</a></div></div>';
+  $handler->display->display_options['fields']['field_os2web_spotbox_lead_image']['click_sort_column'] = 'fid';
+  $handler->display->display_options['fields']['field_os2web_spotbox_lead_image']['type'] = 'image_url';
+  $handler->display->display_options['fields']['field_os2web_spotbox_lead_image']['settings'] = array(
     'image_style' => '',
     'image_link' => '',
   );
-  $handler->display->display_options['fields']['field_lead_image']['delta_limit'] = '1';
-  $handler->display->display_options['fields']['field_lead_image']['delta_offset'] = '0';
+  $handler->display->display_options['fields']['field_os2web_spotbox_lead_image']['delta_limit'] = '1';
+  $handler->display->display_options['fields']['field_os2web_spotbox_lead_image']['delta_offset'] = '0';
   /* Felt: Indhold: Fokus sektionsforside */
-  $handler->display->display_options['fields']['field_fokus_sektionsforside']['id'] = 'field_fokus_sektionsforside';
-  $handler->display->display_options['fields']['field_fokus_sektionsforside']['table'] = 'field_data_field_fokus_sektionsforside';
-  $handler->display->display_options['fields']['field_fokus_sektionsforside']['field'] = 'field_fokus_sektionsforside';
-  $handler->display->display_options['fields']['field_fokus_sektionsforside']['label'] = '';
-  $handler->display->display_options['fields']['field_fokus_sektionsforside']['alter']['alter_text'] = TRUE;
-  $handler->display->display_options['fields']['field_fokus_sektionsforside']['alter']['text'] = '<img src="[field_fokus_sektionsforside] " alt="[title_1]" />
+  $handler->display->display_options['fields']['field_os2web_spotbox_focus_sect']['id'] = 'field_os2web_spotbox_focus_sect';
+  $handler->display->display_options['fields']['field_os2web_spotbox_focus_sect']['table'] = 'field_data_field_os2web_spotbox_focus_sect';
+  $handler->display->display_options['fields']['field_os2web_spotbox_focus_sect']['field'] = 'field_os2web_spotbox_focus_sect';
+  $handler->display->display_options['fields']['field_os2web_spotbox_focus_sect']['label'] = '';
+  $handler->display->display_options['fields']['field_os2web_spotbox_focus_sect']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['field_os2web_spotbox_focus_sect']['alter']['text'] = '<img src="[field_os2web_spotbox_focus_sect] " alt="[title_1]" />
 <span class="zoom-icon"></span>';
-  $handler->display->display_options['fields']['field_fokus_sektionsforside']['alter']['make_link'] = TRUE;
-  $handler->display->display_options['fields']['field_fokus_sektionsforside']['alter']['path'] = '[field_url]';
-  $handler->display->display_options['fields']['field_fokus_sektionsforside']['alter']['link_class'] = 'overlayclass';
-  $handler->display->display_options['fields']['field_fokus_sektionsforside']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['field_fokus_sektionsforside']['empty'] = '<div class="spotbox_no_picture"><div class="spotbox_no_picture_text"><a href=[field_url]>[body]</a></div></div>';
-  $handler->display->display_options['fields']['field_fokus_sektionsforside']['click_sort_column'] = 'fid';
-  $handler->display->display_options['fields']['field_fokus_sektionsforside']['type'] = 'image_url';
-  $handler->display->display_options['fields']['field_fokus_sektionsforside']['settings'] = array(
+  $handler->display->display_options['fields']['field_os2web_spotbox_focus_sect']['alter']['make_link'] = TRUE;
+  $handler->display->display_options['fields']['field_os2web_spotbox_focus_sect']['alter']['path'] = '[field_os2web_spotbox_url]';
+  $handler->display->display_options['fields']['field_os2web_spotbox_focus_sect']['alter']['link_class'] = 'overlayclass';
+  $handler->display->display_options['fields']['field_os2web_spotbox_focus_sect']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_os2web_spotbox_focus_sect']['empty'] = '<div class="spotbox_no_picture"><div class="spotbox_no_picture_text"><a href=[field_os2web_spotbox_url]>[body]</a></div></div>';
+  $handler->display->display_options['fields']['field_os2web_spotbox_focus_sect']['click_sort_column'] = 'fid';
+  $handler->display->display_options['fields']['field_os2web_spotbox_focus_sect']['type'] = 'image_url';
+  $handler->display->display_options['fields']['field_os2web_spotbox_focus_sect']['settings'] = array(
     'image_style' => 'sektion-160',
     'image_link' => '',
   );
@@ -2561,8 +2561,8 @@ function os2web_spotbox_views_default_views() {
   $handler->display->display_options['fields']['title']['field'] = 'title';
   $handler->display->display_options['fields']['title']['label'] = '';
   $handler->display->display_options['fields']['title']['alter']['alter_text'] = TRUE;
-  $handler->display->display_options['fields']['title']['alter']['text'] = '<a href=[field_url] title=[title]>[title]</a>';
-  $handler->display->display_options['fields']['title']['alter']['path'] = '[field_url]';
+  $handler->display->display_options['fields']['title']['alter']['text'] = '<a href=[field_os2web_spotbox_url] title=[title]>[title]</a>';
+  $handler->display->display_options['fields']['title']['alter']['path'] = '[field_os2web_spotbox_url]';
   $handler->display->display_options['fields']['title']['alter']['max_length'] = '100';
   $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['title']['alter']['trim'] = TRUE;
@@ -2572,74 +2572,74 @@ function os2web_spotbox_views_default_views() {
   $handler->display->display_options['fields']['title']['element_default_classes'] = FALSE;
   $handler->display->display_options['fields']['title']['link_to_node'] = FALSE;
   /* Felt: Indhold: Intro */
-  $handler->display->display_options['fields']['field_text']['id'] = 'field_text';
-  $handler->display->display_options['fields']['field_text']['table'] = 'field_data_field_text';
-  $handler->display->display_options['fields']['field_text']['field'] = 'field_text';
-  $handler->display->display_options['fields']['field_text']['label'] = '';
-  $handler->display->display_options['fields']['field_text']['exclude'] = TRUE;
-  $handler->display->display_options['fields']['field_text']['element_type'] = 'h4';
-  $handler->display->display_options['fields']['field_text']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['field_text']['element_default_classes'] = FALSE;
+  $handler->display->display_options['fields']['field_os2web_spotbox_text']['id'] = 'field_os2web_spotbox_text';
+  $handler->display->display_options['fields']['field_os2web_spotbox_text']['table'] = 'field_data_field_os2web_spotbox_text';
+  $handler->display->display_options['fields']['field_os2web_spotbox_text']['field'] = 'field_os2web_spotbox_text';
+  $handler->display->display_options['fields']['field_os2web_spotbox_text']['label'] = '';
+  $handler->display->display_options['fields']['field_os2web_spotbox_text']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_os2web_spotbox_text']['element_type'] = 'h4';
+  $handler->display->display_options['fields']['field_os2web_spotbox_text']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_os2web_spotbox_text']['element_default_classes'] = FALSE;
   /* Felt: Indhold: Egenavne / stednavne */
-  $handler->display->display_options['fields']['field_termref_sted']['id'] = 'field_termref_sted';
-  $handler->display->display_options['fields']['field_termref_sted']['table'] = 'field_data_field_termref_sted';
-  $handler->display->display_options['fields']['field_termref_sted']['field'] = 'field_termref_sted';
-  $handler->display->display_options['fields']['field_termref_sted']['exclude'] = TRUE;
-  $handler->display->display_options['fields']['field_termref_sted']['delta_offset'] = '0';
+  $handler->display->display_options['fields']['field_os2web_spotbox_ref_place']['id'] = 'field_os2web_spotbox_ref_place';
+  $handler->display->display_options['fields']['field_os2web_spotbox_ref_place']['table'] = 'field_data_field_os2web_spotbox_ref_place';
+  $handler->display->display_options['fields']['field_os2web_spotbox_ref_place']['field'] = 'field_os2web_spotbox_ref_place';
+  $handler->display->display_options['fields']['field_os2web_spotbox_ref_place']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_os2web_spotbox_ref_place']['delta_offset'] = '0';
   /* Felt: Indhold: Forfrem til */
-  $handler->display->display_options['fields']['field_promoteto']['id'] = 'field_promoteto';
-  $handler->display->display_options['fields']['field_promoteto']['table'] = 'field_data_field_promoteto';
-  $handler->display->display_options['fields']['field_promoteto']['field'] = 'field_promoteto';
-  $handler->display->display_options['fields']['field_promoteto']['exclude'] = TRUE;
-  $handler->display->display_options['fields']['field_promoteto']['delta_offset'] = '0';
+  $handler->display->display_options['fields']['field_os2web_spotbox_promote_to']['id'] = 'field_os2web_spotbox_promote_to';
+  $handler->display->display_options['fields']['field_os2web_spotbox_promote_to']['table'] = 'field_data_field_os2web_spotbox_promote_to';
+  $handler->display->display_options['fields']['field_os2web_spotbox_promote_to']['field'] = 'field_os2web_spotbox_promote_to';
+  $handler->display->display_options['fields']['field_os2web_spotbox_promote_to']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_os2web_spotbox_promote_to']['delta_offset'] = '0';
   /* Felt: Indhold: KL Emneord */
-  $handler->display->display_options['fields']['field_termref_kle']['id'] = 'field_termref_kle';
-  $handler->display->display_options['fields']['field_termref_kle']['table'] = 'field_data_field_termref_kle';
-  $handler->display->display_options['fields']['field_termref_kle']['field'] = 'field_termref_kle';
-  $handler->display->display_options['fields']['field_termref_kle']['exclude'] = TRUE;
-  $handler->display->display_options['fields']['field_termref_kle']['delta_offset'] = '0';
+  $handler->display->display_options['fields']['field_os2web_spotbox_ref_kle']['id'] = 'field_os2web_spotbox_ref_kle';
+  $handler->display->display_options['fields']['field_os2web_spotbox_ref_kle']['table'] = 'field_data_field_os2web_spotbox_ref_kle';
+  $handler->display->display_options['fields']['field_os2web_spotbox_ref_kle']['field'] = 'field_os2web_spotbox_ref_kle';
+  $handler->display->display_options['fields']['field_os2web_spotbox_ref_kle']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_os2web_spotbox_ref_kle']['delta_offset'] = '0';
   /* Felt: Indhold: Organisation */
-  $handler->display->display_options['fields']['field_organization']['id'] = 'field_organization';
-  $handler->display->display_options['fields']['field_organization']['table'] = 'field_data_field_organization';
-  $handler->display->display_options['fields']['field_organization']['field'] = 'field_organization';
-  $handler->display->display_options['fields']['field_organization']['exclude'] = TRUE;
-  $handler->display->display_options['fields']['field_organization']['delta_offset'] = '0';
+  $handler->display->display_options['fields']['field_os2web_spotbox_organizati']['id'] = 'field_os2web_spotbox_organizati';
+  $handler->display->display_options['fields']['field_os2web_spotbox_organizati']['table'] = 'field_data_field_os2web_spotbox_organizati';
+  $handler->display->display_options['fields']['field_os2web_spotbox_organizati']['field'] = 'field_os2web_spotbox_organizati';
+  $handler->display->display_options['fields']['field_os2web_spotbox_organizati']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_os2web_spotbox_organizati']['delta_offset'] = '0';
   /* Felt: Indhold: Politik */
-  $handler->display->display_options['fields']['field_politics']['id'] = 'field_politics';
-  $handler->display->display_options['fields']['field_politics']['table'] = 'field_data_field_politics';
-  $handler->display->display_options['fields']['field_politics']['field'] = 'field_politics';
-  $handler->display->display_options['fields']['field_politics']['exclude'] = TRUE;
-  $handler->display->display_options['fields']['field_politics']['delta_offset'] = '0';
+  $handler->display->display_options['fields']['field_os2web_spotbox_politics']['id'] = 'field_os2web_spotbox_politics';
+  $handler->display->display_options['fields']['field_os2web_spotbox_politics']['table'] = 'field_data_field_os2web_spotbox_politics';
+  $handler->display->display_options['fields']['field_os2web_spotbox_politics']['field'] = 'field_os2web_spotbox_politics';
+  $handler->display->display_options['fields']['field_os2web_spotbox_politics']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_os2web_spotbox_politics']['delta_offset'] = '0';
   /* Felt: Indhold: Portalkategori */
-  $handler->display->display_options['fields']['field_site_structure']['id'] = 'field_site_structure';
-  $handler->display->display_options['fields']['field_site_structure']['table'] = 'field_data_field_site_structure';
-  $handler->display->display_options['fields']['field_site_structure']['field'] = 'field_site_structure';
-  $handler->display->display_options['fields']['field_site_structure']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_os2web_spotbox_sitestruct']['id'] = 'field_os2web_spotbox_sitestruct';
+  $handler->display->display_options['fields']['field_os2web_spotbox_sitestruct']['table'] = 'field_data_field_os2web_spotbox_sitestruct';
+  $handler->display->display_options['fields']['field_os2web_spotbox_sitestruct']['field'] = 'field_os2web_spotbox_sitestruct';
+  $handler->display->display_options['fields']['field_os2web_spotbox_sitestruct']['exclude'] = TRUE;
   /* Felt: Indhold: Stikord */
-  $handler->display->display_options['fields']['field_editortags']['id'] = 'field_editortags';
-  $handler->display->display_options['fields']['field_editortags']['table'] = 'field_data_field_editortags';
-  $handler->display->display_options['fields']['field_editortags']['field'] = 'field_editortags';
-  $handler->display->display_options['fields']['field_editortags']['exclude'] = TRUE;
-  $handler->display->display_options['fields']['field_editortags']['delta_offset'] = '0';
+  $handler->display->display_options['fields']['field_os2web_spotbox_editor_tags']['id'] = 'field_os2web_spotbox_editor_tags';
+  $handler->display->display_options['fields']['field_os2web_spotbox_editor_tags']['table'] = 'field_data_field_os2web_spotbox_editor_tags';
+  $handler->display->display_options['fields']['field_os2web_spotbox_editor_tags']['field'] = 'field_os2web_spotbox_editor_tags';
+  $handler->display->display_options['fields']['field_os2web_spotbox_editor_tags']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_os2web_spotbox_editor_tags']['delta_offset'] = '0';
   $handler->display->display_options['defaults']['arguments'] = FALSE;
-  /* Kontekstuelt filter: Indhold: Portalkategori (field_site_structure) */
-  $handler->display->display_options['arguments']['field_site_structure_tid']['id'] = 'field_site_structure_tid';
-  $handler->display->display_options['arguments']['field_site_structure_tid']['table'] = 'field_data_field_site_structure';
-  $handler->display->display_options['arguments']['field_site_structure_tid']['field'] = 'field_site_structure_tid';
-  $handler->display->display_options['arguments']['field_site_structure_tid']['default_action'] = 'default';
-  $handler->display->display_options['arguments']['field_site_structure_tid']['exception']['title'] = 'Alle';
-  $handler->display->display_options['arguments']['field_site_structure_tid']['default_argument_type'] = 'taxonomy_tid';
-  $handler->display->display_options['arguments']['field_site_structure_tid']['default_argument_options']['node'] = TRUE;
-  $handler->display->display_options['arguments']['field_site_structure_tid']['default_argument_options']['limit'] = TRUE;
-  $handler->display->display_options['arguments']['field_site_structure_tid']['default_argument_options']['vocabularies'] = array(
+  /* Kontekstuelt filter: Indhold: Portalkategori (field_os2web_spotbox_sitestruct) */
+  $handler->display->display_options['arguments']['field_os2web_spotbox_sitestruct_tid']['id'] = 'field_os2web_spotbox_sitestruct_tid';
+  $handler->display->display_options['arguments']['field_os2web_spotbox_sitestruct_tid']['table'] = 'field_data_field_os2web_spotbox_sitestruct';
+  $handler->display->display_options['arguments']['field_os2web_spotbox_sitestruct_tid']['field'] = 'field_os2web_spotbox_sitestruct_tid';
+  $handler->display->display_options['arguments']['field_os2web_spotbox_sitestruct_tid']['default_action'] = 'default';
+  $handler->display->display_options['arguments']['field_os2web_spotbox_sitestruct_tid']['exception']['title'] = 'Alle';
+  $handler->display->display_options['arguments']['field_os2web_spotbox_sitestruct_tid']['default_argument_type'] = 'taxonomy_tid';
+  $handler->display->display_options['arguments']['field_os2web_spotbox_sitestruct_tid']['default_argument_options']['node'] = TRUE;
+  $handler->display->display_options['arguments']['field_os2web_spotbox_sitestruct_tid']['default_argument_options']['limit'] = TRUE;
+  $handler->display->display_options['arguments']['field_os2web_spotbox_sitestruct_tid']['default_argument_options']['vocabularies'] = array(
     'site_struktur' => 'site_struktur',
   );
-  $handler->display->display_options['arguments']['field_site_structure_tid']['summary']['number_of_records'] = '0';
-  $handler->display->display_options['arguments']['field_site_structure_tid']['summary']['format'] = 'default_summary';
-  $handler->display->display_options['arguments']['field_site_structure_tid']['summary_options']['items_per_page'] = '25';
-  $handler->display->display_options['arguments']['field_site_structure_tid']['specify_validation'] = TRUE;
-  $handler->display->display_options['arguments']['field_site_structure_tid']['validate']['type'] = 'taxonomy_term';
-  $handler->display->display_options['arguments']['field_site_structure_tid']['validate_options']['vocabularies'] = array(
+  $handler->display->display_options['arguments']['field_os2web_spotbox_sitestruct_tid']['summary']['number_of_records'] = '0';
+  $handler->display->display_options['arguments']['field_os2web_spotbox_sitestruct_tid']['summary']['format'] = 'default_summary';
+  $handler->display->display_options['arguments']['field_os2web_spotbox_sitestruct_tid']['summary_options']['items_per_page'] = '25';
+  $handler->display->display_options['arguments']['field_os2web_spotbox_sitestruct_tid']['specify_validation'] = TRUE;
+  $handler->display->display_options['arguments']['field_os2web_spotbox_sitestruct_tid']['validate']['type'] = 'taxonomy_term';
+  $handler->display->display_options['arguments']['field_os2web_spotbox_sitestruct_tid']['validate_options']['vocabularies'] = array(
     'site_struktur' => 'site_struktur',
   );
   /* Kontekstuelt filter: Indhold: Nid */
@@ -2654,7 +2654,7 @@ function os2web_spotbox_views_default_views() {
   $handler->display->display_options['arguments']['nid']['specify_validation'] = TRUE;
   $handler->display->display_options['arguments']['nid']['validate']['type'] = 'node';
   $handler->display->display_options['arguments']['nid']['validate_options']['types'] = array(
-    'spotbox' => 'spotbox',
+    'os2web_spotbox_box' => 'os2web_spotbox_box',
   );
   $handler->display->display_options['arguments']['nid']['validate_options']['nid_type'] = 'nids';
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
@@ -2671,7 +2671,7 @@ function os2web_spotbox_views_default_views() {
   $handler->display->display_options['filters']['type']['table'] = 'node';
   $handler->display->display_options['filters']['type']['field'] = 'type';
   $handler->display->display_options['filters']['type']['value'] = array(
-    'spotbox' => 'spotbox',
+    'os2web_spotbox_box' => 'os2web_spotbox_box',
   );
 
   /* Display: Spotboxe subfront */
@@ -2703,12 +2703,12 @@ function os2web_spotbox_views_default_views() {
   $handler->display->display_options['fields']['edit_node']['alter']['link_class'] = 'redigerlink';
   $handler->display->display_options['fields']['edit_node']['element_label_colon'] = FALSE;
   /* Felt: Indhold: Hjemmeside */
-  $handler->display->display_options['fields']['field_url']['id'] = 'field_url';
-  $handler->display->display_options['fields']['field_url']['table'] = 'field_data_field_url';
-  $handler->display->display_options['fields']['field_url']['field'] = 'field_url';
-  $handler->display->display_options['fields']['field_url']['label'] = '';
-  $handler->display->display_options['fields']['field_url']['exclude'] = TRUE;
-  $handler->display->display_options['fields']['field_url']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_os2web_spotbox_url']['id'] = 'field_os2web_spotbox_url';
+  $handler->display->display_options['fields']['field_os2web_spotbox_url']['table'] = 'field_data_field_os2web_spotbox_url';
+  $handler->display->display_options['fields']['field_os2web_spotbox_url']['field'] = 'field_os2web_spotbox_url';
+  $handler->display->display_options['fields']['field_os2web_spotbox_url']['label'] = '';
+  $handler->display->display_options['fields']['field_os2web_spotbox_url']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_os2web_spotbox_url']['element_label_colon'] = FALSE;
   /* Felt: Indhold: Titel */
   $handler->display->display_options['fields']['title_1']['id'] = 'title_1';
   $handler->display->display_options['fields']['title_1']['table'] = 'node';
@@ -2733,31 +2733,31 @@ function os2web_spotbox_views_default_views() {
   $handler->display->display_options['fields']['body']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['body']['element_default_classes'] = FALSE;
   /* Felt: Indhold: Primære billede */
-  $handler->display->display_options['fields']['field_lead_image']['id'] = 'field_lead_image';
-  $handler->display->display_options['fields']['field_lead_image']['table'] = 'field_data_field_lead_image';
-  $handler->display->display_options['fields']['field_lead_image']['field'] = 'field_lead_image';
-  $handler->display->display_options['fields']['field_lead_image']['label'] = '';
-  $handler->display->display_options['fields']['field_lead_image']['alter']['alter_text'] = TRUE;
-  $handler->display->display_options['fields']['field_lead_image']['alter']['text'] = '<a href=[field_url] title=[title_1]><img src="[field_lead_image]" alt="[title_1]" />
+  $handler->display->display_options['fields']['field_os2web_spotbox_lead_image']['id'] = 'field_os2web_spotbox_lead_image';
+  $handler->display->display_options['fields']['field_os2web_spotbox_lead_image']['table'] = 'field_data_field_os2web_spotbox_lead_image';
+  $handler->display->display_options['fields']['field_os2web_spotbox_lead_image']['field'] = 'field_os2web_spotbox_lead_image';
+  $handler->display->display_options['fields']['field_os2web_spotbox_lead_image']['label'] = '';
+  $handler->display->display_options['fields']['field_os2web_spotbox_lead_image']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['field_os2web_spotbox_lead_image']['alter']['text'] = '<a href=[field_os2web_spotbox_url] title=[title_1]><img src="[field_os2web_spotbox_lead_image]" alt="[title_1]" />
 <div class="w80bg"><h3>[title_1]</h3>
 <div class="spotbody">[body]</div>
 </div>
 <span class="zoom-icon"></span></a>';
-  $handler->display->display_options['fields']['field_lead_image']['alter']['path'] = '[field_url]';
-  $handler->display->display_options['fields']['field_lead_image']['alter']['link_class'] = 'overlayclass';
-  $handler->display->display_options['fields']['field_lead_image']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['field_lead_image']['element_wrapper_type'] = 'div';
-  $handler->display->display_options['fields']['field_lead_image']['element_wrapper_class'] = 'spotbox-subfront';
-  $handler->display->display_options['fields']['field_lead_image']['element_default_classes'] = FALSE;
-  $handler->display->display_options['fields']['field_lead_image']['empty'] = '<div class="spotbox_no_picture"><div class="spotbox_no_picture_text"><a href=[field_url]>[body]</a></div></div>';
-  $handler->display->display_options['fields']['field_lead_image']['click_sort_column'] = 'fid';
-  $handler->display->display_options['fields']['field_lead_image']['type'] = 'image_url';
-  $handler->display->display_options['fields']['field_lead_image']['settings'] = array(
-    'image_style' => 'spotbox-300',
+  $handler->display->display_options['fields']['field_os2web_spotbox_lead_image']['alter']['path'] = '[field_os2web_spotbox_url]';
+  $handler->display->display_options['fields']['field_os2web_spotbox_lead_image']['alter']['link_class'] = 'overlayclass';
+  $handler->display->display_options['fields']['field_os2web_spotbox_lead_image']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_os2web_spotbox_lead_image']['element_wrapper_type'] = 'div';
+  $handler->display->display_options['fields']['field_os2web_spotbox_lead_image']['element_wrapper_class'] = 'spotbox-subfront';
+  $handler->display->display_options['fields']['field_os2web_spotbox_lead_image']['element_default_classes'] = FALSE;
+  $handler->display->display_options['fields']['field_os2web_spotbox_lead_image']['empty'] = '<div class="spotbox_no_picture"><div class="spotbox_no_picture_text"><a href=[field_os2web_spotbox_url]>[body]</a></div></div>';
+  $handler->display->display_options['fields']['field_os2web_spotbox_lead_image']['click_sort_column'] = 'fid';
+  $handler->display->display_options['fields']['field_os2web_spotbox_lead_image']['type'] = 'image_url';
+  $handler->display->display_options['fields']['field_os2web_spotbox_lead_image']['settings'] = array(
+    'image_style' => 'os2web_spotbox_image_300',
     'image_link' => '',
   );
-  $handler->display->display_options['fields']['field_lead_image']['delta_limit'] = '1';
-  $handler->display->display_options['fields']['field_lead_image']['delta_offset'] = '0';
+  $handler->display->display_options['fields']['field_os2web_spotbox_lead_image']['delta_limit'] = '1';
+  $handler->display->display_options['fields']['field_os2web_spotbox_lead_image']['delta_offset'] = '0';
   /* Felt: Indhold: Titel */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
@@ -2765,7 +2765,7 @@ function os2web_spotbox_views_default_views() {
   $handler->display->display_options['fields']['title']['label'] = '';
   $handler->display->display_options['fields']['title']['exclude'] = TRUE;
   $handler->display->display_options['fields']['title']['alter']['make_link'] = TRUE;
-  $handler->display->display_options['fields']['title']['alter']['path'] = '[field_url]';
+  $handler->display->display_options['fields']['title']['alter']['path'] = '[field_os2web_spotbox_url]';
   $handler->display->display_options['fields']['title']['alter']['max_length'] = '50';
   $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['title']['alter']['strip_tags'] = TRUE;
@@ -2775,19 +2775,19 @@ function os2web_spotbox_views_default_views() {
   $handler->display->display_options['fields']['title']['element_default_classes'] = FALSE;
   $handler->display->display_options['fields']['title']['link_to_node'] = FALSE;
   /* Felt: Indhold: Intro */
-  $handler->display->display_options['fields']['field_text']['id'] = 'field_text';
-  $handler->display->display_options['fields']['field_text']['table'] = 'field_data_field_text';
-  $handler->display->display_options['fields']['field_text']['field'] = 'field_text';
-  $handler->display->display_options['fields']['field_text']['label'] = '';
-  $handler->display->display_options['fields']['field_text']['exclude'] = TRUE;
-  $handler->display->display_options['fields']['field_text']['element_type'] = 'h4';
-  $handler->display->display_options['fields']['field_text']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['field_text']['element_default_classes'] = FALSE;
+  $handler->display->display_options['fields']['field_os2web_spotbox_text']['id'] = 'field_os2web_spotbox_text';
+  $handler->display->display_options['fields']['field_os2web_spotbox_text']['table'] = 'field_data_field_os2web_spotbox_text';
+  $handler->display->display_options['fields']['field_os2web_spotbox_text']['field'] = 'field_os2web_spotbox_text';
+  $handler->display->display_options['fields']['field_os2web_spotbox_text']['label'] = '';
+  $handler->display->display_options['fields']['field_os2web_spotbox_text']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_os2web_spotbox_text']['element_type'] = 'h4';
+  $handler->display->display_options['fields']['field_os2web_spotbox_text']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_os2web_spotbox_text']['element_default_classes'] = FALSE;
   /* Felt: Indhold: Portalkategori */
-  $handler->display->display_options['fields']['field_site_structure']['id'] = 'field_site_structure';
-  $handler->display->display_options['fields']['field_site_structure']['table'] = 'field_data_field_site_structure';
-  $handler->display->display_options['fields']['field_site_structure']['field'] = 'field_site_structure';
-  $handler->display->display_options['fields']['field_site_structure']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_os2web_spotbox_sitestruct']['id'] = 'field_os2web_spotbox_sitestruct';
+  $handler->display->display_options['fields']['field_os2web_spotbox_sitestruct']['table'] = 'field_data_field_os2web_spotbox_sitestruct';
+  $handler->display->display_options['fields']['field_os2web_spotbox_sitestruct']['field'] = 'field_os2web_spotbox_sitestruct';
+  $handler->display->display_options['fields']['field_os2web_spotbox_sitestruct']['exclude'] = TRUE;
   /* Felt: Global: Kontekstuelle links */
   $handler->display->display_options['fields']['contextual_links']['id'] = 'contextual_links';
   $handler->display->display_options['fields']['contextual_links']['table'] = 'views';
@@ -2796,13 +2796,13 @@ function os2web_spotbox_views_default_views() {
   $handler->display->display_options['fields']['contextual_links']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['contextual_links']['fields'] = array(
     'edit_node' => 'edit_node',
-    'field_url' => 'field_url',
+    'field_os2web_spotbox_url' => 'field_os2web_spotbox_url',
     'title_1' => 0,
     'body' => 0,
-    'field_lead_image' => 0,
+    'field_os2web_spotbox_lead_image' => 0,
     'title' => 0,
-    'field_text' => 0,
-    'field_site_structure' => 0,
+    'field_os2web_spotbox_text' => 0,
+    'field_os2web_spotbox_sitestruct' => 0,
   );
   $handler->display->display_options['defaults']['arguments'] = FALSE;
   /* Kontekstuelt filter: Indhold: Nid */
@@ -2817,7 +2817,7 @@ function os2web_spotbox_views_default_views() {
   $handler->display->display_options['arguments']['nid']['specify_validation'] = TRUE;
   $handler->display->display_options['arguments']['nid']['validate']['type'] = 'node';
   $handler->display->display_options['arguments']['nid']['validate_options']['types'] = array(
-    'spotbox' => 'spotbox',
+    'os2web_spotbox_box' => 'os2web_spotbox_box',
   );
   $handler->display->display_options['arguments']['nid']['validate_options']['nid_type'] = 'nids';
   $handler->display->display_options['arguments']['nid']['validate']['fail'] = 'ignore';
@@ -2836,28 +2836,28 @@ function os2web_spotbox_views_default_views() {
   $handler->display->display_options['filters']['type']['table'] = 'node';
   $handler->display->display_options['filters']['type']['field'] = 'type';
   $handler->display->display_options['filters']['type']['value'] = array(
-    'spotbox' => 'spotbox',
+    'os2web_spotbox_box' => 'os2web_spotbox_box',
   );
-  /* Filterkriterie: Indhold: Forfrem til (field_promoteto) */
-  $handler->display->display_options['filters']['field_promoteto_tid']['id'] = 'field_promoteto_tid';
-  $handler->display->display_options['filters']['field_promoteto_tid']['table'] = 'field_data_field_promoteto';
-  $handler->display->display_options['filters']['field_promoteto_tid']['field'] = 'field_promoteto_tid';
-  $handler->display->display_options['filters']['field_promoteto_tid']['value'] = array(
+  /* Filterkriterie: Indhold: Forfrem til (field_os2web_spotbox_promote_to) */
+  $handler->display->display_options['filters']['field_os2web_spotbox_promote_to_tid']['id'] = 'field_os2web_spotbox_promote_to_tid';
+  $handler->display->display_options['filters']['field_os2web_spotbox_promote_to_tid']['table'] = 'field_data_field_os2web_spotbox_promote_to';
+  $handler->display->display_options['filters']['field_os2web_spotbox_promote_to_tid']['field'] = 'field_os2web_spotbox_promote_to_tid';
+  $handler->display->display_options['filters']['field_os2web_spotbox_promote_to_tid']['value'] = array(
     12264 => '12264',
   );
-  $handler->display->display_options['filters']['field_promoteto_tid']['type'] = 'select';
-  $handler->display->display_options['filters']['field_promoteto_tid']['vocabulary'] = 'forfrem_til';
-  $handler->display->display_options['filters']['field_promoteto_tid']['hierarchy'] = 1;
-  /* Filterkriterie: Indhold: Video (field_spotbox_video:fid) */
-  $handler->display->display_options['filters']['field_spotbox_video_fid']['id'] = 'field_spotbox_video_fid';
-  $handler->display->display_options['filters']['field_spotbox_video_fid']['table'] = 'field_data_field_spotbox_video';
-  $handler->display->display_options['filters']['field_spotbox_video_fid']['field'] = 'field_spotbox_video_fid';
-  $handler->display->display_options['filters']['field_spotbox_video_fid']['operator'] = 'empty';
-  /* Filterkriterie: Indhold: Primære billede (field_lead_image:fid) */
-  $handler->display->display_options['filters']['field_lead_image_fid']['id'] = 'field_lead_image_fid';
-  $handler->display->display_options['filters']['field_lead_image_fid']['table'] = 'field_data_field_lead_image';
-  $handler->display->display_options['filters']['field_lead_image_fid']['field'] = 'field_lead_image_fid';
-  $handler->display->display_options['filters']['field_lead_image_fid']['operator'] = 'not empty';
+  $handler->display->display_options['filters']['field_os2web_spotbox_promote_to_tid']['type'] = 'select';
+  $handler->display->display_options['filters']['field_os2web_spotbox_promote_to_tid']['vocabulary'] = 'forfrem_til';
+  $handler->display->display_options['filters']['field_os2web_spotbox_promote_to_tid']['hierarchy'] = 1;
+  /* Filterkriterie: Indhold: Video (field_os2web_spotbox_video:fid) */
+  $handler->display->display_options['filters']['field_os2web_spotbox_video_fid']['id'] = 'field_os2web_spotbox_video_fid';
+  $handler->display->display_options['filters']['field_os2web_spotbox_video_fid']['table'] = 'field_data_field_os2web_spotbox_video';
+  $handler->display->display_options['filters']['field_os2web_spotbox_video_fid']['field'] = 'field_os2web_spotbox_video_fid';
+  $handler->display->display_options['filters']['field_os2web_spotbox_video_fid']['operator'] = 'empty';
+  /* Filterkriterie: Indhold: Primære billede (field_os2web_spotbox_lead_image:fid) */
+  $handler->display->display_options['filters']['field_os2web_spotbox_lead_image_fid']['id'] = 'field_os2web_spotbox_lead_image_fid';
+  $handler->display->display_options['filters']['field_os2web_spotbox_lead_image_fid']['table'] = 'field_data_field_os2web_spotbox_lead_image';
+  $handler->display->display_options['filters']['field_os2web_spotbox_lead_image_fid']['field'] = 'field_os2web_spotbox_lead_image_fid';
+  $handler->display->display_options['filters']['field_os2web_spotbox_lead_image_fid']['operator'] = 'not empty';
   $handler->display->display_options['argument_input'] = array(
     'nid' => array(
       'type' => 'user',
@@ -2873,7 +2873,7 @@ function os2web_spotbox_views_default_views() {
   $handler = $view->new_display('panel_pane', 'Spotboxe / forside - 1', 'panel_pane_10');
   $handler->display->display_options['defaults']['title'] = FALSE;
   $handler->display->display_options['defaults']['css_class'] = FALSE;
-  $handler->display->display_options['css_class'] = 'spotbox spotbox5';
+  $handler->display->display_options['css_class'] = 'spotbox os2web_spotbox_image_spot5';
   $handler->display->display_options['defaults']['hide_admin_links'] = FALSE;
   $handler->display->display_options['defaults']['pager'] = FALSE;
   $handler->display->display_options['pager']['type'] = 'some';
@@ -2900,12 +2900,12 @@ function os2web_spotbox_views_default_views() {
   $handler->display->display_options['fields']['edit_node']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['edit_node']['element_default_classes'] = FALSE;
   /* Felt: Indhold: Hjemmeside */
-  $handler->display->display_options['fields']['field_url']['id'] = 'field_url';
-  $handler->display->display_options['fields']['field_url']['table'] = 'field_data_field_url';
-  $handler->display->display_options['fields']['field_url']['field'] = 'field_url';
-  $handler->display->display_options['fields']['field_url']['label'] = '';
-  $handler->display->display_options['fields']['field_url']['exclude'] = TRUE;
-  $handler->display->display_options['fields']['field_url']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_os2web_spotbox_url']['id'] = 'field_os2web_spotbox_url';
+  $handler->display->display_options['fields']['field_os2web_spotbox_url']['table'] = 'field_data_field_os2web_spotbox_url';
+  $handler->display->display_options['fields']['field_os2web_spotbox_url']['field'] = 'field_os2web_spotbox_url';
+  $handler->display->display_options['fields']['field_os2web_spotbox_url']['label'] = '';
+  $handler->display->display_options['fields']['field_os2web_spotbox_url']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_os2web_spotbox_url']['element_label_colon'] = FALSE;
   /* Felt: Indhold: Titel */
   $handler->display->display_options['fields']['title_1']['id'] = 'title_1';
   $handler->display->display_options['fields']['title_1']['table'] = 'node';
@@ -2933,64 +2933,64 @@ function os2web_spotbox_views_default_views() {
   $handler->display->display_options['fields']['body']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['body']['element_default_classes'] = FALSE;
   /* Felt: Indhold: Intro */
-  $handler->display->display_options['fields']['field_text']['id'] = 'field_text';
-  $handler->display->display_options['fields']['field_text']['table'] = 'field_data_field_text';
-  $handler->display->display_options['fields']['field_text']['field'] = 'field_text';
-  $handler->display->display_options['fields']['field_text']['label'] = '';
-  $handler->display->display_options['fields']['field_text']['exclude'] = TRUE;
-  $handler->display->display_options['fields']['field_text']['alter']['max_length'] = '100';
-  $handler->display->display_options['fields']['field_text']['alter']['trim'] = TRUE;
-  $handler->display->display_options['fields']['field_text']['alter']['html'] = TRUE;
-  $handler->display->display_options['fields']['field_text']['element_type'] = 'h3';
-  $handler->display->display_options['fields']['field_text']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['field_text']['element_default_classes'] = FALSE;
-  $handler->display->display_options['fields']['field_text']['empty'] = '[title]';
-  $handler->display->display_options['fields']['field_text']['hide_alter_empty'] = FALSE;
+  $handler->display->display_options['fields']['field_os2web_spotbox_text']['id'] = 'field_os2web_spotbox_text';
+  $handler->display->display_options['fields']['field_os2web_spotbox_text']['table'] = 'field_data_field_os2web_spotbox_text';
+  $handler->display->display_options['fields']['field_os2web_spotbox_text']['field'] = 'field_os2web_spotbox_text';
+  $handler->display->display_options['fields']['field_os2web_spotbox_text']['label'] = '';
+  $handler->display->display_options['fields']['field_os2web_spotbox_text']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_os2web_spotbox_text']['alter']['max_length'] = '100';
+  $handler->display->display_options['fields']['field_os2web_spotbox_text']['alter']['trim'] = TRUE;
+  $handler->display->display_options['fields']['field_os2web_spotbox_text']['alter']['html'] = TRUE;
+  $handler->display->display_options['fields']['field_os2web_spotbox_text']['element_type'] = 'h3';
+  $handler->display->display_options['fields']['field_os2web_spotbox_text']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_os2web_spotbox_text']['element_default_classes'] = FALSE;
+  $handler->display->display_options['fields']['field_os2web_spotbox_text']['empty'] = '[title]';
+  $handler->display->display_options['fields']['field_os2web_spotbox_text']['hide_alter_empty'] = FALSE;
   /* Felt: Indhold: Primære billede */
-  $handler->display->display_options['fields']['field_lead_image']['id'] = 'field_lead_image';
-  $handler->display->display_options['fields']['field_lead_image']['table'] = 'field_data_field_lead_image';
-  $handler->display->display_options['fields']['field_lead_image']['field'] = 'field_lead_image';
-  $handler->display->display_options['fields']['field_lead_image']['label'] = '';
-  $handler->display->display_options['fields']['field_lead_image']['exclude'] = TRUE;
-  $handler->display->display_options['fields']['field_lead_image']['alter']['alter_text'] = TRUE;
-  $handler->display->display_options['fields']['field_lead_image']['alter']['text'] = '<a href=[field_url] title=[title_1]><img src="[field_lead_image]" alt="[title_1]" />
+  $handler->display->display_options['fields']['field_os2web_spotbox_lead_image']['id'] = 'field_os2web_spotbox_lead_image';
+  $handler->display->display_options['fields']['field_os2web_spotbox_lead_image']['table'] = 'field_data_field_os2web_spotbox_lead_image';
+  $handler->display->display_options['fields']['field_os2web_spotbox_lead_image']['field'] = 'field_os2web_spotbox_lead_image';
+  $handler->display->display_options['fields']['field_os2web_spotbox_lead_image']['label'] = '';
+  $handler->display->display_options['fields']['field_os2web_spotbox_lead_image']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_os2web_spotbox_lead_image']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['field_os2web_spotbox_lead_image']['alter']['text'] = '<a href=[field_os2web_spotbox_url] title=[title_1]><img src="[field_os2web_spotbox_lead_image]" alt="[title_1]" />
 <div class="spotbody">[body]</div>
 <span class="zoom-icon"></span></a>';
-  $handler->display->display_options['fields']['field_lead_image']['alter']['path'] = '[field_url]';
-  $handler->display->display_options['fields']['field_lead_image']['alter']['link_class'] = 'overlayclass';
-  $handler->display->display_options['fields']['field_lead_image']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['field_lead_image']['element_default_classes'] = FALSE;
-  $handler->display->display_options['fields']['field_lead_image']['empty'] = '<div class="spotbox_no_picture"><div class="spotbox_no_picture_text"><a href=[field_url]>[body]</a></div></div>';
-  $handler->display->display_options['fields']['field_lead_image']['click_sort_column'] = 'fid';
-  $handler->display->display_options['fields']['field_lead_image']['type'] = 'image_url';
-  $handler->display->display_options['fields']['field_lead_image']['settings'] = array(
-    'image_style' => 'spotbox5',
+  $handler->display->display_options['fields']['field_os2web_spotbox_lead_image']['alter']['path'] = '[field_os2web_spotbox_url]';
+  $handler->display->display_options['fields']['field_os2web_spotbox_lead_image']['alter']['link_class'] = 'overlayclass';
+  $handler->display->display_options['fields']['field_os2web_spotbox_lead_image']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_os2web_spotbox_lead_image']['element_default_classes'] = FALSE;
+  $handler->display->display_options['fields']['field_os2web_spotbox_lead_image']['empty'] = '<div class="spotbox_no_picture"><div class="spotbox_no_picture_text"><a href=[field_os2web_spotbox_url]>[body]</a></div></div>';
+  $handler->display->display_options['fields']['field_os2web_spotbox_lead_image']['click_sort_column'] = 'fid';
+  $handler->display->display_options['fields']['field_os2web_spotbox_lead_image']['type'] = 'image_url';
+  $handler->display->display_options['fields']['field_os2web_spotbox_lead_image']['settings'] = array(
+    'image_style' => 'os2web_spotbox_image_spot5',
     'image_link' => '',
   );
-  $handler->display->display_options['fields']['field_lead_image']['delta_limit'] = '1';
-  $handler->display->display_options['fields']['field_lead_image']['delta_offset'] = '0';
+  $handler->display->display_options['fields']['field_os2web_spotbox_lead_image']['delta_limit'] = '1';
+  $handler->display->display_options['fields']['field_os2web_spotbox_lead_image']['delta_offset'] = '0';
   /* Felt: Indhold: Stort billede */
-  $handler->display->display_options['fields']['field_stort_billede_spot5']['id'] = 'field_stort_billede_spot5';
-  $handler->display->display_options['fields']['field_stort_billede_spot5']['table'] = 'field_data_field_stort_billede_spot5';
-  $handler->display->display_options['fields']['field_stort_billede_spot5']['field'] = 'field_stort_billede_spot5';
-  $handler->display->display_options['fields']['field_stort_billede_spot5']['label'] = '';
-  $handler->display->display_options['fields']['field_stort_billede_spot5']['alter']['alter_text'] = TRUE;
-  $handler->display->display_options['fields']['field_stort_billede_spot5']['alter']['text'] = '<a href=[field_url] title=[title_1]><img src="[field_stort_billede_spot5]" alt="[title_1]" />
+  $handler->display->display_options['fields']['field_os2web_spotbox_big_image']['id'] = 'field_os2web_spotbox_big_image';
+  $handler->display->display_options['fields']['field_os2web_spotbox_big_image']['table'] = 'field_data_field_os2web_spotbox_big_image';
+  $handler->display->display_options['fields']['field_os2web_spotbox_big_image']['field'] = 'field_os2web_spotbox_big_image';
+  $handler->display->display_options['fields']['field_os2web_spotbox_big_image']['label'] = '';
+  $handler->display->display_options['fields']['field_os2web_spotbox_big_image']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['field_os2web_spotbox_big_image']['alter']['text'] = '<a href=[field_os2web_spotbox_url] title=[title_1]><img src="[field_os2web_spotbox_big_image]" alt="[title_1]" />
 <div class="spotbody">[body]</div>
 <span class="zoom-icon"></span></a>
 
 
 
 ';
-  $handler->display->display_options['fields']['field_stort_billede_spot5']['alter']['path'] = '[field_url]';
-  $handler->display->display_options['fields']['field_stort_billede_spot5']['alter']['link_class'] = 'overlayclass';
-  $handler->display->display_options['fields']['field_stort_billede_spot5']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['field_stort_billede_spot5']['element_default_classes'] = FALSE;
-  $handler->display->display_options['fields']['field_stort_billede_spot5']['empty'] = '<div class="spotbox_no_picture"><div class="spotbox_no_picture_text"><a href=[field_url]>[body]</a></div></div>';
-  $handler->display->display_options['fields']['field_stort_billede_spot5']['click_sort_column'] = 'fid';
-  $handler->display->display_options['fields']['field_stort_billede_spot5']['type'] = 'image_url';
-  $handler->display->display_options['fields']['field_stort_billede_spot5']['settings'] = array(
-    'image_style' => 'spotbox5',
+  $handler->display->display_options['fields']['field_os2web_spotbox_big_image']['alter']['path'] = '[field_os2web_spotbox_url]';
+  $handler->display->display_options['fields']['field_os2web_spotbox_big_image']['alter']['link_class'] = 'overlayclass';
+  $handler->display->display_options['fields']['field_os2web_spotbox_big_image']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_os2web_spotbox_big_image']['element_default_classes'] = FALSE;
+  $handler->display->display_options['fields']['field_os2web_spotbox_big_image']['empty'] = '<div class="spotbox_no_picture"><div class="spotbox_no_picture_text"><a href=[field_os2web_spotbox_url]>[body]</a></div></div>';
+  $handler->display->display_options['fields']['field_os2web_spotbox_big_image']['click_sort_column'] = 'fid';
+  $handler->display->display_options['fields']['field_os2web_spotbox_big_image']['type'] = 'image_url';
+  $handler->display->display_options['fields']['field_os2web_spotbox_big_image']['settings'] = array(
+    'image_style' => 'os2web_spotbox_image_spot5',
     'image_link' => '',
   );
   /* Felt: Indhold: Titel */
@@ -3000,7 +3000,7 @@ function os2web_spotbox_views_default_views() {
   $handler->display->display_options['fields']['title']['label'] = '';
   $handler->display->display_options['fields']['title']['exclude'] = TRUE;
   $handler->display->display_options['fields']['title']['alter']['make_link'] = TRUE;
-  $handler->display->display_options['fields']['title']['alter']['path'] = '[field_url]';
+  $handler->display->display_options['fields']['title']['alter']['path'] = '[field_os2web_spotbox_url]';
   $handler->display->display_options['fields']['title']['alter']['max_length'] = '50';
   $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['title']['alter']['trim'] = TRUE;
@@ -3009,46 +3009,46 @@ function os2web_spotbox_views_default_views() {
   $handler->display->display_options['fields']['title']['element_default_classes'] = FALSE;
   $handler->display->display_options['fields']['title']['link_to_node'] = FALSE;
   /* Felt: Indhold: Egenavne / stednavne */
-  $handler->display->display_options['fields']['field_termref_sted']['id'] = 'field_termref_sted';
-  $handler->display->display_options['fields']['field_termref_sted']['table'] = 'field_data_field_termref_sted';
-  $handler->display->display_options['fields']['field_termref_sted']['field'] = 'field_termref_sted';
-  $handler->display->display_options['fields']['field_termref_sted']['exclude'] = TRUE;
-  $handler->display->display_options['fields']['field_termref_sted']['delta_offset'] = '0';
+  $handler->display->display_options['fields']['field_os2web_spotbox_ref_place']['id'] = 'field_os2web_spotbox_ref_place';
+  $handler->display->display_options['fields']['field_os2web_spotbox_ref_place']['table'] = 'field_data_field_os2web_spotbox_ref_place';
+  $handler->display->display_options['fields']['field_os2web_spotbox_ref_place']['field'] = 'field_os2web_spotbox_ref_place';
+  $handler->display->display_options['fields']['field_os2web_spotbox_ref_place']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_os2web_spotbox_ref_place']['delta_offset'] = '0';
   /* Felt: Indhold: Forfrem til */
-  $handler->display->display_options['fields']['field_promoteto']['id'] = 'field_promoteto';
-  $handler->display->display_options['fields']['field_promoteto']['table'] = 'field_data_field_promoteto';
-  $handler->display->display_options['fields']['field_promoteto']['field'] = 'field_promoteto';
-  $handler->display->display_options['fields']['field_promoteto']['exclude'] = TRUE;
-  $handler->display->display_options['fields']['field_promoteto']['delta_offset'] = '0';
+  $handler->display->display_options['fields']['field_os2web_spotbox_promote_to']['id'] = 'field_os2web_spotbox_promote_to';
+  $handler->display->display_options['fields']['field_os2web_spotbox_promote_to']['table'] = 'field_data_field_os2web_spotbox_promote_to';
+  $handler->display->display_options['fields']['field_os2web_spotbox_promote_to']['field'] = 'field_os2web_spotbox_promote_to';
+  $handler->display->display_options['fields']['field_os2web_spotbox_promote_to']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_os2web_spotbox_promote_to']['delta_offset'] = '0';
   /* Felt: Indhold: KL Emneord */
-  $handler->display->display_options['fields']['field_termref_kle']['id'] = 'field_termref_kle';
-  $handler->display->display_options['fields']['field_termref_kle']['table'] = 'field_data_field_termref_kle';
-  $handler->display->display_options['fields']['field_termref_kle']['field'] = 'field_termref_kle';
-  $handler->display->display_options['fields']['field_termref_kle']['exclude'] = TRUE;
-  $handler->display->display_options['fields']['field_termref_kle']['delta_offset'] = '0';
+  $handler->display->display_options['fields']['field_os2web_spotbox_ref_kle']['id'] = 'field_os2web_spotbox_ref_kle';
+  $handler->display->display_options['fields']['field_os2web_spotbox_ref_kle']['table'] = 'field_data_field_os2web_spotbox_ref_kle';
+  $handler->display->display_options['fields']['field_os2web_spotbox_ref_kle']['field'] = 'field_os2web_spotbox_ref_kle';
+  $handler->display->display_options['fields']['field_os2web_spotbox_ref_kle']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_os2web_spotbox_ref_kle']['delta_offset'] = '0';
   /* Felt: Indhold: Organisation */
-  $handler->display->display_options['fields']['field_organization']['id'] = 'field_organization';
-  $handler->display->display_options['fields']['field_organization']['table'] = 'field_data_field_organization';
-  $handler->display->display_options['fields']['field_organization']['field'] = 'field_organization';
-  $handler->display->display_options['fields']['field_organization']['exclude'] = TRUE;
-  $handler->display->display_options['fields']['field_organization']['delta_offset'] = '0';
+  $handler->display->display_options['fields']['field_os2web_spotbox_organizati']['id'] = 'field_os2web_spotbox_organizati';
+  $handler->display->display_options['fields']['field_os2web_spotbox_organizati']['table'] = 'field_data_field_os2web_spotbox_organizati';
+  $handler->display->display_options['fields']['field_os2web_spotbox_organizati']['field'] = 'field_os2web_spotbox_organizati';
+  $handler->display->display_options['fields']['field_os2web_spotbox_organizati']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_os2web_spotbox_organizati']['delta_offset'] = '0';
   /* Felt: Indhold: Politik */
-  $handler->display->display_options['fields']['field_politics']['id'] = 'field_politics';
-  $handler->display->display_options['fields']['field_politics']['table'] = 'field_data_field_politics';
-  $handler->display->display_options['fields']['field_politics']['field'] = 'field_politics';
-  $handler->display->display_options['fields']['field_politics']['exclude'] = TRUE;
-  $handler->display->display_options['fields']['field_politics']['delta_offset'] = '0';
+  $handler->display->display_options['fields']['field_os2web_spotbox_politics']['id'] = 'field_os2web_spotbox_politics';
+  $handler->display->display_options['fields']['field_os2web_spotbox_politics']['table'] = 'field_data_field_os2web_spotbox_politics';
+  $handler->display->display_options['fields']['field_os2web_spotbox_politics']['field'] = 'field_os2web_spotbox_politics';
+  $handler->display->display_options['fields']['field_os2web_spotbox_politics']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_os2web_spotbox_politics']['delta_offset'] = '0';
   /* Felt: Indhold: Portalkategori */
-  $handler->display->display_options['fields']['field_site_structure']['id'] = 'field_site_structure';
-  $handler->display->display_options['fields']['field_site_structure']['table'] = 'field_data_field_site_structure';
-  $handler->display->display_options['fields']['field_site_structure']['field'] = 'field_site_structure';
-  $handler->display->display_options['fields']['field_site_structure']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_os2web_spotbox_sitestruct']['id'] = 'field_os2web_spotbox_sitestruct';
+  $handler->display->display_options['fields']['field_os2web_spotbox_sitestruct']['table'] = 'field_data_field_os2web_spotbox_sitestruct';
+  $handler->display->display_options['fields']['field_os2web_spotbox_sitestruct']['field'] = 'field_os2web_spotbox_sitestruct';
+  $handler->display->display_options['fields']['field_os2web_spotbox_sitestruct']['exclude'] = TRUE;
   /* Felt: Indhold: Stikord */
-  $handler->display->display_options['fields']['field_editortags']['id'] = 'field_editortags';
-  $handler->display->display_options['fields']['field_editortags']['table'] = 'field_data_field_editortags';
-  $handler->display->display_options['fields']['field_editortags']['field'] = 'field_editortags';
-  $handler->display->display_options['fields']['field_editortags']['exclude'] = TRUE;
-  $handler->display->display_options['fields']['field_editortags']['delta_offset'] = '0';
+  $handler->display->display_options['fields']['field_os2web_spotbox_editor_tags']['id'] = 'field_os2web_spotbox_editor_tags';
+  $handler->display->display_options['fields']['field_os2web_spotbox_editor_tags']['table'] = 'field_data_field_os2web_spotbox_editor_tags';
+  $handler->display->display_options['fields']['field_os2web_spotbox_editor_tags']['field'] = 'field_os2web_spotbox_editor_tags';
+  $handler->display->display_options['fields']['field_os2web_spotbox_editor_tags']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_os2web_spotbox_editor_tags']['delta_offset'] = '0';
   /* Felt: Global: Kontekstuelle links */
   $handler->display->display_options['fields']['contextual_links']['id'] = 'contextual_links';
   $handler->display->display_options['fields']['contextual_links']['table'] = 'views';
@@ -3057,19 +3057,19 @@ function os2web_spotbox_views_default_views() {
   $handler->display->display_options['fields']['contextual_links']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['contextual_links']['fields'] = array(
     'edit_node' => 'edit_node',
-    'field_url' => 'field_url',
+    'field_os2web_spotbox_url' => 'field_os2web_spotbox_url',
     'title_1' => 'title_1',
-    'field_text' => 'field_text',
+    'field_os2web_spotbox_text' => 'field_os2web_spotbox_text',
     'body' => 0,
-    'field_lead_image' => 0,
+    'field_os2web_spotbox_lead_image' => 0,
     'title' => 0,
-    'field_termref_sted' => 0,
-    'field_promoteto' => 0,
-    'field_termref_kle' => 0,
-    'field_organization' => 0,
-    'field_politics' => 0,
-    'field_site_structure' => 0,
-    'field_editortags' => 0,
+    'field_os2web_spotbox_ref_place' => 0,
+    'field_os2web_spotbox_promote_to' => 0,
+    'field_os2web_spotbox_ref_kle' => 0,
+    'field_os2web_spotbox_organizati' => 0,
+    'field_os2web_spotbox_politics' => 0,
+    'field_os2web_spotbox_sitestruct' => 0,
+    'field_os2web_spotbox_editor_tags' => 0,
   );
   $handler->display->display_options['defaults']['arguments'] = FALSE;
   /* Kontekstuelt filter: Indhold: Nid */
@@ -3084,7 +3084,7 @@ function os2web_spotbox_views_default_views() {
   $handler->display->display_options['arguments']['nid']['specify_validation'] = TRUE;
   $handler->display->display_options['arguments']['nid']['validate']['type'] = 'node';
   $handler->display->display_options['arguments']['nid']['validate_options']['types'] = array(
-    'spotbox' => 'spotbox',
+    'os2web_spotbox_box' => 'os2web_spotbox_box',
   );
   $handler->display->display_options['arguments']['nid']['validate_options']['nid_type'] = 'nids';
   $handler->display->display_options['arguments']['nid']['validate']['fail'] = 'ignore';
@@ -3103,23 +3103,23 @@ function os2web_spotbox_views_default_views() {
   $handler->display->display_options['filters']['type']['table'] = 'node';
   $handler->display->display_options['filters']['type']['field'] = 'type';
   $handler->display->display_options['filters']['type']['value'] = array(
-    'spotbox' => 'spotbox',
+    'os2web_spotbox_box' => 'os2web_spotbox_box',
   );
-  /* Filterkriterie: Indhold: Forfrem til (field_promoteto) */
-  $handler->display->display_options['filters']['field_promoteto_tid']['id'] = 'field_promoteto_tid';
-  $handler->display->display_options['filters']['field_promoteto_tid']['table'] = 'field_data_field_promoteto';
-  $handler->display->display_options['filters']['field_promoteto_tid']['field'] = 'field_promoteto_tid';
-  $handler->display->display_options['filters']['field_promoteto_tid']['value'] = array(
+  /* Filterkriterie: Indhold: Forfrem til (field_os2web_spotbox_promote_to) */
+  $handler->display->display_options['filters']['field_os2web_spotbox_promote_to_tid']['id'] = 'field_os2web_spotbox_promote_to_tid';
+  $handler->display->display_options['filters']['field_os2web_spotbox_promote_to_tid']['table'] = 'field_data_field_os2web_spotbox_promote_to';
+  $handler->display->display_options['filters']['field_os2web_spotbox_promote_to_tid']['field'] = 'field_os2web_spotbox_promote_to_tid';
+  $handler->display->display_options['filters']['field_os2web_spotbox_promote_to_tid']['value'] = array(
     12264 => '12264',
   );
-  $handler->display->display_options['filters']['field_promoteto_tid']['type'] = 'select';
-  $handler->display->display_options['filters']['field_promoteto_tid']['vocabulary'] = 'forfrem_til';
-  $handler->display->display_options['filters']['field_promoteto_tid']['hierarchy'] = 1;
-  /* Filterkriterie: Indhold: Video (field_spotbox_video:fid) */
-  $handler->display->display_options['filters']['field_spotbox_video_fid']['id'] = 'field_spotbox_video_fid';
-  $handler->display->display_options['filters']['field_spotbox_video_fid']['table'] = 'field_data_field_spotbox_video';
-  $handler->display->display_options['filters']['field_spotbox_video_fid']['field'] = 'field_spotbox_video_fid';
-  $handler->display->display_options['filters']['field_spotbox_video_fid']['operator'] = 'empty';
+  $handler->display->display_options['filters']['field_os2web_spotbox_promote_to_tid']['type'] = 'select';
+  $handler->display->display_options['filters']['field_os2web_spotbox_promote_to_tid']['vocabulary'] = 'forfrem_til';
+  $handler->display->display_options['filters']['field_os2web_spotbox_promote_to_tid']['hierarchy'] = 1;
+  /* Filterkriterie: Indhold: Video (field_os2web_spotbox_video:fid) */
+  $handler->display->display_options['filters']['field_os2web_spotbox_video_fid']['id'] = 'field_os2web_spotbox_video_fid';
+  $handler->display->display_options['filters']['field_os2web_spotbox_video_fid']['table'] = 'field_data_field_os2web_spotbox_video';
+  $handler->display->display_options['filters']['field_os2web_spotbox_video_fid']['field'] = 'field_os2web_spotbox_video_fid';
+  $handler->display->display_options['filters']['field_os2web_spotbox_video_fid']['operator'] = 'empty';
   $handler->display->display_options['allow']['use_pager'] = 0;
   $handler->display->display_options['allow']['items_per_page'] = 'items_per_page';
   $handler->display->display_options['allow']['offset'] = 0;
@@ -3139,7 +3139,7 @@ function os2web_spotbox_views_default_views() {
       'label' => 'ID på Spotboxe',
     ),
   );
-  $translatables['spotboxe'] = array(
+  $translatables['os2web_spotbox_view_spots'] = array(
     t('Master'),
     t('Spotboxe'),
     t('mere'),
@@ -3155,7 +3155,7 @@ function os2web_spotbox_views_default_views() {
     t('‹ forrige'),
     t('næste ›'),
     t('sidste »'),
-    t('<img src="[field_lead_image]" alt="[title_1]" />'),
+    t('<img src="[field_os2web_spotbox_lead_image]" alt="[title_1]" />'),
     t('Egenavne / stednavne'),
     t('Forfrem til'),
     t('KL Emneord'),
@@ -3166,55 +3166,55 @@ function os2web_spotbox_views_default_views() {
     t('Alle'),
     t('Page'),
     t('Spotbox på node'),
-    t('<a href=[field_url] title=[title] ><img src="[field_lead_image]" alt="[title_1]" /></a>'),
-    t('<div class="spotbox_no_picture"><div class="spotbox_no_picture_text"><a href=[field_url]>[body]</a></div></div>'),
-    t('<a href=[field_url] title=[title]>[title]</a>'),
+    t('<a href=[field_os2web_spotbox_url] title=[title] ><img src="[field_os2web_spotbox_lead_image]" alt="[title_1]" /></a>'),
+    t('<div class="spotbox_no_picture"><div class="spotbox_no_picture_text"><a href=[field_os2web_spotbox_url]>[body]</a></div></div>'),
+    t('<a href=[field_os2web_spotbox_url] title=[title]>[title]</a>'),
     t('View panes'),
     t('Spotboxe / forside - 2tv'),
-    t('<a href=[field_url] title=[title_1]><img src="[field_lead_image]" alt="[title_1]" />
+    t('<a href=[field_os2web_spotbox_url] title=[title_1]><img src="[field_os2web_spotbox_lead_image]" alt="[title_1]" />
 <span class="zoom-icon"></span></a>'),
-    t('<a href=[field_url] title=[field_text]>[field_text]</a>'),
+    t('<a href=[field_os2web_spotbox_url] title=[field_os2web_spotbox_text]>[field_os2web_spotbox_text]</a>'),
     t('[title]'),
     t('Spotboxe / forside - 2th'),
-    t('<div class="spotbox_no_picture"><div class="spotbox_no_picture_text"><a href=[field_url]  title=[title_1]>[body]</a></div></div>'),
-    t('<a href=[field_url] title=[title_1]>[field_text]</a>'),
+    t('<div class="spotbox_no_picture"><div class="spotbox_no_picture_text"><a href=[field_os2web_spotbox_url]  title=[title_1]>[body]</a></div></div>'),
+    t('<a href=[field_os2web_spotbox_url] title=[title_1]>[field_os2web_spotbox_text]</a>'),
     t('Spotboxe / forside - Høj'),
     t('aabb[title_1]'),
-    t('<a href=[field_url] title=[title_1]><img src="[field_spotbox_image_tall]" alt="[title_1]" />
+    t('<a href=[field_os2web_spotbox_url] title=[title_1]><img src="[field_os2web_spotbox_image_tall]" alt="[title_1]" />
 <span class="zoom-icon-tall"></span></a>'),
     t('[body]'),
-    t('<a href=[field_url] title=[title_1]><img src="[field_lead_image]" alt="[title_1]" /></a>'),
+    t('<a href=[field_os2web_spotbox_url] title=[title_1]><img src="[field_os2web_spotbox_lead_image]" alt="[title_1]" /></a>'),
     t('.'),
     t(','),
-    t('<a href=[field_url] title=[title_1]>[title]</a>'),
+    t('<a href=[field_os2web_spotbox_url] title=[title_1]>[title]</a>'),
     t('Spotboxe / forside - Video'),
     t('[body_1-value]'),
-    t('<div class="video-text"><a href=[field_url] title=[title_1]>[body_1]</a>
-<h4><a href=[field_url] title=[title_1]>[field_text]</a></h4></div>'),
-    t('<img src="[field_lead_image]" alt="[title_1]" />
+    t('<div class="video-text"><a href=[field_os2web_spotbox_url] title=[title_1]>[body_1]</a>
+<h4><a href=[field_os2web_spotbox_url] title=[title_1]>[field_os2web_spotbox_text]</a></h4></div>'),
+    t('<img src="[field_os2web_spotbox_lead_image]" alt="[title_1]" />
 <span class="zoom-icon-video"></span>'),
-    t('[field_spotbox_video]'),
-    t('Video (field_spotbox_video:fid)'),
+    t('[field_os2web_spotbox_video]'),
+    t('Video (field_os2web_spotbox_video:fid)'),
     t('Blok - Spotbox node'),
     t('Spotboxe portal - 3'),
     t('Spotboxe portal - 2'),
     t('Spotboxe sektion - 3'),
-    t('<img src="[field_lead_image]" alt="[title_1]" />
+    t('<img src="[field_os2web_spotbox_lead_image]" alt="[title_1]" />
 <span class="zoom-icon"></span>'),
     t('Spotboxe sektion - 1'),
-    t('<img src="[field_fokus_sektionsforside] " alt="[title_1]" />
+    t('<img src="[field_os2web_spotbox_focus_sect] " alt="[title_1]" />
 <span class="zoom-icon"></span>'),
     t('Spotboxe subfront'),
-    t('<a href=[field_url] title=[title_1]><img src="[field_lead_image]" alt="[title_1]" />
+    t('<a href=[field_os2web_spotbox_url] title=[title_1]><img src="[field_os2web_spotbox_lead_image]" alt="[title_1]" />
 <div class="w80bg"><h3>[title_1]</h3>
 <div class="spotbody">[body]</div>
 </div>
 <span class="zoom-icon"></span></a>'),
     t('Spotboxe / forside - 1'),
-    t('<a href=[field_url] title=[title_1]><img src="[field_lead_image]" alt="[title_1]" />
+    t('<a href=[field_os2web_spotbox_url] title=[title_1]><img src="[field_os2web_spotbox_lead_image]" alt="[title_1]" />
 <div class="spotbody">[body]</div>
 <span class="zoom-icon"></span></a>'),
-    t('<a href=[field_url] title=[title_1]><img src="[field_stort_billede_spot5]" alt="[title_1]" />
+    t('<a href=[field_os2web_spotbox_url] title=[title_1]><img src="[field_os2web_spotbox_big_image]" alt="[title_1]" />
 <div class="spotbody">[body]</div>
 <span class="zoom-icon"></span></a>
 
@@ -3222,7 +3222,7 @@ function os2web_spotbox_views_default_views() {
 
 '),
   );
-  $export['spotboxe'] = $view;
+  $export['os2web_spotbox_view_spots'] = $view;
 
   return $export;
 }

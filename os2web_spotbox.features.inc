@@ -1,13 +1,13 @@
 <?php
 /**
  * @file
- * os2web_spotbox.features.inc
+ * os2web_spotbokse.features.inc
  */
 
 /**
  * Implements hook_ctools_plugin_api().
  */
-function os2web_spotbox_ctools_plugin_api() {
+function os2web_spotbokse_ctools_plugin_api() {
   list($module, $api) = func_get_args();
   if ($module == "field_group" && $api == "field_group") {
     return array("version" => "1");
@@ -25,19 +25,19 @@ function os2web_spotbox_ctools_plugin_api() {
 /**
  * Implements hook_views_api().
  */
-function os2web_spotbox_views_api() {
+function os2web_spotbokse_views_api() {
   return array("version" => "3.0");
 }
 
 /**
  * Implements hook_image_default_styles().
  */
-function os2web_spotbox_image_default_styles() {
+function os2web_spotbokse_image_default_styles() {
   $styles = array();
 
-  // Exported image style: spotbox-300.
-  $styles['spotbox-300'] = array(
-    'name' => 'spotbox-300',
+  // Exported image style: os2web_spotbox_image_300.
+  $styles['os2web_spotbox_image_300'] = array(
+    'name' => 'os2web_spotbox_image_300',
     'effects' => array(
       16 => array(
         'label' => 'Skalér og beskær',
@@ -57,9 +57,9 @@ function os2web_spotbox_image_default_styles() {
     ),
   );
 
-  // Exported image style: spotbox-tall.
-  $styles['spotbox-tall'] = array(
-    'name' => 'spotbox-tall',
+  // Exported image style: os2web_spotbox_image_tall.
+  $styles['os2web_spotbox_image_tall'] = array(
+    'name' => 'os2web_spotbox_image_tall',
     'effects' => array(
       1 => array(
         'label' => 'Beskær',
@@ -80,9 +80,9 @@ function os2web_spotbox_image_default_styles() {
     ),
   );
 
-  // Exported image style: spotbox5.
-  $styles['spotbox5'] = array(
-    'name' => 'spotbox5',
+  // Exported image style: os2web_spotbox_image_spot5.
+  $styles['os2web_spotbox_image_spot5'] = array(
+    'name' => 'os2web_spotbox_image_spot5',
     'effects' => array(
       1 => array(
         'label' => 'Skalér og beskær',
@@ -102,9 +102,9 @@ function os2web_spotbox_image_default_styles() {
     ),
   );
 
-  // Exported image style: spotbox_right.
-  $styles['spotbox_right'] = array(
-    'name' => 'spotbox_right',
+  // Exported image style: os2web_spotbox_image_right.
+  $styles['os2web_spotbox_image_right'] = array(
+    'name' => 'os2web_spotbox_image_right',
     'effects' => array(
       7 => array(
         'label' => 'Skalér',
@@ -141,9 +141,9 @@ function os2web_spotbox_image_default_styles() {
     ),
   );
 
-  // Exported image style: video_forside.
-  $styles['video_forside'] = array(
-    'name' => 'video_forside',
+  // Exported image style: os2web_spotbox_image_video_front.
+  $styles['os2web_spotbox_image_video_front'] = array(
+    'name' => 'os2web_spotbox_image_video_front',
     'effects' => array(
       8 => array(
         'label' => 'Skalér',
@@ -186,9 +186,9 @@ function os2web_spotbox_image_default_styles() {
 /**
  * Implements hook_node_info().
  */
-function os2web_spotbox_node_info() {
+function os2web_spotbokse_node_info() {
   $items = array(
-    'spotbox' => array(
+    'os2web_spotbox_box' => array(
       'name' => t('Spotbox'),
       'base' => 'node_content',
       'description' => '',

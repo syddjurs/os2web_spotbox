@@ -1,13 +1,13 @@
 <?php
 /**
  * @file
- * os2web_spotbox.file_default_displays.inc
+ * os2web_spotbokse.file_default_displays.inc
  */
 
 /**
  * Implements hook_file_default_displays().
  */
-function os2web_spotbox_file_default_displays() {
+function os2web_spotbokse_file_default_displays() {
   $export = array();
 
   $file_display = new stdClass();
@@ -68,7 +68,7 @@ function os2web_spotbox_file_default_displays() {
   $file_display->weight = 0;
   $file_display->status = TRUE;
   $file_display->settings = array(
-    'image_style' => 'video_forside',
+    'image_style' => 'os2web_spotbox_image_video_front',
   );
   $export['video__default__media_youtube_image'] = $file_display;
 

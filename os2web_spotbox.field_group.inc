@@ -1,32 +1,32 @@
 <?php
 /**
  * @file
- * os2web_spotbox.field_group.inc
+ * os2web_spotbokse.field_group.inc
  */
 
 /**
  * Implements hook_field_group_info().
  */
-function os2web_spotbox_field_group_info() {
+function os2web_spotbokse_field_group_info() {
   $export = array();
 
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
   $field_group->api_version = 1;
-  $field_group->identifier = 'group_billeder|node|spotbox|form';
+  $field_group->identifier = 'group_billeder|node|os2web_spotbox_box|form';
   $field_group->group_name = 'group_billeder';
   $field_group->entity_type = 'node';
-  $field_group->bundle = 'spotbox';
+  $field_group->bundle = 'os2web_spotbox_box';
   $field_group->mode = 'form';
   $field_group->parent_name = 'group_spotbox';
   $field_group->data = array(
     'label' => 'Spotbox',
     'weight' => '1',
     'children' => array(
-      0 => 'field_lead_image',
-      1 => 'field_termref_kle',
-      2 => 'field_site_structure',
-      3 => 'field_spotbox_image_tall',
+      0 => 'field_os2web_spotbox_lead_image',
+      1 => 'field_os2web_spotbox_ref_kle',
+      2 => 'field_os2web_spotbox_sitestruct',
+      3 => 'field_os2web_spotbox_image_tall',
       4 => 'title',
     ),
     'format_type' => 'htab',
@@ -40,23 +40,23 @@ function os2web_spotbox_field_group_info() {
       'formatter' => 'closed',
     ),
   );
-  $export['group_billeder|node|spotbox|form'] = $field_group;
+  $export['group_billeder|node|os2web_spotbox_box|form'] = $field_group;
 
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
   $field_group->api_version = 1;
-  $field_group->identifier = 'group_links|node|spotbox|form';
+  $field_group->identifier = 'group_links|node|os2web_spotbox_box|form';
   $field_group->group_name = 'group_links';
   $field_group->entity_type = 'node';
-  $field_group->bundle = 'spotbox';
+  $field_group->bundle = 'os2web_spotbox_box';
   $field_group->mode = 'form';
   $field_group->parent_name = 'group_spotbox';
   $field_group->data = array(
     'label' => 'Links',
     'weight' => '3',
     'children' => array(
-      0 => 'field_url',
-      1 => 'field_text',
+      0 => 'field_os2web_spotbox_url',
+      1 => 'field_os2web_spotbox_text',
     ),
     'format_type' => 'htab',
     'format_settings' => array(
@@ -68,15 +68,15 @@ function os2web_spotbox_field_group_info() {
       ),
     ),
   );
-  $export['group_links|node|spotbox|form'] = $field_group;
+  $export['group_links|node|os2web_spotbox_box|form'] = $field_group;
 
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
   $field_group->api_version = 1;
-  $field_group->identifier = 'group_spotbox|node|spotbox|form';
+  $field_group->identifier = 'group_spotbox|node|os2web_spotbox_box|form';
   $field_group->group_name = 'group_spotbox';
   $field_group->entity_type = 'node';
-  $field_group->bundle = 'spotbox';
+  $field_group->bundle = 'os2web_spotbox_box';
   $field_group->mode = 'form';
   $field_group->parent_name = '';
   $field_group->data = array(
@@ -96,26 +96,26 @@ function os2web_spotbox_field_group_info() {
       ),
     ),
   );
-  $export['group_spotbox|node|spotbox|form'] = $field_group;
+  $export['group_spotbox|node|os2web_spotbox_box|form'] = $field_group;
 
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
   $field_group->api_version = 1;
-  $field_group->identifier = 'group_taksonomi|node|spotbox|form';
+  $field_group->identifier = 'group_taksonomi|node|os2web_spotbox_box|form';
   $field_group->group_name = 'group_taksonomi';
   $field_group->entity_type = 'node';
-  $field_group->bundle = 'spotbox';
+  $field_group->bundle = 'os2web_spotbox_box';
   $field_group->mode = 'form';
   $field_group->parent_name = 'group_spotbox';
   $field_group->data = array(
     'label' => 'Emneord',
     'weight' => '4',
     'children' => array(
-      0 => 'field_termref_sted',
-      1 => 'field_organization',
-      2 => 'field_editortags',
-      3 => 'field_politics',
-      4 => 'field_promoteto',
+      0 => 'field_os2web_spotbox_ref_place',
+      1 => 'field_os2web_spotbox_organizati',
+      2 => 'field_os2web_spotbox_editor_tags',
+      3 => 'field_os2web_spotbox_politics',
+      4 => 'field_os2web_spotbox_promote_to',
     ),
     'format_type' => 'htab',
     'format_settings' => array(
@@ -127,15 +127,15 @@ function os2web_spotbox_field_group_info() {
       ),
     ),
   );
-  $export['group_taksonomi|node|spotbox|form'] = $field_group;
+  $export['group_taksonomi|node|os2web_spotbox_box|form'] = $field_group;
 
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
   $field_group->api_version = 1;
-  $field_group->identifier = 'group_tekst|node|spotbox|form';
+  $field_group->identifier = 'group_tekst|node|os2web_spotbox_box|form';
   $field_group->group_name = 'group_tekst';
   $field_group->entity_type = 'node';
-  $field_group->bundle = 'spotbox';
+  $field_group->bundle = 'os2web_spotbox_box';
   $field_group->mode = 'form';
   $field_group->parent_name = 'group_spotbox';
   $field_group->data = array(
@@ -143,7 +143,7 @@ function os2web_spotbox_field_group_info() {
     'weight' => '2',
     'children' => array(
       0 => 'body',
-      1 => 'field_spotbox_video',
+      1 => 'field_os2web_spotbox_video',
     ),
     'format_type' => 'htab',
     'format_settings' => array(
@@ -156,7 +156,7 @@ function os2web_spotbox_field_group_info() {
       'formatter' => 'closed',
     ),
   );
-  $export['group_tekst|node|spotbox|form'] = $field_group;
+  $export['group_tekst|node|os2web_spotbox_box|form'] = $field_group;
 
   return $export;
 }

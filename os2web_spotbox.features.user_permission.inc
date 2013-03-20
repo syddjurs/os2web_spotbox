@@ -1,18 +1,18 @@
 <?php
 /**
  * @file
- * os2web_spotbox.features.user_permission.inc
+ * os2web_spotbokse.features.user_permission.inc
  */
 
 /**
  * Implements hook_user_default_permissions().
  */
-function os2web_spotbox_user_default_permissions() {
+function os2web_spotbokse_user_default_permissions() {
   $permissions = array();
 
-  // Exported permission: create spotbox content.
-  $permissions['create spotbox content'] = array(
-    'name' => 'create spotbox content',
+  // Exported permission: create os2web_spotbox_box content.
+  $permissions['create os2web_spotbox_box content'] = array(
+    'name' => 'create os2web_spotbox_box content',
     'roles' => array(
       0 => 'Administrator',
       1 => 'Editor',
@@ -22,9 +22,9 @@ function os2web_spotbox_user_default_permissions() {
     'module' => 'node',
   );
 
-  // Exported permission: delete any spotbox content.
-  $permissions['delete any spotbox content'] = array(
-    'name' => 'delete any spotbox content',
+  // Exported permission: delete any os2web_spotbox_box content.
+  $permissions['delete any os2web_spotbox_box content'] = array(
+    'name' => 'delete any os2web_spotbox_box content',
     'roles' => array(
       0 => 'Administrator',
       1 => 'Kommunikation',
@@ -33,9 +33,9 @@ function os2web_spotbox_user_default_permissions() {
     'module' => 'node',
   );
 
-  // Exported permission: delete own spotbox content.
-  $permissions['delete own spotbox content'] = array(
-    'name' => 'delete own spotbox content',
+  // Exported permission: delete own os2web_spotbox_box content.
+  $permissions['delete own os2web_spotbox_box content'] = array(
+    'name' => 'delete own os2web_spotbox_box content',
     'roles' => array(
       0 => 'Administrator',
       1 => 'Editor',
@@ -45,9 +45,9 @@ function os2web_spotbox_user_default_permissions() {
     'module' => 'node',
   );
 
-  // Exported permission: edit any spotbox content.
-  $permissions['edit any spotbox content'] = array(
-    'name' => 'edit any spotbox content',
+  // Exported permission: edit any os2web_spotbox_box content.
+  $permissions['edit any os2web_spotbox_box content'] = array(
+    'name' => 'edit any os2web_spotbox_box content',
     'roles' => array(
       0 => 'Administrator',
       1 => 'Editor',
@@ -57,9 +57,9 @@ function os2web_spotbox_user_default_permissions() {
     'module' => 'node',
   );
 
-  // Exported permission: edit own spotbox content.
-  $permissions['edit own spotbox content'] = array(
-    'name' => 'edit own spotbox content',
+  // Exported permission: edit own os2web_spotbox_box content.
+  $permissions['edit own os2web_spotbox_box content'] = array(
+    'name' => 'edit own os2web_spotbox_box content',
     'roles' => array(
       0 => 'Administrator',
       1 => 'Editor',
