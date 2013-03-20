@@ -1,13 +1,13 @@
 <?php
 /**
  * @file
- * os2web_spotbokse.file_default_displays.inc
+ * os2web_spotbox.file_default_displays.inc
  */
 
 /**
  * Implements hook_file_default_displays().
  */
-function os2web_spotbokse_file_default_displays() {
+function os2web_spotbox_file_default_displays() {
   $export = array();
 
   $file_display = new stdClass();

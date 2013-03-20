@@ -1,13 +1,13 @@
 <?php
 /**
  * @file
- * os2web_spotbokse.features.field.inc
+ * os2web_spotbox.features.field.inc
  */
 
 /**
  * Implements hook_field_default_fields().
  */
-function os2web_spotbokse_field_default_fields() {
+function os2web_spotbox_field_default_fields() {
   $fields = array();
 
   // Exported field: 'node-os2web_spotbox_box-body'.

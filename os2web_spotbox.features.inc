@@ -1,13 +1,13 @@
 <?php
 /**
  * @file
- * os2web_spotbokse.features.inc
+ * os2web_spotbox.features.inc
  */
 
 /**
  * Implements hook_ctools_plugin_api().
  */
-function os2web_spotbokse_ctools_plugin_api() {
+function os2web_spotbox_ctools_plugin_api() {
   list($module, $api) = func_get_args();
   if ($module == "field_group" && $api == "field_group") {
     return array("version" => "1");
@@ -25,14 +25,14 @@ function os2web_spotbokse_ctools_plugin_api() {
 /**
  * Implements hook_views_api().
  */
-function os2web_spotbokse_views_api() {
+function os2web_spotbox_views_api() {
   return array("version" => "3.0");
 }
 
 /**
  * Implements hook_image_default_styles().
  */
-function os2web_spotbokse_image_default_styles() {
+function os2web_spotbox_image_default_styles() {
   $styles = array();
 
   // Exported image style: os2web_spotbox_image_300.
@@ -186,7 +186,7 @@ function os2web_spotbokse_image_default_styles() {
 /**
  * Implements hook_node_info().
  */
-function os2web_spotbokse_node_info() {
+function os2web_spotbox_node_info() {
   $items = array(
     'os2web_spotbox_box' => array(
       'name' => t('Spotbox'),

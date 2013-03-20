@@ -1,13 +1,13 @@
 <?php
 /**
  * @file
- * os2web_spotbokse.field_group.inc
+ * os2web_spotbox.field_group.inc
  */
 
 /**
  * Implements hook_field_group_info().
  */
-function os2web_spotbokse_field_group_info() {
+function os2web_spotbox_field_group_info() {
   $export = array();
 
   $field_group = new stdClass();

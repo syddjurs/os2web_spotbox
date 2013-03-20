@@ -1,13 +1,13 @@
 <?php
 /**
  * @file
- * os2web_spotbokse.strongarm.inc
+ * os2web_spotbox.strongarm.inc
  */
 
 /**
  * Implements hook_strongarm().
  */
-function os2web_spotbokse_strongarm() {
+function os2web_spotbox_strongarm() {
   $export = array();
 
   $strongarm = new stdClass();

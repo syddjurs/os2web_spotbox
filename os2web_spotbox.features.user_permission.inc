@@ -1,13 +1,13 @@
 <?php
 /**
  * @file
- * os2web_spotbokse.features.user_permission.inc
+ * os2web_spotbox.features.user_permission.inc
  */
 
 /**
  * Implements hook_user_default_permissions().
  */
-function os2web_spotbokse_user_default_permissions() {
+function os2web_spotbox_user_default_permissions() {
   $permissions = array();
 
   // Exported permission: create os2web_spotbox_box content.

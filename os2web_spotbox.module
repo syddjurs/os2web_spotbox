@@ -4,4 +4,4 @@
  * Code for the OS2Web Spotbokse feature.
  */
 
-include_once 'os2web_spotbokse.features.inc';
+include_once 'os2web_spotbox.features.inc';
