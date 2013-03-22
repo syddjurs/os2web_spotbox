@@ -525,7 +525,7 @@ function os2web_spotbox_views_default_views() {
   $handler->display->display_options['arguments']['field_os2web_spotbox_sitestruct_tid']['default_argument_options']['node'] = TRUE;
   $handler->display->display_options['arguments']['field_os2web_spotbox_sitestruct_tid']['default_argument_options']['limit'] = TRUE;
   $handler->display->display_options['arguments']['field_os2web_spotbox_sitestruct_tid']['default_argument_options']['vocabularies'] = array(
-    'site_struktur' => 'site_struktur',
+    'os2web_base_tax_site_structure' => 'os2web_base_tax_site_structure',
   );
   $handler->display->display_options['arguments']['field_os2web_spotbox_sitestruct_tid']['summary']['number_of_records'] = '0';
   $handler->display->display_options['arguments']['field_os2web_spotbox_sitestruct_tid']['summary']['format'] = 'default_summary';
@@ -533,7 +533,7 @@ function os2web_spotbox_views_default_views() {
   $handler->display->display_options['arguments']['field_os2web_spotbox_sitestruct_tid']['specify_validation'] = TRUE;
   $handler->display->display_options['arguments']['field_os2web_spotbox_sitestruct_tid']['validate']['type'] = 'taxonomy_term';
   $handler->display->display_options['arguments']['field_os2web_spotbox_sitestruct_tid']['validate_options']['vocabularies'] = array(
-    'site_struktur' => 'site_struktur',
+    'os2web_base_tax_site_structure' => 'os2web_base_tax_site_structure',
   );
   /* Kontekstuelt filter: Indhold: Nid */
   $handler->display->display_options['arguments']['nid']['id'] = 'nid';
@@ -1799,7 +1799,7 @@ function os2web_spotbox_views_default_views() {
   $handler->display->display_options['arguments']['field_os2web_spotbox_sitestruct_tid']['default_argument_options']['node'] = TRUE;
   $handler->display->display_options['arguments']['field_os2web_spotbox_sitestruct_tid']['default_argument_options']['limit'] = TRUE;
   $handler->display->display_options['arguments']['field_os2web_spotbox_sitestruct_tid']['default_argument_options']['vocabularies'] = array(
-    'site_struktur' => 'site_struktur',
+    'os2web_base_tax_site_structure' => 'os2web_base_tax_site_structure',
   );
   $handler->display->display_options['arguments']['field_os2web_spotbox_sitestruct_tid']['summary']['number_of_records'] = '0';
   $handler->display->display_options['arguments']['field_os2web_spotbox_sitestruct_tid']['summary']['format'] = 'default_summary';
@@ -1807,7 +1807,7 @@ function os2web_spotbox_views_default_views() {
   $handler->display->display_options['arguments']['field_os2web_spotbox_sitestruct_tid']['specify_validation'] = TRUE;
   $handler->display->display_options['arguments']['field_os2web_spotbox_sitestruct_tid']['validate']['type'] = 'taxonomy_term';
   $handler->display->display_options['arguments']['field_os2web_spotbox_sitestruct_tid']['validate_options']['vocabularies'] = array(
-    'site_struktur' => 'site_struktur',
+    'os2web_base_tax_site_structure' => 'os2web_base_tax_site_structure',
   );
   /* Kontekstuelt filter: Indhold: Nid */
   $handler->display->display_options['arguments']['nid']['id'] = 'nid';
@@ -2003,7 +2003,7 @@ function os2web_spotbox_views_default_views() {
   $handler->display->display_options['arguments']['field_os2web_spotbox_sitestruct_tid']['default_argument_type'] = 'taxonomy_tid';
   $handler->display->display_options['arguments']['field_os2web_spotbox_sitestruct_tid']['default_argument_options']['limit'] = TRUE;
   $handler->display->display_options['arguments']['field_os2web_spotbox_sitestruct_tid']['default_argument_options']['vocabularies'] = array(
-    'site_struktur' => 'site_struktur',
+    'os2web_base_tax_site_structure' => 'os2web_base_tax_site_structure',
   );
   $handler->display->display_options['arguments']['field_os2web_spotbox_sitestruct_tid']['summary']['number_of_records'] = '0';
   $handler->display->display_options['arguments']['field_os2web_spotbox_sitestruct_tid']['summary']['format'] = 'default_summary';
@@ -2011,7 +2011,7 @@ function os2web_spotbox_views_default_views() {
   $handler->display->display_options['arguments']['field_os2web_spotbox_sitestruct_tid']['specify_validation'] = TRUE;
   $handler->display->display_options['arguments']['field_os2web_spotbox_sitestruct_tid']['validate']['type'] = 'taxonomy_term';
   $handler->display->display_options['arguments']['field_os2web_spotbox_sitestruct_tid']['validate_options']['vocabularies'] = array(
-    'site_struktur' => 'site_struktur',
+    'os2web_base_tax_site_structure' => 'os2web_base_tax_site_structure',
   );
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['defaults']['filters'] = FALSE;
@@ -2204,7 +2204,7 @@ function os2web_spotbox_views_default_views() {
   $handler->display->display_options['arguments']['field_os2web_spotbox_sitestruct_tid']['default_argument_type'] = 'taxonomy_tid';
   $handler->display->display_options['arguments']['field_os2web_spotbox_sitestruct_tid']['default_argument_options']['node'] = TRUE;
   $handler->display->display_options['arguments']['field_os2web_spotbox_sitestruct_tid']['default_argument_options']['vocabularies'] = array(
-    'site_struktur' => 'site_struktur',
+    'os2web_base_tax_site_structure' => 'os2web_base_tax_site_structure',
   );
   $handler->display->display_options['arguments']['field_os2web_spotbox_sitestruct_tid']['summary']['number_of_records'] = '0';
   $handler->display->display_options['arguments']['field_os2web_spotbox_sitestruct_tid']['summary']['format'] = 'default_summary';
@@ -2212,7 +2212,7 @@ function os2web_spotbox_views_default_views() {
   $handler->display->display_options['arguments']['field_os2web_spotbox_sitestruct_tid']['specify_validation'] = TRUE;
   $handler->display->display_options['arguments']['field_os2web_spotbox_sitestruct_tid']['validate']['type'] = 'taxonomy_term';
   $handler->display->display_options['arguments']['field_os2web_spotbox_sitestruct_tid']['validate_options']['vocabularies'] = array(
-    'site_struktur' => 'site_struktur',
+    'os2web_base_tax_site_structure' => 'os2web_base_tax_site_structure',
   );
   /* Kontekstuelt filter: Indhold: Nid */
   $handler->display->display_options['arguments']['nid']['id'] = 'nid';
@@ -2418,7 +2418,7 @@ function os2web_spotbox_views_default_views() {
   $handler->display->display_options['arguments']['field_os2web_spotbox_sitestruct_tid']['default_argument_options']['node'] = TRUE;
   $handler->display->display_options['arguments']['field_os2web_spotbox_sitestruct_tid']['default_argument_options']['limit'] = TRUE;
   $handler->display->display_options['arguments']['field_os2web_spotbox_sitestruct_tid']['default_argument_options']['vocabularies'] = array(
-    'site_struktur' => 'site_struktur',
+    'os2web_base_tax_site_structure' => 'os2web_base_tax_site_structure',
   );
   $handler->display->display_options['arguments']['field_os2web_spotbox_sitestruct_tid']['summary']['number_of_records'] = '0';
   $handler->display->display_options['arguments']['field_os2web_spotbox_sitestruct_tid']['summary']['format'] = 'default_summary';
@@ -2426,7 +2426,7 @@ function os2web_spotbox_views_default_views() {
   $handler->display->display_options['arguments']['field_os2web_spotbox_sitestruct_tid']['specify_validation'] = TRUE;
   $handler->display->display_options['arguments']['field_os2web_spotbox_sitestruct_tid']['validate']['type'] = 'taxonomy_term';
   $handler->display->display_options['arguments']['field_os2web_spotbox_sitestruct_tid']['validate_options']['vocabularies'] = array(
-    'site_struktur' => 'site_struktur',
+    'os2web_base_tax_site_structure' => 'os2web_base_tax_site_structure',
   );
   /* Kontekstuelt filter: Indhold: Nid */
   $handler->display->display_options['arguments']['nid']['id'] = 'nid';
@@ -2632,7 +2632,7 @@ function os2web_spotbox_views_default_views() {
   $handler->display->display_options['arguments']['field_os2web_spotbox_sitestruct_tid']['default_argument_options']['node'] = TRUE;
   $handler->display->display_options['arguments']['field_os2web_spotbox_sitestruct_tid']['default_argument_options']['limit'] = TRUE;
   $handler->display->display_options['arguments']['field_os2web_spotbox_sitestruct_tid']['default_argument_options']['vocabularies'] = array(
-    'site_struktur' => 'site_struktur',
+    'os2web_base_tax_site_structure' => 'os2web_base_tax_site_structure',
   );
   $handler->display->display_options['arguments']['field_os2web_spotbox_sitestruct_tid']['summary']['number_of_records'] = '0';
   $handler->display->display_options['arguments']['field_os2web_spotbox_sitestruct_tid']['summary']['format'] = 'default_summary';
@@ -2640,7 +2640,7 @@ function os2web_spotbox_views_default_views() {
   $handler->display->display_options['arguments']['field_os2web_spotbox_sitestruct_tid']['specify_validation'] = TRUE;
   $handler->display->display_options['arguments']['field_os2web_spotbox_sitestruct_tid']['validate']['type'] = 'taxonomy_term';
   $handler->display->display_options['arguments']['field_os2web_spotbox_sitestruct_tid']['validate_options']['vocabularies'] = array(
-    'site_struktur' => 'site_struktur',
+    'os2web_base_tax_site_structure' => 'os2web_base_tax_site_structure',
   );
   /* Kontekstuelt filter: Indhold: Nid */
   $handler->display->display_options['arguments']['nid']['id'] = 'nid';

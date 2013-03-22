@@ -1,6 +1,6 @@
 name = OS2Web Spotbokse
 core = 7.x
-package = OS2Web - Struktur
+package = OS2Web - Frontend
 php = 5.2.4
 version = 7.x-1.10
 project = os2web_spotbox
