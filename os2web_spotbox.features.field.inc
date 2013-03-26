@@ -630,7 +630,7 @@ function os2web_spotbox_field_default_fields() {
       'settings' => array(
         'allowed_values' => array(
           0 => array(
-            'vocabulary' => 'site_struktur',
+            'vocabulary' => 'os2web_base_tax_site_structure',
             'parent' => '0',
             'depth' => '',
           ),
