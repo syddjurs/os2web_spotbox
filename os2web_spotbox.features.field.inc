@@ -551,7 +551,7 @@ function os2web_spotbox_field_default_fields() {
       'settings' => array(
         'allowed_values' => array(
           0 => array(
-            'vocabulary' => 'forfrem_til',
+            'vocabulary' => 'os2web_base_tax_promoteto',
             'parent' => '0',
             'depth' => '',
           ),
@@ -630,7 +630,7 @@ function os2web_spotbox_field_default_fields() {
       'settings' => array(
         'allowed_values' => array(
           0 => array(
-            'vocabulary' => 'site_struktur',
+            'vocabulary' => 'os2web_base_tax_site_structure',
             'parent' => '0',
             'depth' => '',
           ),
@@ -999,7 +999,7 @@ function os2web_spotbox_field_default_fields() {
       'settings' => array(
         'allowed_values' => array(
           0 => array(
-            'vocabulary' => 'kle',
+            'vocabulary' => 'os2web_taxonomies_tax_kle',
             'parent' => '0',
           ),
         ),
@@ -1081,7 +1081,7 @@ function os2web_spotbox_field_default_fields() {
       'settings' => array(
         'allowed_values' => array(
           0 => array(
-            'vocabulary' => 'egennavne_stednavne',
+            'vocabulary' => 'os2web_taxonomies_tax_places',
             'parent' => '0',
           ),
         ),
