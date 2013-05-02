@@ -42,7 +42,7 @@ projects[views][subdir] = "contrib"
 projects[views][version] = "3.5"
 
 projects[media][subdir] = "contrib"
-projects[media][version] = "1.3"
+projects[media][version] = "2.0-unstable7"
 projects[media][patch][] = "http://drupal.org/files/media-media_browser-preview_javascript_incompatibility-1743040.patch"
 
 projects[rules][subdir] = "contrib"
