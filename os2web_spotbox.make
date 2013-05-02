@@ -8,7 +8,7 @@ core = 7.x
 projects[os2web_base][type] = "module"
 projects[os2web_base][download][type] = "git"
 projects[os2web_base][download][branch] = "develop"
-projects[os2web_base][download][url] = "git@github.com:OS2web/os2web_base.git"
+projects[os2web_base][download][url] = "https://github.com/OS2web/os2web_base.git"
 
 ;; Contrib modules below:
 
@@ -42,7 +42,8 @@ projects[views][subdir] = "contrib"
 projects[views][version] = "3.5"
 
 projects[media][subdir] = "contrib"
-projects[media][version] = "1.3"
+projects[media][version] = "2.0-unstable7"
+projects[media][patch][] = "http://drupal.org/files/media-media_browser-preview_javascript_incompatibility-1743040.patch"
 
 projects[rules][subdir] = "contrib"
 projects[rules][version] = "2.2"
