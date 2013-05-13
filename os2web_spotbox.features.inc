@@ -26,7 +26,7 @@ function os2web_spotbox_ctools_plugin_api() {
  * Implements hook_views_api().
  */
 function os2web_spotbox_views_api() {
-  return array("version" => "3.0");
+  return array("api" => "3.0");
 }
 
 /**
@@ -49,55 +49,10 @@ function os2web_spotbox_image_default_styles() {
         'module' => 'image',
         'name' => 'image_scale_and_crop',
         'data' => array(
-          'width' => '300',
-          'height' => '261',
+          'width' => 300,
+          'height' => 261,
         ),
-        'weight' => '1',
-      ),
-    ),
-  );
-
-  // Exported image style: os2web_spotbox_image_tall.
-  $styles['os2web_spotbox_image_tall'] = array(
-    'name' => 'os2web_spotbox_image_tall',
-    'effects' => array(
-      1 => array(
-        'label' => 'Beskær',
-        'help' => 'Beskæring fjerner dele af billedet for at give det de angivne dimensioner.',
-        'effect callback' => 'image_crop_effect',
-        'dimensions callback' => 'image_resize_dimensions',
-        'form callback' => 'image_crop_form',
-        'summary theme' => 'image_crop_summary',
-        'module' => 'image',
-        'name' => 'image_crop',
-        'data' => array(
-          'width' => '230',
-          'height' => '337',
-          'anchor' => 'center-center',
-        ),
-        'weight' => '1',
-      ),
-    ),
-  );
-
-  // Exported image style: os2web_spotbox_image_spot5.
-  $styles['os2web_spotbox_image_spot5'] = array(
-    'name' => 'os2web_spotbox_image_spot5',
-    'effects' => array(
-      1 => array(
-        'label' => 'Skalér og beskær',
-        'help' => 'Skalering og beskæring bevarer billedets højde-bredde-forhold og beskærer derefter den største dimension. Det er nyttigt til at generere kvadratiske thumbnails uden at forvrænge billedet.',
-        'effect callback' => 'image_scale_and_crop_effect',
-        'dimensions callback' => 'image_resize_dimensions',
-        'form callback' => 'image_resize_form',
-        'summary theme' => 'image_resize_summary',
-        'module' => 'image',
-        'name' => 'image_scale_and_crop',
-        'data' => array(
-          'width' => '290',
-          'height' => '85',
-        ),
-        'weight' => '1',
+        'weight' => 1,
       ),
     ),
   );
@@ -116,11 +71,11 @@ function os2web_spotbox_image_default_styles() {
         'module' => 'image',
         'name' => 'image_scale',
         'data' => array(
-          'width' => '230',
+          'width' => 230,
           'height' => '',
           'upscale' => 0,
         ),
-        'weight' => '1',
+        'weight' => 1,
       ),
       9 => array(
         'label' => 'Beskær',
@@ -132,11 +87,56 @@ function os2web_spotbox_image_default_styles() {
         'module' => 'image',
         'name' => 'image_crop',
         'data' => array(
-          'width' => '230',
-          'height' => '115',
+          'width' => 230,
+          'height' => 115,
           'anchor' => 'center-center',
         ),
-        'weight' => '2',
+        'weight' => 2,
+      ),
+    ),
+  );
+
+  // Exported image style: os2web_spotbox_image_spot5.
+  $styles['os2web_spotbox_image_spot5'] = array(
+    'name' => 'os2web_spotbox_image_spot5',
+    'effects' => array(
+      1 => array(
+        'label' => 'Skalér og beskær',
+        'help' => 'Skalering og beskæring bevarer billedets højde-bredde-forhold og beskærer derefter den største dimension. Det er nyttigt til at generere kvadratiske thumbnails uden at forvrænge billedet.',
+        'effect callback' => 'image_scale_and_crop_effect',
+        'dimensions callback' => 'image_resize_dimensions',
+        'form callback' => 'image_resize_form',
+        'summary theme' => 'image_resize_summary',
+        'module' => 'image',
+        'name' => 'image_scale_and_crop',
+        'data' => array(
+          'width' => 290,
+          'height' => 85,
+        ),
+        'weight' => 1,
+      ),
+    ),
+  );
+
+  // Exported image style: os2web_spotbox_image_tall.
+  $styles['os2web_spotbox_image_tall'] = array(
+    'name' => 'os2web_spotbox_image_tall',
+    'effects' => array(
+      1 => array(
+        'label' => 'Beskær',
+        'help' => 'Beskæring fjerner dele af billedet for at give det de angivne dimensioner.',
+        'effect callback' => 'image_crop_effect',
+        'dimensions callback' => 'image_resize_dimensions',
+        'form callback' => 'image_crop_form',
+        'summary theme' => 'image_crop_summary',
+        'module' => 'image',
+        'name' => 'image_crop',
+        'data' => array(
+          'width' => 230,
+          'height' => 337,
+          'anchor' => 'center-center',
+        ),
+        'weight' => 1,
       ),
     ),
   );
@@ -155,11 +155,11 @@ function os2web_spotbox_image_default_styles() {
         'module' => 'image',
         'name' => 'image_scale',
         'data' => array(
-          'width' => '310',
+          'width' => 310,
           'height' => '',
           'upscale' => 1,
         ),
-        'weight' => '1',
+        'weight' => 1,
       ),
       10 => array(
         'label' => 'Beskær',
@@ -171,11 +171,11 @@ function os2web_spotbox_image_default_styles() {
         'module' => 'image',
         'name' => 'image_crop',
         'data' => array(
-          'width' => '310',
-          'height' => '177',
+          'width' => 310,
+          'height' => 177,
           'anchor' => 'center-center',
         ),
-        'weight' => '2',
+        'weight' => 2,
       ),
     ),
   );

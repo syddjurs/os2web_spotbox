@@ -83,7 +83,7 @@ function os2web_spotbox_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'menu_parent_os2web_spotbox_box';
-  $strongarm->value = 'os2web-main-menu:0';
+  $strongarm->value = 'main-menu:0';
   $export['menu_parent_os2web_spotbox_box'] = $strongarm;
 
   $strongarm = new stdClass();
