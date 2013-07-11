@@ -26,8 +26,8 @@ projects[strongarm][version] = "2.0"
 ; Panels
 
 ; Basic
-projects[ctools][subdir] = "contrib"
-projects[ctools][version] = "1.3"
+# projects[ctools][subdir] = "contrib"
+# projects[ctools][version] = "1.3"
 
 projects[field_group][subdir] = "contrib"
 projects[field_group][version] = "1.1"
