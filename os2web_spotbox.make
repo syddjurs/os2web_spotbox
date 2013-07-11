@@ -8,7 +8,7 @@ core = 7.x
 projects[os2web_base][type] = "module"
 projects[os2web_base][download][type] = "git"
 projects[os2web_base][download][branch] = "develop"
-projects[os2web_base][download][url] = "https://github.com/OS2web/os2web_base.git"
+projects[os2web_base][download][url] = "https://github.com/syddjurs/os2web_base.git"
 
 ;; Contrib modules below:
 
@@ -26,8 +26,8 @@ projects[strongarm][version] = "2.0"
 ; Panels
 
 ; Basic
-# projects[ctools][subdir] = "contrib"
-# projects[ctools][version] = "1.3"
+projects[ctools][subdir] = "contrib"
+projects[ctools][version] = "1.3"
 
 projects[field_group][subdir] = "contrib"
 projects[field_group][version] = "1.1"
