@@ -119,7 +119,7 @@ function os2web_spotbox_field_default_fields() {
       'settings' => array(
         'allowed_values' => array(
           0 => array(
-            'vocabulary' => 'redaktoertags',
+            'vocabulary' => 'os2web_taxonomies_tax_editor_tag',
             'parent' => '0',
           ),
         ),
@@ -387,7 +387,7 @@ function os2web_spotbox_field_default_fields() {
       'settings' => array(
         'allowed_values' => array(
           0 => array(
-            'vocabulary' => 'organisation',
+            'vocabulary' => 'os2web_taxonomies_tax_org',
             'parent' => '0',
           ),
         ),
@@ -469,7 +469,7 @@ function os2web_spotbox_field_default_fields() {
       'settings' => array(
         'allowed_values' => array(
           0 => array(
-            'vocabulary' => 'politik',
+            'vocabulary' => 'os2web_taxonomies_tax_politics',
             'parent' => '0',
           ),
         ),
